@@ -1,10 +1,14 @@
 import React from 'react';
 
 export class RedditPost extends React.Component {
-    state = {title: this.props.postData.title}
+    state = {title: this.props.postData.title, url: this.props.postData.url}
     render() {
         return (
-            <div>{this.state.title}</div>
+            <div>
+                <a href={this.state.url} target='_blank'>
+                    {this.state.title}
+                </a>
+            </div>
         );
     }
 }
