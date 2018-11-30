@@ -25,10 +25,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": {
-    "/api/redditFunny/getHot": {
-      "target": "http://localhost:4000/api/redditFunny/getHot",
-      "changeOrigin": true
-    }
-  }
+  "proxy": "http://localhost:4000/"
+
 }
