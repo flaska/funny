@@ -1,12 +1,15 @@
 import React from 'react';
+import Typography from "@material-ui/core/Typography";
 
 export class RedditPost extends React.Component {
-    state = {title: this.props.postData.title, url: this.props.postData.url}
     render() {
         return (
             <div>
-                <a href={this.state.url} target='_blank'>
-                    {this.state.title}
+                <a href={this.props.postData.url} target='_blank'>
+                    <img src={this.props.postData.thumbnail}/>
+                    <Typography>
+                        {this.props.postData.title}
+                    </Typography>
                 </a>
             </div>
         );

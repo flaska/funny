@@ -7,6 +7,7 @@ exports.getHot = (req, res)=>{
             let jsonPost = {
                 title: redditPost.data.title,
                 url: redditPost.data.url,
+                thumbnail : redditPost.data.thumbnail
                 // preview: redditPost.data.preview.images[0].source.url
             };
             result.push(jsonPost);
