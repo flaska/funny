@@ -1,11 +1,11 @@
 import React from 'react';
 import 'typeface-roboto';
-import {RedditPostList} from '../redditFunny/redditPostList.component';
+import {FeedList} from "../feed/feedList.component";
 
 export class Main extends React.Component {
     render() {
         return (
-            <RedditPostList></RedditPostList>
+            <FeedList feedUrl={'/api/redditFunny/getHot'}></FeedList>
         );
     }
 }

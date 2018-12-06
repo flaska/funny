@@ -3,13 +3,13 @@ import axios from 'axios';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
-import {RedditPost} from './redditPost.component';
+import {FeedItem} from './feedItem.component';
 
-export class RedditPostList extends React.Component {
+export class FeedList extends React.Component {
     state = {posts: []};
     constructor(props){
         super(props);
-        axios.get('/api/redditFunny/getHot').then(response => {
+        axios.get(this.props.feedUrl).then(response => {
             this.setState({posts: response.data});
         });
     }
@@ -18,7 +18,7 @@ export class RedditPostList extends React.Component {
                 <List>
                     {this.state.posts.map(post=>
                         <ListItem>
-                            <RedditPost postData={post}></RedditPost>
+                            <FeedItem postData={post}></FeedItem>
                         </ListItem>
                     )}
                 </List>
