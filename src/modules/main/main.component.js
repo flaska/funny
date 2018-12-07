@@ -5,7 +5,7 @@ import {FeedList} from "../feed/feedList.component";
 export class Main extends React.Component {
     render() {
         return (
-            <FeedList feedUrl={'/api/redditFunny/getHot'}></FeedList>
+            <FeedList feedUrl={'/api/reddit/feed?subreddit=funny&channel=hot'}></FeedList>
         );
     }
 }

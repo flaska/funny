@@ -4,10 +4,10 @@ const express = require('express'),
     port = 4000;
 
 
-const redditFunnyRoutes = require('./modules/redditFunny/routes');
+const redditRoutes = require('./modules/reddit/routes');
 
 app.use(bodyParser.json());
 
-app.use('/api/redditFunny', redditFunnyRoutes);
+app.use('/api/reddit', redditRoutes);
 
 app.listen(port, () => console.log(`Funny app listening on port ${port}!`));
