@@ -11,6 +11,7 @@ exports.getFeed = (req, res)=>{
                 title: redditPost.data.title,
                 url: redditPost.data.url,
                 thumbnail : redditPost.data.thumbnail,
+                numComments: redditPost.data.num_comments,
                 score: redditPost.data.score,
                 dateUtc: new Date(redditPost.data.created_utc * 1000)
             };
