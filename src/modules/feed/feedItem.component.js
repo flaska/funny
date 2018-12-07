@@ -15,7 +15,8 @@ const styles = {
         width: 150,
         height: 100,
         float: 'left',
-        marginRight: 10
+        marginRight: 10,
+        zIndex: 1000
     },
     datePosted: {
         opacity: 0.8
@@ -29,10 +30,12 @@ export class FeedItem extends React.Component {
     render() {
         return (
             <Card style={styles.card}>
-                <CardMedia
-                    style={styles.img}
-                    image={this.props.postData.thumbnail}
-                />
+                <a href={this.props.postData.url} target='_blank'>
+                    <CardMedia
+                        style={styles.img}
+                        image={this.props.postData.thumbnail}
+                    />
+                </a>
                 <CardContent>
                     <a href={this.props.postData.url} target='_blank' style={styles.title}>
                         <Typography>
