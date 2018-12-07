@@ -2,8 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-
 import {FeedItem} from './feedItem.component';
+
+const styles = {
+  list: {
+      'max-width': 760,
+      margin: 'auto'
+  }
+};
 
 export class FeedList extends React.Component {
     state = {posts: []};
@@ -15,7 +21,7 @@ export class FeedList extends React.Component {
     }
     render() {
         return (
-                <List>
+                <List style={styles.list}>
                     {this.state.posts.map(post=>
                         <ListItem>
                             <FeedItem postData={post}></FeedItem>

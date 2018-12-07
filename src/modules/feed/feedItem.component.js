@@ -6,40 +6,34 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = {
     card: {
-        display: 'flex',
+        width: '100%'
     },
-    details: {
-        display: 'flex',
-        flexDirection: 'column',
+    img: {
+        width: 150,
+        height: 100,
+        float: 'left',
+        'margin-right': 10
     },
     content: {
-        flex: '1 0 auto',
     },
-    cover: {
-        width: 151,
-        height: 100
-    }
 };
 
 export class FeedItem extends React.Component {
     render() {
         return (
-            <div>
             <Card style={styles.card}>
                 <CardMedia
-                    style={styles.cover}
+                    style={styles.img}
                     image={this.props.postData.thumbnail}
                 />
                 <CardContent style={styles.content}>
                     <a href={this.props.postData.url} target='_blank'>
-                        {/*<img src={this.props.postData.thumbnail}/>*/}
                         <Typography>
                             {this.props.postData.title}
                         </Typography>
                     </a>
                 </CardContent>
             </Card>
-            </div>
         );
     }
 }
