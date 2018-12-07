@@ -12,7 +12,8 @@ exports.getFeed = (req, res)=>{
                 url: redditPost.data.url,
                 thumbnail : redditPost.data.thumbnail,
                 likes: redditPost.data.score,
-                date: new Date(redditPost.data.created * 1000)
+                dateUtc: new Date(redditPost.data.created_utc * 1000)
+                // dateUtc: redditPost.data.created_utc
             };
             result.push(jsonPost);
         });

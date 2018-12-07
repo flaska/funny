@@ -13,7 +13,7 @@ const styles = {
 export class FeedItemMetadata extends React.Component {
     constructor(props){
         super(props);
-        this.fromNow = moment(this.props.postData.date).toNow();
+        this.fromNow = moment.utc(this.props.postData.dateUtc).fromNow();
     }
     render(){
         return (
