@@ -6,7 +6,7 @@ import {FeedItem} from './feedItem.component';
 
 const styles = {
   list: {
-      'max-width': 760,
+      maxWidth: 760,
       margin: 'auto'
   }
 };

@@ -3,18 +3,21 @@ import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import {FeedItemMetadata} from './feedItemMetadata.component';
 
 const styles = {
     card: {
-        width: '100%'
+        width: '100%',
+        position: 'relative'
     },
     img: {
         width: 150,
         height: 100,
         float: 'left',
-        'margin-right': 10
+        marginRight: 10
     },
     content: {
+
     },
 };
 
@@ -33,6 +36,7 @@ export class FeedItem extends React.Component {
                         </Typography>
                     </a>
                 </CardContent>
+                <FeedItemMetadata postData={this.props.postData}/>
             </Card>
         );
     }
