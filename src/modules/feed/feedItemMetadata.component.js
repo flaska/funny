@@ -11,14 +11,10 @@ const styles = {
 };
 
 export class FeedItemMetadata extends React.Component {
-    constructor(props){
-        super(props);
-        this.fromNow = moment.utc(this.props.postData.dateUtc).fromNow();
-    }
     render(){
         return (
             <div style={styles.parent}>
-                <Typography>{this.fromNow}</Typography>
+                <Typography>{this.props.postData.score}</Typography>
             </div>
         );
     }

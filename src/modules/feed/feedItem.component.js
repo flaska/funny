@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import {FeedItemMetadata} from './feedItemMetadata.component';
+import moment from "moment/moment";
 
 const styles = {
     card: {
@@ -16,8 +17,11 @@ const styles = {
         float: 'left',
         marginRight: 10
     },
-    content: {
-
+    datePosted: {
+        opacity: 0.8
+    },
+    title: {
+        textDecoration: 'none'
     },
 };
 
@@ -29,12 +33,13 @@ export class FeedItem extends React.Component {
                     style={styles.img}
                     image={this.props.postData.thumbnail}
                 />
-                <CardContent style={styles.content}>
-                    <a href={this.props.postData.url} target='_blank'>
+                <CardContent>
+                    <a href={this.props.postData.url} target='_blank' style={styles.title}>
                         <Typography>
                             {this.props.postData.title}
                         </Typography>
                     </a>
+                    <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                 </CardContent>
                 <FeedItemMetadata postData={this.props.postData}/>
             </Card>
