@@ -4,11 +4,13 @@ import CardContent from "@material-ui/core/CardContent";
 import axios from "axios/index";
 import {Comment} from './comment.component'
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 const styles = {
     buttons: {
         float: 'right'
-    }
+    },
+    hint: {display: 'inline-block'}
 };
 
 export class CommentsList extends React.Component {
@@ -27,11 +29,14 @@ export class CommentsList extends React.Component {
                 <CardContent>
                     <Comment commentData={this.state.commentsRoot}></Comment>
                     <div style={styles.buttons}>
+                        <Typography style={styles.hint}>
+                            Showing top comments...
+                        </Typography>
                         <Button onClick={()=>this.props.onClick('collapseComments')}>
                             Close
                         </Button>
-                        <Button color="secondary" onClick={()=>this.props.onClick('comment')}>
-                            Comment
+                        <Button color="primary" onClick={()=>this.props.onClick('seeAll')}>
+                            See All
                         </Button>
                     </div>
                 </CardContent>

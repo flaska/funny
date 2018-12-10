@@ -44,6 +44,9 @@ export class FeedItem extends React.Component {
             if (!this.state.showComments) this.setState({showComments: true});
             else this.setState({showComments: false});
         }
+        if (e=='seeAll') {
+            window.open('https://www.reddit.com' + this.props.postData.permalink, "_blank");
+        }
     }
     render() {
         return (
