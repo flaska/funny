@@ -3,6 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import CommentIcon from '@material-ui/icons/Comment';
+import FaceIcon from '@material-ui/icons/Face';
 
 const styles = {
   main: {
@@ -14,7 +15,7 @@ const styles = {
 function Icon(props){
     if (props.icon === 'like') return <ThumbUpIcon/>;
     if (props.icon === 'comment') return <CommentIcon/>;
-    if (props.icon === 'like') return <CommentIcon/>;
+    if (props.icon === 'face') return <FaceIcon/>;
     return <div></div>
 }
 

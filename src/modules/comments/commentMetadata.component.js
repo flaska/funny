@@ -1,18 +1,14 @@
 import React from "react";
 import {InfoChip} from "../utils/infoChip.component";
-import numeral from "numeral";
-
-const styles = {
-    infoChip:{
-        // zoom: 0.8,
-    }
-};
+import {formatNumber} from "../utils/formatNumber.function";
 
 export class CommentMetadata extends React.Component {
+
     render(){
         return(
-            <div style={styles.infoChip}>
-                <InfoChip icon='like'>{numeral(this.props.commentData.score).format('0.0a')}</InfoChip>
+            <div>
+                <InfoChip icon='face'>{this.props.commentData.author}</InfoChip>
+                <InfoChip icon='like'>{formatNumber(this.props.commentData.score)}</InfoChip>
             </div>
         );
     }

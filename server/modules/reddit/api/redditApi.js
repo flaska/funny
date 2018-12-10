@@ -24,8 +24,10 @@ exports.getFeed = (req, res)=>{
 };
 
 function getReplies(redditComment, replies, level){
+    if (redditComment.data.score<50) return false;
     let l = level + 1;
     let comment = {
+        author: redditComment.data.author,
         upvotes: redditComment.data.ups,
         downvotes: redditComment.data.ups,
         score: redditComment.data.score,
@@ -33,7 +35,7 @@ function getReplies(redditComment, replies, level){
         replies: []
     };
     replies.push(comment);
-    if (l>=3) return;
+    if (l>=3) return false;
     if (redditComment.data.replies && redditComment.data.replies.data) redditComment.data.replies.data.children.slice(0,2).forEach((c)=>{getReplies(c, comment.replies, l)});
 }
 
