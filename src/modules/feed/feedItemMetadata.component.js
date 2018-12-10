@@ -14,7 +14,7 @@ export class FeedItemMetadata extends React.Component {
     render(){
         return (
             <div style={styles.main}>
-                <InfoChip icon='comment'>{formatNumber(this.props.postData.score)}</InfoChip>
+                <InfoChip icon='comment' color='primary' clickable>{formatNumber(this.props.postData.score)}</InfoChip>
                 <InfoChip icon='like'>{formatNumber(this.props.postData.score)}</InfoChip>
             </div>
         );

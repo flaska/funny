@@ -40,9 +40,8 @@ function getReplies(redditComment, replies, level){
 }
 
 exports.getComments = (req, res)=>{
-    request('https://www.reddit.com/r/funny/comments/a4wiv0.json?sort=top', function (error, response, body) {
-        if (!JSON.parse(body)[1] && !JSON.parse(body)[1].data) return res.send(404);
-
+    request('https://www.reddit.com/r/funny/comments/' + req.query.postId + '.json?sort=top', function (error, response, body) {
+        if (!JSON.parse(body)[1] || !JSON.parse(body)[1].data) return res.status(404).send();
         let result = {replies: []};
         JSON.parse(body)[1].data.children.slice(0,2).forEach((c)=>{getReplies(c, result.replies, 0)});
         res.send(result);

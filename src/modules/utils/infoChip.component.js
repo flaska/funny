@@ -12,22 +12,20 @@ const styles = {
   }
 };
 
-function Icon(props){
-    if (props.icon === 'like') return <ThumbUpIcon/>;
-    if (props.icon === 'comment') return <CommentIcon/>;
-    if (props.icon === 'face') return <FaceIcon/>;
-    return <div></div>
-}
-
 export class InfoChip extends React.Component {
+    getIcon(icon){
+        if (icon === 'like') return <ThumbUpIcon/>;
+        if (icon === 'comment') return <CommentIcon/>;
+        if (icon === 'face') return <FaceIcon/>;
+        return <div></div>
+    }    
+
     render(){
         return (
             <Chip
-                avatar={
-                    <Avatar>
-                        <Icon icon={this.props.icon}></Icon>
-                    </Avatar>
-                }
+                icon={this.getIcon(this.props.icon)}
+                color={this.props.color}
+                clickable={this.props.clickable}
                 label={this.props.children}
                 style={styles.main}
             />

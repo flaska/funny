@@ -3,6 +3,13 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import axios from "axios/index";
 import {Comment} from './comment.component'
+import Button from "@material-ui/core/Button";
+
+const styles = {
+    buttons: {
+        float: 'right'
+    }
+};
 
 export class CommentsList extends React.Component {
     constructor(props){
@@ -19,6 +26,14 @@ export class CommentsList extends React.Component {
             <Card>
                 <CardContent>
                     <Comment commentData={this.state.commentsRoot}></Comment>
+                    <div style={styles.buttons}>
+                        <Button>
+                            Close
+                        </Button>
+                        <Button color="secondary">
+                            Comment
+                        </Button>
+                    </div>
                 </CardContent>
             </Card>
         );

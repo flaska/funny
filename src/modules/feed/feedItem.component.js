@@ -54,7 +54,7 @@ export class FeedItem extends React.Component {
                     </CardContent>
                     <FeedItemMetadata postData={this.props.postData}/>
                 </Card>
-                <CommentsList style={styles.commentList}/>
+                <CommentsList style={styles.commentList} postId={this.props.postData.id}/>
             </React.Fragment>
         );
     }
