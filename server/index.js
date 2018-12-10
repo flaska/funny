@@ -9,12 +9,11 @@ const express = require('express'),
 
 const PORT = process.env.PORT || 4000;
 
-
 app.use(compression());
 app.use(bodyParser.json());
 
-app.set('view engine', 'html');
-app.set('views', join(process.cwd(), 'build'));
+const staticPath = join(process.cwd(), 'build');
+app.use(express.static(staticPath));
 
 app.use('/api/reddit', redditRoutes);
 

@@ -19,7 +19,7 @@
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
-    "start": "set PORT=4001 && react-scripts start",
+    "start": "node server/index.js",
     "dev": "set PORT=4001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
