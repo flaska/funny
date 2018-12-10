@@ -34,6 +34,11 @@ const styles = {
 };
 
 export class FeedItem extends React.Component {
+    showComments(){
+        if (this.state.showComments) return <CommentsList style={styles.commentList} postId={this.props.postData.id}/>;
+        else return null;
+    }
+    state = {showComments: true};
     render() {
         return (
             <React.Fragment>
@@ -54,7 +59,7 @@ export class FeedItem extends React.Component {
                     </CardContent>
                     <FeedItemMetadata postData={this.props.postData}/>
                 </Card>
-                <CommentsList style={styles.commentList} postId={this.props.postData.id}/>
+                {this.showComments(this.state)}
             </React.Fragment>
         );
     }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import CommentIcon from '@material-ui/icons/Comment';
@@ -18,7 +17,7 @@ export class InfoChip extends React.Component {
         if (icon === 'comment') return <CommentIcon/>;
         if (icon === 'face') return <FaceIcon/>;
         return <div></div>
-    }    
+    }
 
     render(){
         return (
