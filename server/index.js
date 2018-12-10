@@ -1,13 +1,21 @@
 const express = require('express'),
     bodyParser = require('body-parser'),
+    compression = require('compression'),
     app = express(),
-    port = 4000;
+    join = require('path').join,
+    redditRoutes = require('./modules/reddit/routes')
+
+;
+
+const PORT = process.env.PORT || 4000;
 
 
-const redditRoutes = require('./modules/reddit/routes');
-
+app.use(compression());
 app.use(bodyParser.json());
+
+app.set('view engine', 'html');
+app.set('views', join(process.cwd(), 'build'));
 
 app.use('/api/reddit', redditRoutes);
 
-app.listen(port, () => console.log(`Funny app listening on port ${port}!`));
+app.listen(PORT, () => console.log(`Funny app listening on port ${PORT}!`));
