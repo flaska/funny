@@ -6,13 +6,15 @@ import CommentIcon from '@material-ui/icons/Comment';
 
 const styles = {
   main: {
-      margin: 5
+      margin: 5,
+      zoom: 0.85
   }
 };
 
 function Icon(props){
     if (props.icon === 'like') return <ThumbUpIcon/>;
     if (props.icon === 'comment') return <CommentIcon/>;
+    if (props.icon === 'like') return <CommentIcon/>;
     return <div></div>
 }
 
@@ -25,7 +27,7 @@ export class InfoChip extends React.Component {
                         <Icon icon={this.props.icon}></Icon>
                     </Avatar>
                 }
-                label={this.props.content}
+                label={this.props.children}
                 style={styles.main}
             />
         );

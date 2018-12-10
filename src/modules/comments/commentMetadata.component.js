@@ -1,14 +1,19 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import {InfoChip} from "../utils/infoChip.component";
+import numeral from "numeral";
+
+const styles = {
+    infoChip:{
+        // zoom: 0.8,
+    }
+};
 
 export class CommentMetadata extends React.Component {
     render(){
         return(
-            <Typography>
-                Score | {this.props.commentData.score}
-                <InfoChip/>
-            </Typography>
+            <div style={styles.infoChip}>
+                <InfoChip icon='like'>{numeral(this.props.commentData.score).format('0.0a')}</InfoChip>
+            </div>
         );
     }
 }
