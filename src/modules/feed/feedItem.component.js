@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import {FeedItemMetadata} from './feedItemMetadata.component';
 import moment from "moment/moment";
+import {CommentsList} from "../comments/commentsList.component";
 
 const styles = {
     card: {
@@ -25,29 +26,36 @@ const styles = {
     },
     content: {
         marginLeft: 150
+    },
+    commentList: {
+        width: '100%'
     }
+
 };
 
 export class FeedItem extends React.Component {
     render() {
         return (
-            <Card style={styles.card}>
-                <a href={this.props.postData.url} target='_blank'>
-                    <CardMedia
-                        style={styles.img}
-                        image={this.props.postData.thumbnail}
-                    />
-                </a>
-                <CardContent style={styles.content}>
-                    <a href={this.props.postData.url} target='_blank' style={styles.title}>
-                        <Typography>
-                            {this.props.postData.title}
-                        </Typography>
+            <React.Fragment>
+                <Card style={styles.card}>
+                    <a href={this.props.postData.url} target='_blank'>
+                        <CardMedia
+                            style={styles.img}
+                            image={this.props.postData.thumbnail}
+                        />
                     </a>
-                    <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
-                </CardContent>
-                <FeedItemMetadata postData={this.props.postData}/>
-            </Card>
+                    <CardContent style={styles.content}>
+                        <a href={this.props.postData.url} target='_blank' style={styles.title}>
+                            <Typography>
+                                {this.props.postData.title}
+                            </Typography>
+                        </a>
+                        <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
+                    </CardContent>
+                    <FeedItemMetadata postData={this.props.postData}/>
+                </Card>
+                <CommentsList style={styles.commentList}/>
+            </React.Fragment>
         );
     }
 }

@@ -8,6 +8,9 @@ const styles = {
   list: {
       maxWidth: 760,
       margin: 'auto'
+  },
+  listItem: {
+      display: 'block'
   }
 };
 
@@ -23,7 +26,7 @@ export class FeedList extends React.Component {
         return (
                 <List style={styles.list}>
                     {this.state.posts.map(post=>
-                        <ListItem>
+                        <ListItem style={styles.listItem}>
                             <FeedItem postData={post}></FeedItem>
                         </ListItem>
                     )}
