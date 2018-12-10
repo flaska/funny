@@ -16,7 +16,6 @@ const styles = {
         height: 100,
         float: 'left',
         marginRight: 10,
-        zIndex: 1000
     },
     datePosted: {
         opacity: 0.8
@@ -24,6 +23,9 @@ const styles = {
     title: {
         textDecoration: 'none'
     },
+    content: {
+        marginLeft: 150
+    }
 };
 
 export class FeedItem extends React.Component {
@@ -36,7 +38,7 @@ export class FeedItem extends React.Component {
                         image={this.props.postData.thumbnail}
                     />
                 </a>
-                <CardContent>
+                <CardContent style={styles.content}>
                     <a href={this.props.postData.url} target='_blank' style={styles.title}>
                         <Typography>
                             {this.props.postData.title}
