@@ -27,10 +27,10 @@ export class CommentsList extends React.Component {
                 <CardContent>
                     <Comment commentData={this.state.commentsRoot}></Comment>
                     <div style={styles.buttons}>
-                        <Button>
+                        <Button onClick={()=>this.props.onClick('collapseComments')}>
                             Close
                         </Button>
-                        <Button color="secondary">
+                        <Button color="secondary" onClick={()=>this.props.onClick('comment')}>
                             Comment
                         </Button>
                     </div>

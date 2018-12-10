@@ -14,13 +14,10 @@ const styles = {
 };
 
 export class FeedItemMetadata extends React.Component {
-    handleClick(event){
-        this.props.onClick(event);
-    }
     render(){
         return (
             <div style={styles.main}>
-                <div style={styles.div} onClick={()=>this.handleClick('comments')}><InfoChip icon='comment' color='primary' clickable >{formatNumber(this.props.postData.score)}</InfoChip></div>
+                <div style={styles.div} onClick={()=>this.props.onClick('collapseComments')}><InfoChip icon='comment' color='primary' clickable >{formatNumber(this.props.postData.score)}</InfoChip></div>
                 <InfoChip icon='like'>{formatNumber(this.props.postData.score)}</InfoChip>
             </div>
         );

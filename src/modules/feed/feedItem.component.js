@@ -36,11 +36,11 @@ const styles = {
 export class FeedItem extends React.Component {
     state = {showComments: false};
     showComments(){
-        if (this.state.showComments) return <CommentsList style={styles.commentList} postId={this.props.postData.id}/>;
+        if (this.state.showComments) return <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>;
         else return null;
     }
     handleClick(e){
-        if (e==='comments') {
+        if (e==='collapseComments') {
             if (!this.state.showComments) this.setState({showComments: true});
             else this.setState({showComments: false});
         }
