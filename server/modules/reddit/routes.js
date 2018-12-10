@@ -3,7 +3,9 @@ const router = require('express').Router(),
     cache = require('apicache').middleware('15 minutes')
 ;
 
-router.get('/feed', cache, redditApi.getFeed);
-// router.get('/comments', redditApi.comments);
+router.use(cache);
+
+router.get('/feed', redditApi.getFeed);
+router.get('/comments', redditApi.getComments);
 
 module.exports = router;

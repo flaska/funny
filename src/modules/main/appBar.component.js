@@ -16,7 +16,7 @@ export class SlackerAppBar extends React.Component {
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6" color="inherit">
-                            Photos
+                            Slacker
                         </Typography>
                     </Toolbar>
                 </AppBar>
