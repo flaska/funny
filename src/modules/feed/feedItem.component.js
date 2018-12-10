@@ -34,11 +34,17 @@ const styles = {
 };
 
 export class FeedItem extends React.Component {
+    state = {showComments: false};
     showComments(){
         if (this.state.showComments) return <CommentsList style={styles.commentList} postId={this.props.postData.id}/>;
         else return null;
     }
-    state = {showComments: true};
+    handleClick(e){
+        if (e==='comments') {
+            if (!this.state.showComments) this.setState({showComments: true});
+            else this.setState({showComments: false});
+        }
+    }
     render() {
         return (
             <React.Fragment>
@@ -57,7 +63,7 @@ export class FeedItem extends React.Component {
                         </a>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <FeedItemMetadata postData={this.props.postData}/>
+                    <FeedItemMetadata postData={this.props.postData} onClick={(e)=>this.handleClick(e)}/>
                 </Card>
                 {this.showComments(this.state)}
             </React.Fragment>
