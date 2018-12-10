@@ -20,3 +20,20 @@ exports.getFeed = (req, res)=>{
         res.send(result);
     });
 };
+
+function stripData(comment, result){
+
+}
+
+function getReplies(comment){
+
+}
+
+exports.getComments = (req, res)=>{
+    request('https://www.reddit.com/r/funny/comments/a41xgc/view_from_the_outside_of_a_building.json', function (error, response, body) {
+        let result = [];
+        JSON.parse(body)[1].data.children.forEach((c)=>{stripData(c, result)});
+
+        res.send(result);
+    });
+};
