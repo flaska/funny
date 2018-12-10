@@ -23,7 +23,8 @@ exports.getFeed = (req, res)=>{
     });
 };
 
-function getReplies(redditComment, replies){
+function getReplies(redditComment, replies, level){
+    let l = level + 1;
     let comment = {
         upvotes: redditComment.data.ups,
         downvotes: redditComment.data.ups,
@@ -32,7 +33,8 @@ function getReplies(redditComment, replies){
         replies: []
     };
     replies.push(comment);
-    if (redditComment.data.replies && redditComment.data.replies.data) redditComment.data.replies.data.children.forEach((c)=>{getReplies(c, comment.replies)});
+    if (l>=3) return;
+    if (redditComment.data.replies && redditComment.data.replies.data) redditComment.data.replies.data.children.slice(0,2).forEach((c)=>{getReplies(c, comment.replies, l)});
 }
 
 exports.getComments = (req, res)=>{
@@ -40,7 +42,7 @@ exports.getComments = (req, res)=>{
         if (!JSON.parse(body)[1] && !JSON.parse(body)[1].data) return res.send(404);
 
         let result = {replies: []};
-        JSON.parse(body)[1].data.children.forEach((c)=>{getReplies(c, result.replies)});
+        JSON.parse(body)[1].data.children.slice(0,2).forEach((c)=>{getReplies(c, result.replies, 0)});
         res.send(result);
     });
 };
