@@ -13,7 +13,7 @@ export class SlackerAppBar extends React.Component {
     render(){
         return (
             <div className={styles.root}>
-                <AppBar position="static" color="default">
+                <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6" color="inherit">
                             Photos
