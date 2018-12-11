@@ -7,6 +7,10 @@ const styles = {
     root: {
         flexGrow: 1,
     },
+    logo: {
+        height: 42,
+        marginTop: 8
+    }
 };
 
 export class SlackerAppBar extends React.Component {
@@ -16,7 +20,7 @@ export class SlackerAppBar extends React.Component {
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6" color="inherit">
-                            Slacker
+                            <img style={styles.logo} src='./logo-rect.png'/>
                         </Typography>
                     </Toolbar>
                 </AppBar>
