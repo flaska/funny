@@ -30,9 +30,6 @@ const theme = createMuiTheme({
 });
 
 export class Main extends React.Component {
-    componentDidMount(){
-        document.title = "Slacker"
-    }
     render() {
         return (
             <React.Fragment>

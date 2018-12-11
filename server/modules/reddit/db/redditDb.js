@@ -24,7 +24,6 @@ const Comment = mongoose.Schema({
     downvotes: Number,
     score: Number,
     body: String,
-    // replies: []
 });
 
 Comment.add({ replies: [Comment] });
@@ -64,10 +63,13 @@ exports.saveComments = (postId, replies, cb)=>{
     }, cb);
 };
 
-exports.getPosts = (subreddit, channel, cb)=>{
-    Feed.findOne({subreddit: subreddit, channel: channel}).exec(cb);
+exports.getPosts = (query, cb)=>{
+    Feed.findOne({subreddit: query.subreddit, channel: query.channel}).lean().exec((err, feed)=>{
+        feed.posts = feed.posts.slice(parseInt(query.from), parseInt(query.from) + parseInt(query.size));
+        cb(err, feed);
+    });
 };
 
 exports.getComments = (postId, cb)=>{
-    CommentTree.findOne({postId: postId}).exec(cb);
+    CommentTree.findOne({postId: postId}).lean().exec(cb);
 };

@@ -3,7 +3,7 @@ const request = require('request'),
 ;
 
 exports.fetchPosts = (subreddit, channel, cb)=>{
-    request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json', function (error, response, body) {
+    request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json?limit=50', function (error, response, body) {
         let result = [];
         JSON.parse(body).data.children
             .filter(redditPost=>!redditPost.data.distinguished)
