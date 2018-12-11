@@ -7,7 +7,7 @@ db.once('open', function() {
     console.log('Reddit DB connected to MongoDB');
 });
 
-var Post = db.model('Post', mongoose.Schema({
+const Post = mongoose.Schema({
     title: String,
     url: String,
     thumbnail: String,
@@ -16,13 +16,50 @@ var Post = db.model('Post', mongoose.Schema({
     dateUtc: Date,
     permalink: String,
     id: String,
-}, { collection: 'posts' }));
+});
 
-var CommentTree = db.model('CommentTree', mongoose.Schema({
+const Comment = mongoose.Schema({
     author: String,
     upvotes: Number,
     downvotes: Number,
     score: Number,
     body: String,
-    replies: []
-}, { collection: 'commentTrees' }));
+    // replies: []
+});
+
+Comment.add({ replies: [Comment] });
+
+const Feed = db.model('Feed', mongoose.Schema({
+    subreddit: String,
+    channel: String,
+    posts: [Post]
+}, { collection: 'feeds' }));
+
+const CommentTree = db.model('CommentTree', mongoose.Schema({
+    postId: String,
+    replies: [Comment]
+}, { collection: 'comments' }));
+
+exports.savePosts = (subreddit, channel, posts, cb)=>{
+    Feed.findOneAndUpdate({
+        subreddit: subreddit,
+        channel: channel,
+    },{
+        subreddit: subreddit,
+        channel: channel,
+        posts: posts
+    }, {
+        upsert: true
+    }, cb);
+};
+
+exports.saveComments = (postId, replies, cb)=>{
+    CommentTree.findOneAndUpdate({
+        postId: postId
+    },{
+        postId: postId,
+        replies: replies.replies
+    }, {
+        upsert: true
+    }, cb);
+};
