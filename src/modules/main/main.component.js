@@ -1,5 +1,5 @@
 import React from 'react';
-import 'typeface-roboto';
+import MetaTags from 'react-meta-tags';
 import {FeedList} from "../feed/feedList.component";
 import {SlackerAppBar} from "./appBar.component";
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -36,6 +36,9 @@ export class Main extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <MetaTags>
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
+                </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar></SlackerAppBar>
