@@ -52,14 +52,14 @@ export class FeedItem extends React.Component {
         return (
             <React.Fragment>
                 <Card style={styles.card}>
-                    <a href={this.props.postData.url} target='_blank'>
+                    <a href={this.props.postData.url} target='_blank' rel='noopener'>
                         <CardMedia
                             style={styles.img}
                             image={this.props.postData.thumbnail}
                         />
                     </a>
                     <CardContent style={styles.content}>
-                        <a href={this.props.postData.url} target='_blank' style={styles.title}>
+                        <a href={this.props.postData.url} target='_blank' style={styles.title} rel='noopener'>
                             <Typography>
                                 {this.props.postData.title}
                             </Typography>

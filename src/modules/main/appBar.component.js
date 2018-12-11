@@ -20,7 +20,7 @@ export class SlackerAppBar extends React.Component {
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6" color="inherit">
-                            <img style={styles.logo} src='./logo-rect.png'/>
+                            <img alt='4slack logo' style={styles.logo} src='./logo-rect.png'/>
                         </Typography>
                     </Toolbar>
                 </AppBar>
