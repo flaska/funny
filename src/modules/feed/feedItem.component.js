@@ -25,12 +25,12 @@ const styles = {
         textDecoration: 'none'
     },
     content: {
-        marginLeft: 150
+        marginLeft: 150,
+        paddingBottom: 40
     },
     commentList: {
         width: '100%'
-    }
-
+    },
 };
 
 export class FeedItem extends React.Component {
