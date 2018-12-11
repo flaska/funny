@@ -3,7 +3,7 @@ const express = require('express'),
     compression = require('compression'),
     app = express(),
     join = require('path').join,
-    redditRoutes = require('./modules/reddit/routes')
+    redditRoutes = require('./modules/reddit/deliver/redditRoutes')
 
 ;
 

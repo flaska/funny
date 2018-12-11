@@ -1,0 +1,12 @@
+{
+  "environment": "production",
+  "database":{
+    "reddit": {
+      "uri": "mongodb://ds131814.mlab.com:31814/slacker",
+      "opts": {
+        "user": "webapp",
+        "pass": "Slacker1"
+      }
+    }
+  }
+}
