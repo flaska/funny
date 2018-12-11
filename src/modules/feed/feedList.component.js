@@ -19,7 +19,7 @@ export class FeedList extends React.Component {
     constructor(props){
         super(props);
         axios.get(this.props.feedUrl).then(response => {
-            this.setState({posts: response.data});
+            this.setState(response.data);
         });
     }
     render() {

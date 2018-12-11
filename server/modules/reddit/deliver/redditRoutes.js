@@ -5,7 +5,7 @@ const router = require('express').Router(),
 
 router.use(cache);
 
-router.get('/posts', (req, res)=>{
+router.get('/feed', (req, res)=>{
     redditDb.getPosts(req.query.subreddit, req.query.channel, (err, result)=>{
        res.send(result);
     });

@@ -63,3 +63,11 @@ exports.saveComments = (postId, replies, cb)=>{
         upsert: true
     }, cb);
 };
+
+exports.getPosts = (subreddit, channel, cb)=>{
+    Feed.findOne({subreddit: subreddit, channel: channel}).exec(cb);
+};
+
+exports.getComments = (postId, cb)=>{
+    CommentTree.findOne({postId: postId}).exec(cb);
+};
