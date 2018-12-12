@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 4000;
 app.use(compression());
 app.use(bodyParser.json());
 
+require('./modules/reddit/redditMain').init(app);
+
 const staticPath = join(process.cwd(), 'build');
 app.use(express.static(staticPath));
-
-require('./modules/reddit/redditMain').init(app);
 
 app.listen(PORT, () => console.log(`Funny app listening on port ${PORT}!`));

@@ -16,7 +16,8 @@ const Post = mongoose.Schema({
     dateUtc: Date,
     permalink: String,
     id: String,
-});
+    type: String
+}, {id: false});
 
 const Comment = mongoose.Schema({
     author: String,
@@ -24,7 +25,7 @@ const Comment = mongoose.Schema({
     downvotes: Number,
     score: Number,
     body: String,
-});
+}, {id: false});
 
 Comment.add({ replies: [Comment] });
 
