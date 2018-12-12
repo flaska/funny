@@ -20,7 +20,9 @@ function preloadFeed(subreddit, channel){
 exports.init = (app)=>{
     app.use('/api/reddit', routes);
     preloadFeed('funny', 'hot');
+    preloadFeed('pics', 'hot');
     setInterval(()=>{
         preloadFeed('funny', 'hot');
+        preloadFeed('pics', 'hot');
     }, 15 * 60 * 1000);
 };

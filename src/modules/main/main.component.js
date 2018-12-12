@@ -29,7 +29,19 @@ const theme = createMuiTheme({
     },
 });
 
+const FeedOptions = [
+    {name: '/r/Funny', url: '/api/reddit/feed?subreddit=funny&channel=hot'},
+    {name: '/r/Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot'}
+];
+
 export class Main extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {feed: FeedOptions[0]};
+    }
+    handleClick(e){
+        this.setState({feed: e});
+    }
     render() {
         return (
             <React.Fragment>
@@ -38,8 +50,8 @@ export class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar></SlackerAppBar>
-                    <FeedList feedUrl={'/api/reddit/feed?subreddit=funny&channel=hot'}></FeedList>
+                    <SlackerAppBar feedOptions={FeedOptions} onClick={(e)=>this.handleClick(e)}></SlackerAppBar>
+                    <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>
             </React.Fragment>
         );
