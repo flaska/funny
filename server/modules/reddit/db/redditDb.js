@@ -37,6 +37,7 @@ const Feed = db.model('Feed', mongoose.Schema({
 
 const CommentTree = db.model('CommentTree', mongoose.Schema({
     postId: String,
+    subreddit: String,
     replies: [Comment]
 }, { collection: 'comments' }));
 
@@ -50,18 +51,24 @@ exports.savePosts = (subreddit, channel, posts, cb)=>{
         posts: posts
     }, {
         upsert: true
-    }, cb);
+    }).lean().exec(cb);
 };
 
-exports.saveComments = (postId, replies, cb)=>{
+exports.saveComments = (subreddit, postId, replies, cb)=>{
     CommentTree.findOneAndUpdate({
+        subreddit: subreddit,
         postId: postId
     },{
+        subreddit: subreddit,
         postId: postId,
         replies: replies.replies
     }, {
         upsert: true
     }, cb);
+};
+
+exports.deleteComments = (subreddit, cb)=>{
+    CommentTree.remove({subreddit: subreddit}).exec(cb);
 };
 
 exports.getPosts = (query, cb)=>{

@@ -31,7 +31,8 @@ const theme = createMuiTheme({
 
 const FeedOptions = [
     {name: '/r/Funny', url: '/api/reddit/feed?subreddit=funny&channel=hot'},
-    {name: '/r/Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot'}
+    {name: '/r/Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot'},
+    {name: '/r/Aww', url: '/api/reddit/feed?subreddit=aww&channel=hot'}
 ];
 
 export class Main extends React.Component {

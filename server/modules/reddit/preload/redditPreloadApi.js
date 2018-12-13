@@ -5,6 +5,7 @@ const request = require('request'),
 exports.fetchPosts = (subreddit, channel, cb)=>{
     request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json?limit=50', function (error, response, body) {
         let result = [];
+        if (!JSON.parse(body).data) console.error(`Cannot fetch posts for ${subreddit}`);
         JSON.parse(body).data.children
             .filter(redditPost=>!redditPost.data.distinguished)
             .filter(redditPost=>!redditPost.data.over_18)
@@ -48,11 +49,15 @@ function getReplies(redditComment, replies, level){
     if (redditComment.data.replies && redditComment.data.replies.data) redditComment.data.replies.data.children.slice(0,2).forEach((c)=>{getReplies(c, comment.replies, l)});
 }
 
-exports.fetchComments = (postId, cb)=>{
-    request('https://www.reddit.com/r/funny/comments/' +postId + '.json?sort=top', function (error, response, body) {
+exports.fetchComments = (subreddit, postId, cb)=>{
+    request('https://www.reddit.com/r/' + subreddit + '/comments/' +postId + '.json?sort=top', function (error, response, body) {
         if (!JSON.parse(body)[1] || !JSON.parse(body)[1].data) return;
         let result = {replies: []};
         JSON.parse(body)[1].data.children.slice(0,2).forEach((c)=>{getReplies(c, result.replies, 0)});
-        redditDb.saveComments(postId, result, cb);
+        redditDb.saveComments(subreddit, postId, result, cb);
     });
+};
+
+exports.deleteComments = (subreddit, cb)=>{
+    redditDb.deleteComments(subreddit, cb);
 };
