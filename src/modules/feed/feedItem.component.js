@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import {FeedItemMetadata} from './feedItemMetadata.component';
 import moment from "moment/moment";
 import {CommentsList} from "../comments/commentsList.component";
+import {PostDialog} from "./postDialog.component";
 
 const styles = {
     card: {
@@ -36,7 +37,11 @@ const styles = {
 export class FeedItem extends React.Component {
     state = {showComments: false};
     showComments(){
-        if (this.state.showComments) return <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>;
+        if (this.state.showComments) return (
+            <React.Fragment>
+                <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
+            </React.Fragment>
+        );
         else return null;
     }
     handleClick(e){
@@ -48,27 +53,35 @@ export class FeedItem extends React.Component {
             window.open('https://www.reddit.com' + this.props.postData.permalink, "_blank");
         }
     }
+    openContent = ()=>{
+        this.setState({
+            contentOpen: true,
+        });
+    };
+    closeContent = ()=>{
+        this.setState({
+            contentOpen: false,
+        });
+    };
     render() {
         return (
             <React.Fragment>
                 <Card style={styles.card}>
-                    <a href={this.props.postData.url} target='_blank' rel='noopener'>
                         <CardMedia
                             style={styles.img}
                             image={this.props.postData.thumbnail}
+                            onClick={()=>{this.openContent()}}
                         />
-                    </a>
                     <CardContent style={styles.content}>
-                        <a href={this.props.postData.url} target='_blank' style={styles.title} rel='noopener'>
-                            <Typography>
+                            <Typography onClick={()=>{this.openContent()}}>
                                 {this.props.postData.title}
                             </Typography>
-                        </a>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
                     <FeedItemMetadata postData={this.props.postData} onClick={(e)=>this.handleClick(e)}/>
                 </Card>
                 {this.showComments(this.state)}
+                <PostDialog open={this.state.contentOpen} postData={this.props.postData} onClose={this.closeContent}/>
             </React.Fragment>
         );
     }
