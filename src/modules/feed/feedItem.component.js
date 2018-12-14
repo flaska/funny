@@ -18,12 +18,13 @@ const styles = {
         height: 100,
         float: 'left',
         marginRight: 10,
+        cursor: 'pointer'
     },
     datePosted: {
         opacity: 0.8
     },
     title: {
-        textDecoration: 'none'
+        cursor: 'pointer'
     },
     content: {
         marginLeft: 150,
@@ -73,7 +74,7 @@ export class FeedItem extends React.Component {
                             onClick={()=>{this.openContent()}}
                         />
                     <CardContent style={styles.content}>
-                            <Typography onClick={()=>{this.openContent()}}>
+                            <Typography style={styles.title} onClick={()=>{this.openContent()}}>
                                 {this.props.postData.title}
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>

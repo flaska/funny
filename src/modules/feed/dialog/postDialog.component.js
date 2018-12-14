@@ -3,15 +3,21 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import {FeedItemContent} from "./feedItemContent.component";
 
+const styles = {
+    content: {
+
+    }
+};
+
 export class PostDialog extends React.Component {
     handleClose = () => {
         this.props.onClose();
     };
     render() {
         return (
-            <Dialog open={this.props.open} onClose={this.handleClose}>
+            <Dialog maxWidth='md' open={this.props.open} onClose={this.handleClose}>
                 <DialogTitle>{this.props.postData.title}</DialogTitle>
-                <FeedItemContent postData={this.props.postData}/>
+                <FeedItemContent style={styles.content} postData={this.props.postData}/>
             </Dialog>
         );
     }

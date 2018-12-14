@@ -3,8 +3,9 @@ import React from 'react';
 const styles = {
     content: {
         maxWidth: '100%',
-        maxHeight: 500
-    }
+        maxHeight: 600,
+        objectFit: 'contain',
+    },
 };
 
 export class FeedItemContent extends React.Component {
