@@ -16,7 +16,6 @@ export class PostDialog extends React.Component {
     render() {
         return (
             <Dialog maxWidth='md' open={this.props.open} onClose={this.handleClose}>
-                <DialogTitle>{this.props.postData.title}</DialogTitle>
                 <FeedItemContent style={styles.content} postData={this.props.postData}/>
             </Dialog>
         );
