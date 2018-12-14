@@ -9,6 +9,13 @@ const styles = {
 };
 
 export class FeedItemContent extends React.Component {
+
+    componentDidMount() {
+        window.addEventListener('popstate',  ()=>{
+            console.log('xxx');
+        });
+    }
+
     renderContent(postData){
         if (postData.type==='image') return <img src={postData.url} style={styles.content}/>
         if (postData.type==='hosted:video') return <video controls autoPlay src={postData.url} style={styles.content}/>
