@@ -20,15 +20,18 @@ export class Comment extends React.Component {
         return(
             <React.Fragment>
                 <CommentMetadata commentData={this.props.commentData}/>
-                <Typography  dangerouslySetInnerHTML={{__html: this.state.body}}></Typography>
+                <Typography dangerouslySetInnerHTML={{__html: this.state.body}}></Typography>
                 <Divider />
             </React.Fragment>);
+    }
+    isIndented(commentData){
+        if (commentData.body) return styles.replies;
     }
     render() {
         return (
             <React.Fragment>
                 {this.showBody(this.props.commentData)}
-                <div style={styles.replies}>
+                <div style={this.isIndented(this.props.commentData)}>
                     {this.props.commentData.replies.map(r=><Comment commentData={r}></Comment>)}
                 </div>
             </React.Fragment>

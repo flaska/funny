@@ -34,16 +34,16 @@ export class CommentsList extends React.Component {
         return (
             <Card>
                 <CardContent>
+                    <Typography color="primary" style={styles.hint}>
+                        Top comments
+                    </Typography>
                     <Comment commentData={this.state.commentsRoot}></Comment>
                     <div style={styles.buttons}>
-                        <Typography style={styles.hint}>
-                            Showing top comments...
-                        </Typography>
                         <Button onClick={()=>this.handleClick('collapseComments')}>
                             Close
                         </Button>
                         <Button color="primary" onClick={()=>this.props.onClick('seeAll')}>
-                            See All
+                            All Comments
                         </Button>
                     </div>
                 </CardContent>
