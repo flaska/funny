@@ -1,8 +1,7 @@
 import React from 'react';
-
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import Typography from '@material-ui/core/Typography';
+import {FeedItemContent} from "./feedItemContent.component";
 
 export class PostDialog extends React.Component {
     handleClose = () => {
@@ -12,8 +11,7 @@ export class PostDialog extends React.Component {
         return (
             <Dialog open={this.props.open} onClose={this.handleClose}>
                 <DialogTitle>{this.props.postData.title}</DialogTitle>
-                <div>
-                </div>
+                <FeedItemContent postData={this.props.postData}/>
             </Dialog>
         );
     }
