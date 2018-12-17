@@ -32,15 +32,13 @@ const styles = {
 };
 
 export class FeedItem extends React.Component {
-    state = {sshowContent: false,};
-    openContent = ()=>{
-        this.setState({showContent: true});
-    };
-    closeContent = ()=>{
-        this.setState({showContent: false});
-    };
+    state = {showContent: false,};
+    toggleContent(){
+        if (this.state.showContent) this.setState({showContent: false});
+        else this.setState({showContent: true});
+    }
     showContent(){
-        if (this.state.showContent) return <FeedItemContent postData={this.props.postData} closeContent={()=>this.closeContent()}/>;
+        if (this.state.showContent) return <FeedItemContent postData={this.props.postData} closeContent={()=>this.toggleContent()}/>;
     }
     render() {
         return (
@@ -49,10 +47,10 @@ export class FeedItem extends React.Component {
                         <CardMedia
                             style={styles.img}
                             image={this.props.postData.thumbnail}
-                            onClick={()=>{this.openContent()}}
+                            onClick={()=>{this.toggleContent()}}
                         />
                     <CardContent style={styles.content}>
-                            <Typography style={styles.title} onClick={()=>{this.openContent()}}>
+                            <Typography style={styles.title} onClick={()=>{this.toggleContent()}}>
                                 {this.props.postData.title}
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
