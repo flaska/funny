@@ -25,7 +25,7 @@ export class SlackerAppBar extends React.Component {
             <div className={styles.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton color="inherit" aria-label="Menu">
+                        <IconButton color="inherit" aria-label="Menu" onClick={()=>this.props.onClick('openLeftMenu')}>
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" color="inherit">

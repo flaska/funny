@@ -8,20 +8,14 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
+import {LeftMenu} from "./leftMenu.component";
 
-// All the following keys are optional.
-// We try our best to provide a great default value.
 const theme = createMuiTheme({
     palette: {
         primary: blue,
         secondary: pink,
         error: red,
-        // Used by `getContrastText()` to maximize the contrast between the background and
-        // the text.
         contrastThreshold: 3,
-        // Used to shift a color's luminance by approximately
-        // two indexes within its tonal palette.
-        // E.g., shift from Red 500 to Red 300 or Red 700.
         tonalOffset: 0.2,
     },
     typography: {
@@ -38,10 +32,14 @@ const FeedOptions = [
 export class Main extends React.Component {
     constructor(props){
         super(props);
-        this.state = {feed: FeedOptions[0]};
+        this.state = {feed: FeedOptions[0], leftMenuOpen: false};
     }
     handleClick(e){
-        this.setState({feed: e});
+        // this.setState({feed: e});
+        if (e === 'openLeftMenu' && !this.state.leftMenuOpen) this.setState({leftMenuOpen: true})
+    }
+    closeMenu(){
+        // if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
     }
     render() {
         return (
@@ -52,6 +50,7 @@ export class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar feedOptions={FeedOptions} onClick={(e)=>this.handleClick(e)}></SlackerAppBar>
+                    <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()}></LeftMenu>
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>
             </React.Fragment>
