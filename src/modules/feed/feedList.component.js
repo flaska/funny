@@ -66,7 +66,7 @@ export class FeedList extends React.Component {
             </React.Fragment>
         );
         else return (
-            <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()} id='feedList_moreFun'>
+            <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()}>
                 More Fun
             </Button>
         );

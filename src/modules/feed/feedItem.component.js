@@ -42,7 +42,7 @@ export class FeedItem extends React.Component {
     }
     render() {
         return (
-            <div class='feedItem'>
+            <div className='feedItem'>
                 <Card style={styles.card}>
                         <CardMedia
                             style={styles.img}
@@ -50,7 +50,7 @@ export class FeedItem extends React.Component {
                             onClick={()=>{this.toggleContent()}}
                         />
                     <CardContent style={styles.content}>
-                            <Typography style={styles.title} onClick={()=>{this.toggleContent()}}>
+                            <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>
                                 {this.props.postData.title}
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
