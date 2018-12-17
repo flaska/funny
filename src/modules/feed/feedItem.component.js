@@ -7,6 +7,7 @@ import {FeedItemMetadata} from './feedItemMetadata.component';
 import moment from "moment/moment";
 import {CommentsList} from "../comments/commentsList.component";
 import {PostDialog} from "./dialog/postDialog.component";
+import {FeedItemContent} from "./feedItemContent.component";
 
 const styles = {
     card: {
@@ -43,7 +44,9 @@ export class FeedItem extends React.Component {
                 <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
             </React.Fragment>
         );
-        else return null;
+    }
+    showPostContent(){
+        if (this.state.contentOpen) return <FeedItemContent postData={this.props.postData}/>;
     }
     handleClick(e){
         if (e==='collapseComments') {
@@ -81,8 +84,8 @@ export class FeedItem extends React.Component {
                     </CardContent>
                     <FeedItemMetadata postData={this.props.postData} onClick={(e)=>this.handleClick(e)}/>
                 </Card>
-                {this.showComments(this.state)}
-                <PostDialog open={this.state.contentOpen} postData={this.props.postData} onClose={this.closeContent}/>
+                {this.showPostContent()}
+                {this.showComments()}
             </React.Fragment>
         );
     }
