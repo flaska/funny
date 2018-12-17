@@ -29,19 +29,20 @@ export class FeedList extends React.Component {
     chunkSize = 10;
     state = {posts: [], loading: true};
     loadMorePosts(){
-        this.state.loading = true;
-        this.setState(this.state);
+        this.setState({loading: true});
         axios.get(this.props.feed.url + `&from=${this.state.posts.length}&size=${this.chunkSize}`).then(response => {
-            this.state.loading = false;
+            this.setState({loading: false});
             if (this.state.posts.length==0) this.setState(response.data);
             else {
-                this.state.posts = this.state.posts.concat(response.data.posts);
-                this.setState(this.state);
+                this.setState({posts: this.state.posts.concat(response.data.posts)});
             }
         });
     }
     constructor(props){
         super(props);
+    }
+
+    componentDidMount(){
         this.loadMorePosts();
     }
 

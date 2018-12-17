@@ -3,7 +3,7 @@ const request = require('request'),
 ;
 
 exports.fetchPosts = (subreddit, channel, cb)=>{
-    request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json?limit=50', function (error, response, body) {
+    request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json?limit=100', function (error, response, body) {
         let result = [];
         if (!JSON.parse(body).data) console.error(`Cannot fetch posts for ${subreddit}`);
         JSON.parse(body).data.children

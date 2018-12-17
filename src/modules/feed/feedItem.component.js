@@ -36,36 +36,34 @@ const styles = {
 };
 
 export class FeedItem extends React.Component {
-    state = {showComments: false};
+    state = {showComments: false, showContent: false,};
+    openContent = ()=>{
+        this.setState({
+            showContent: true,
+            showComments: true
+        });
+    };
+    closeContent = ()=>{
+        this.setState({
+            showContent: false,
+            showComments: false
+        });
+    };
     showComments(){
-        if (this.state.showComments) return (
-            <React.Fragment>
-                <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
-            </React.Fragment>
-        );
+        if (this.state.showComments) return <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>;
     }
-    showPostContent(){
-        if (this.state.contentOpen) return <FeedItemContent postData={this.props.postData}/>;
+    showContent(){
+        if (this.state.showContent) return <FeedItemContent postData={this.props.postData}/>;
     }
     handleClick(e){
         if (e==='collapseComments') {
-            if (!this.state.showComments) this.setState({showComments: true});
-            else this.setState({showComments: false});
+            if (!this.state.showContent) this.openContent();
+            else this.closeContent();
         }
         if (e=='seeAll') {
             window.open('https://www.reddit.com' + this.props.postData.permalink, "_blank");
         }
     }
-    openContent = ()=>{
-        this.setState({
-            contentOpen: true,
-        });
-    };
-    closeContent = ()=>{
-        this.setState({
-            contentOpen: false,
-        });
-    };
     render() {
         return (
             <React.Fragment>
@@ -83,7 +81,7 @@ export class FeedItem extends React.Component {
                     </CardContent>
                     <FeedItemMetadata postData={this.props.postData} onClick={(e)=>this.handleClick(e)}/>
                 </Card>
-                {this.showPostContent()}
+                {this.showContent()}
                 {this.showComments()}
             </React.Fragment>
         );

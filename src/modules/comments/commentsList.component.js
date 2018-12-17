@@ -5,7 +5,6 @@ import axios from "axios/index";
 import {Comment} from './comment.component'
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import LinearProgress from '@material-ui/core/LinearProgress';
 
 const styles = {
     buttons: {
@@ -30,7 +29,7 @@ export class CommentsList extends React.Component {
         this.props.onClick(event);
     }
     render() {
-        if (!this.state.dataFetched) return (<LinearProgress />);
+        if (!this.state.dataFetched) return;
         return (
             <Card>
                 <CardContent>
@@ -39,11 +38,11 @@ export class CommentsList extends React.Component {
                     </Typography>
                     <Comment commentData={this.state.commentsRoot}></Comment>
                     <div style={styles.buttons}>
-                        <Button onClick={()=>this.handleClick('collapseComments')}>
-                            Close
-                        </Button>
                         <Button color="primary" onClick={()=>this.props.onClick('seeAll')}>
                             All Comments
+                        </Button>
+                        <Button onClick={()=>this.handleClick('collapseComments')}>
+                            Close
                         </Button>
                     </div>
                 </CardContent>
