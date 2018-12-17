@@ -1,6 +1,10 @@
 import React from 'react';
 import ImageLoader from 'react-imageloader';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Card from "@material-ui/core/Card";
+import {CommentsList} from "../comments/commentsList.component";
+import Button from "@material-ui/core/Button";
+import CardContent from "@material-ui/core/CardContent";
 
 const styles = {
     content: {
@@ -10,7 +14,8 @@ const styles = {
     spinner: {
         margin: '30px auto',
         display: 'block',
-    }
+    },
+    buttons: {float: 'right'}
 };
 
 export class FeedItemContent extends React.Component {
@@ -22,9 +27,20 @@ export class FeedItemContent extends React.Component {
     }
     render(){
         return(
-            <React.Fragment>
+            <Card>
                 {this.renderContent(this.props.postData)}
-            </React.Fragment>
+                <CardContent>
+                    <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>;
+                    <div style={styles.buttons}>
+                        <Button color="primary" onClick={()=>this.props.onClick('seeAll')}>
+                            All Comments
+                        </Button>
+                        <Button onClick={()=>this.handleClick('collapseComments')}>
+                            Close
+                        </Button>
+                    </div>
+                </CardContent>
+            </Card>
         );
     };
 }

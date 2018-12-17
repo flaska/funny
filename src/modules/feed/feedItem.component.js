@@ -36,33 +36,15 @@ const styles = {
 };
 
 export class FeedItem extends React.Component {
-    state = {showComments: false, showContent: false,};
+    state = {sshowContent: false,};
     openContent = ()=>{
-        this.setState({
-            showContent: true,
-            showComments: true
-        });
+        this.setState({showContent: true});
     };
     closeContent = ()=>{
-        this.setState({
-            showContent: false,
-            showComments: false
-        });
+        this.setState({showContent: false});
     };
-    showComments(){
-        if (this.state.showComments) return <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>;
-    }
     showContent(){
         if (this.state.showContent) return <FeedItemContent postData={this.props.postData}/>;
-    }
-    handleClick(e){
-        if (e==='collapseComments') {
-            if (!this.state.showContent) this.openContent();
-            else this.closeContent();
-        }
-        if (e=='seeAll') {
-            window.open('https://www.reddit.com' + this.props.postData.permalink, "_blank");
-        }
     }
     render() {
         return (
@@ -79,10 +61,9 @@ export class FeedItem extends React.Component {
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <FeedItemMetadata postData={this.props.postData} onClick={(e)=>this.handleClick(e)}/>
+                    <FeedItemMetadata postData={this.props.postData}/>
                 </Card>
                 {this.showContent()}
-                {this.showComments()}
             </React.Fragment>
         );
     }

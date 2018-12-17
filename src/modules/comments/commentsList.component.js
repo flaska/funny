@@ -1,15 +1,9 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import axios from "axios/index";
 import {Comment} from './comment.component'
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const styles = {
-    buttons: {
-        float: 'right'
-    },
     hint: {display: 'inline-block'}
 };
 
@@ -29,24 +23,14 @@ export class CommentsList extends React.Component {
         this.props.onClick(event);
     }
     render() {
-        if (!this.state.dataFetched) return;
+        if (!this.state.dataFetched) return null;
         return (
-            <Card>
-                <CardContent>
-                    <Typography color="primary" style={styles.hint}>
-                        Top comments
-                    </Typography>
-                    <Comment commentData={this.state.commentsRoot}></Comment>
-                    <div style={styles.buttons}>
-                        <Button color="primary" onClick={()=>this.props.onClick('seeAll')}>
-                            All Comments
-                        </Button>
-                        <Button onClick={()=>this.handleClick('collapseComments')}>
-                            Close
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
+            <React.Fragment>
+                <Typography color="primary" style={styles.hint}>
+                    Top comments
+                </Typography>
+                <Comment commentData={this.state.commentsRoot}></Comment>
+            </React.Fragment>
         );
     }
 }

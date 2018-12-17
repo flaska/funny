@@ -18,8 +18,8 @@ export class FeedItemMetadata extends React.Component {
         return (
             <div style={styles.main}>
                 <InfoChip icon='like'>{formatNumber(this.props.postData.score)}</InfoChip>
-                <div style={styles.div} onClick={()=>this.props.onClick('collapseComments')}>
-                    <InfoChip icon='comment' color='primary' clickable >{formatNumber(this.props.postData.numComments)}</InfoChip>
+                <div style={styles.div}>
+                    <InfoChip icon='comment' color='primary' >{formatNumber(this.props.postData.numComments)}</InfoChip>
                 </div>
             </div>
         );
