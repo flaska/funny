@@ -42,7 +42,7 @@ export class FeedItem extends React.Component {
     }
     render() {
         return (
-            <React.Fragment>
+            <div class='feedItem'>
                 <Card style={styles.card}>
                         <CardMedia
                             style={styles.img}
@@ -58,7 +58,7 @@ export class FeedItem extends React.Component {
                     <FeedItemMetadata postData={this.props.postData}/>
                 </Card>
                 {this.showContent()}
-            </React.Fragment>
+            </div>
         );
     }
 }

@@ -66,7 +66,7 @@ export class FeedList extends React.Component {
             </React.Fragment>
         );
         else return (
-            <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()}>
+            <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()} id='feedList_moreFun'>
                 More Fun
             </Button>
         );
@@ -75,7 +75,7 @@ export class FeedList extends React.Component {
     render() {
         return (
             <div style={styles.main}>
-                <List style={styles.list}>
+                <List style={styles.list} id='feedList'>
                     {this.state.posts.map(post=>
                         <ListItem style={styles.listItem} key={post.id}>
                             <FeedItem postData={post}></FeedItem>
