@@ -40,6 +40,9 @@ export class Main extends React.Component {
     closeMenu(){
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
     }
+    selectFeed(f){
+        this.setState({feed: f})
+    }
     render() {
         return (
             <React.Fragment>
@@ -49,7 +52,7 @@ export class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar feedOptions={FeedOptions} openMenu={()=>this.openMenu()}></SlackerAppBar>
-                    <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()}></LeftMenu>
+                    <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>
             </React.Fragment>

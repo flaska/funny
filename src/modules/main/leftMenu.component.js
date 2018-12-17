@@ -13,8 +13,7 @@ export class LeftMenu extends React.Component {
     }
     getFeedOptions(){
         return this.props.feedOptions.map((feed)=>{ return(
-            <ListItem button key={feed.name}>
-                <ListItemIcon></ListItemIcon>
+            <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)}>
                 <ListItemText primary={feed.name} />
             </ListItem>
         )});
