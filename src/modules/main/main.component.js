@@ -28,7 +28,6 @@ const FeedOptions = [
     {name: '/r/Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot'},
     {name: '/r/Aww', url: '/api/reddit/feed?subreddit=aww&channel=hot'}
 ];
-// this.setState({feed: e});
 export class Main extends React.Component {
     constructor(props){
         super(props);

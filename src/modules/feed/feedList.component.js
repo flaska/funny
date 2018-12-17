@@ -28,6 +28,21 @@ const styles = {
 export class FeedList extends React.Component {
     chunkSize = 10;
     state = {posts: [], loading: true};
+
+    constructor(props){
+        super(props);
+    }
+
+    componentDidMount(){
+        this.loadMorePosts();
+    }
+
+    componentWillReceiveProps(props) {
+        if (this.props.feed.url === props.feed.url) return;
+        this.setState({posts: []});
+        setTimeout(()=>{this.loadMorePosts()},0);
+    }
+
     loadMorePosts(){
         this.setState({loading: true});
         axios.get(this.props.feed.url + `&from=${this.state.posts.length}&size=${this.chunkSize}`).then(response => {
@@ -38,18 +53,7 @@ export class FeedList extends React.Component {
             }
         });
     }
-    constructor(props){
-        super(props);
-    }
 
-    componentDidMount(){
-        this.loadMorePosts();
-    }
-
-    componentWillReceiveProps(props) {
-        this.setState({posts: []});
-        setTimeout(()=>{this.loadMorePosts()},0);
-    }
 
     showLoading(){
         if (this.state.loading) return (
