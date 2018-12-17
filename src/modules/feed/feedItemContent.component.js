@@ -1,17 +1,11 @@
 import React from 'react';
 import ImageLoader from 'react-imageloader';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Typography from "@material-ui/core/Typography";
 
 const styles = {
     content: {
-        maxWidth: '100%',
-        objectFit: 'contain',
+        width: '100%',
         backgroundColor: '#1b1b1b'
-    },
-    title: {
-        textAlign: 'center',
-        margin: 20
     },
     spinner: {
         margin: '30px auto',
@@ -29,7 +23,6 @@ export class FeedItemContent extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <Typography style={styles.title}>{this.props.postData.title}</Typography>
                 {this.renderContent(this.props.postData)}
             </React.Fragment>
         );

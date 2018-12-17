@@ -6,7 +6,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import {FeedItemMetadata} from './feedItemMetadata.component';
 import moment from "moment/moment";
 import {CommentsList} from "../comments/commentsList.component";
-import {PostDialog} from "./dialog/postDialog.component";
 import {FeedItemContent} from "./feedItemContent.component";
 
 const styles = {
