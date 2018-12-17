@@ -6,6 +6,6 @@ export class LeftMenu extends React.Component {
         super(props);
     }
     render(){
-        return(<Drawer open={this.props.open} onClose={this.props.onClose()}>menu...</Drawer>);
+        return(<Drawer open={this.props.open} onClose={()=>this.props.onClose()}>menu...</Drawer>);
     }
 }

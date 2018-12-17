@@ -28,18 +28,17 @@ const FeedOptions = [
     {name: '/r/Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot'},
     {name: '/r/Aww', url: '/api/reddit/feed?subreddit=aww&channel=hot'}
 ];
-
+// this.setState({feed: e});
 export class Main extends React.Component {
     constructor(props){
         super(props);
         this.state = {feed: FeedOptions[0], leftMenuOpen: false};
     }
-    handleClick(e){
-        // this.setState({feed: e});
-        if (e === 'openLeftMenu' && !this.state.leftMenuOpen) this.setState({leftMenuOpen: true})
+    openMenu(){
+        this.setState({leftMenuOpen: true})
     }
     closeMenu(){
-        // if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
+        if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
     }
     render() {
         return (
@@ -49,7 +48,7 @@ export class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar feedOptions={FeedOptions} onClick={(e)=>this.handleClick(e)}></SlackerAppBar>
+                    <SlackerAppBar feedOptions={FeedOptions} openMenu={()=>this.openMenu()}></SlackerAppBar>
                     <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()}></LeftMenu>
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>
