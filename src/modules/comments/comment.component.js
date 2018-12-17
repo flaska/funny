@@ -32,7 +32,7 @@ export class Comment extends React.Component {
             <React.Fragment>
                 {this.showBody(this.props.commentData)}
                 <div style={this.isIndented(this.props.commentData)}>
-                    {this.props.commentData.replies.map(r=><Comment commentData={r}></Comment>)}
+                    {this.props.commentData.replies.map(r=><Comment commentData={r} key={r.id}></Comment>)}
                 </div>
             </React.Fragment>
         );

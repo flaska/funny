@@ -49,7 +49,7 @@ export class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar feedOptions={FeedOptions} openMenu={()=>this.openMenu()}></SlackerAppBar>
-                    <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()}></LeftMenu>
+                    <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()}></LeftMenu>
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>
             </React.Fragment>

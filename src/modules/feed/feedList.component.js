@@ -73,7 +73,7 @@ export class FeedList extends React.Component {
             <div style={styles.main}>
                 <List style={styles.list}>
                     {this.state.posts.map(post=>
-                        <ListItem style={styles.listItem}>
+                        <ListItem style={styles.listItem} key={post.id}>
                             <FeedItem postData={post}></FeedItem>
                         </ListItem>
                     )}

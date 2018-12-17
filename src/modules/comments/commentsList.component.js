@@ -14,13 +14,9 @@ export class CommentsList extends React.Component {
             postId: this.props.postId,
             dataFetched: false
         };
-
         axios.get('/api/reddit/comments?postId='+this.state.postId).then(response => {
-            this.setState({postId: this.state.postId, commentsRoot: response.data, dataFetched: true});
+            this.setState({commentsRoot: response.data, dataFetched: true});
         });
-    }
-    handleClick(event){
-        this.props.onClick(event);
     }
     render() {
         if (!this.state.dataFetched) return null;
