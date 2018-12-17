@@ -25,6 +25,11 @@ export class FeedItemContent extends React.Component {
         if (postData.type==='hosted:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
         if (postData.type==='link') return <embed src={postData.url} style={styles.content}/>;
     }
+
+    openSourceUrl(){
+        window.open('https://www.reddit.com' + this.props.postData.permalink, "_blank");
+    }
+
     render(){
         return(
             <Card>
@@ -32,10 +37,10 @@ export class FeedItemContent extends React.Component {
                 <CardContent>
                     <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>;
                     <div style={styles.buttons}>
-                        <Button color="primary" onClick={()=>this.props.onClick('seeAll')}>
+                        <Button color="primary" onClick={()=>this.openSourceUrl()}>
                             All Comments
                         </Button>
-                        <Button onClick={()=>this.handleClick('collapseComments')}>
+                        <Button onClick={()=>this.props.closeContent()}>
                             Close
                         </Button>
                     </div>

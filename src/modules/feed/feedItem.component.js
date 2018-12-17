@@ -5,7 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import {FeedItemMetadata} from './feedItemMetadata.component';
 import moment from "moment/moment";
-import {CommentsList} from "../comments/commentsList.component";
 import {FeedItemContent} from "./feedItemContent.component";
 
 const styles = {
@@ -29,10 +28,7 @@ const styles = {
     content: {
         marginLeft: 150,
         paddingBottom: 40
-    },
-    commentList: {
-        width: '100%'
-    },
+    }
 };
 
 export class FeedItem extends React.Component {
@@ -44,7 +40,7 @@ export class FeedItem extends React.Component {
         this.setState({showContent: false});
     };
     showContent(){
-        if (this.state.showContent) return <FeedItemContent postData={this.props.postData}/>;
+        if (this.state.showContent) return <FeedItemContent postData={this.props.postData} closeContent={()=>this.closeContent()}/>;
     }
     render() {
         return (
