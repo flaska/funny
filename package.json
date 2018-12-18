@@ -3,30 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.6.1",
-    "@material-ui/icons": "^3.0.1",
     "apicache": "^1.2.3",
-    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "config": "^3.0.0",
     "express": "^4.16.4",
-    "moment": "^2.22.2",
     "mongoose": "^5.3.15",
-    "numeral": "^2.0.6",
-    "path": "^0.12.7",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-imageloader": "^3.0.0",
-    "react-meta-tags": "^0.7.2",
-    "react-router": "^4.3.1",
-    "react-scripts": "2.1.1"
+    "path": "^0.12.7"
   },
   "scripts": {
     "start": "node server/index.js",
     "dev": "set PORT=4001 && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*",
     "buildpush": "npm run build && git add build/ && git commit -a -m 'x' && git push origin master && git push heroku master"
@@ -42,6 +30,17 @@
   ],
   "proxy": "http://localhost:4000/",
   "devDependencies": {
-    "source-map-explorer": "^1.6.0"
+    "source-map-explorer": "^1.6.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-imageloader": "^3.0.0",
+    "react-meta-tags": "^0.7.2",
+    "react-router": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-icons": "3.2.2",
+    "numeral": "^2.0.6",
+    "moment": "^2.22.2",
+    "axios": "^0.18.0",
+    "@material-ui/core": "^3.6.1"
   }
 }

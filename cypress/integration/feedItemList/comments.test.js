@@ -10,7 +10,6 @@ describe('Comments', function() {
                 let postData = response.body[1].data;
                 cy.get('#feedList .feedItem .postTitle').first().click();
                 let firstComment = postData.children[0].data.body;
-                debugger;
                 cy.get('#feedList .feedItem').first().contains(firstComment);
             });
         });
