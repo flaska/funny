@@ -24,9 +24,9 @@ const theme = createMuiTheme({
 });
 
 const FeedOptions = [
-    {name: '/r/Funny', url: '/api/reddit/feed?subreddit=funny&channel=hot', icon: 'sentiment_very_satisfied'},
-    {name: '/r/Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot', icon: 'photo_camera'},
-    {name: '/r/Aww', url: '/api/reddit/feed?subreddit=aww&channel=hot', icon: 'fa_paw'}
+    {name: 'Funny', url: '/api/reddit/feed?subreddit=funny&channel=hot', icon: 'sentiment_very_satisfied'},
+    {name: 'Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot', icon: 'photo_camera'},
+    {name: 'Aww', url: '/api/reddit/feed?subreddit=aww&channel=hot', icon: 'fa_paw'}
 ];
 export class Main extends React.Component {
     constructor(props){
@@ -50,7 +50,7 @@ export class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar feedOptions={FeedOptions} openMenu={()=>this.openMenu()}></SlackerAppBar>
+                    <SlackerAppBar feedOptions={FeedOptions} openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
                     <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>
