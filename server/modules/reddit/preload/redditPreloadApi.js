@@ -10,24 +10,32 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
             .filter(redditPost=>!redditPost.data.distinguished)
             .filter(redditPost=>!redditPost.data.over_18)
             .forEach((redditPost)=>{
-                let rPost = redditPost.data;
-                let jsonPost = {
-                    title: rPost.title,
-                    thumbnail : rPost.thumbnail,
-                    numComments: rPost.num_comments,
-                    score: rPost.score,
-                    dateUtc: new Date(rPost.created_utc * 1000),
-                    permalink: rPost.permalink,
-                    id: rPost.id,
-                    type: rPost.post_hint
-                };
+                try {
+                    let rPost = redditPost.data;
+                    let jsonPost = {
+                        title: rPost.title,
+                        thumbnail : rPost.thumbnail,
+                        numComments: rPost.num_comments,
+                        score: rPost.score,
+                        dateUtc: new Date(rPost.created_utc * 1000),
+                        permalink: rPost.permalink,
+                        id: rPost.id,
+                        type: rPost.post_hint
+                    };
 
-                if (jsonPost.type === 'image') jsonPost.url = rPost.url;
-                if (jsonPost.type === 'hosted:video') jsonPost.url = rPost.media.reddit_video.fallback_url;
-                if (jsonPost.type === 'rich:video') jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;
-                if (jsonPost.type === 'link' && rPost.preview.reddit_video_preview) jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;
 
-                result.push(jsonPost);
+                    if (jsonPost.type === 'image') jsonPost.url = rPost.url;
+                    if (jsonPost.type === 'hosted:video') jsonPost.url = rPost.media.reddit_video.fallback_url;
+                    if (jsonPost.type === 'rich:video') jsonPost.url = rPost.url;
+                    if (jsonPost.type === 'link' && rPost.preview.reddit_video_preview) jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;
+                    result.push(jsonPost);
+
+                }catch (e) {
+                    console.log(JSON.stringify(rPost));
+                    throw e;
+                }
+
+
             });
         redditDb.savePosts(subreddit, channel, result, cb);
     });

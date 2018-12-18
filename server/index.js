@@ -29,4 +29,6 @@ require('./modules/reddit/redditMain').init(app);
 const staticPath = join(process.cwd(), 'build');
 app.use(express.static(staticPath));
 
-app.listen(PORT, () => console.log(`Funny app listening on port ${PORT}!`));
+setTimeout(()=>{
+    app.listen(PORT, () => console.log(`Funny app listening on port ${PORT}!`));
+}, 4000);

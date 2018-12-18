@@ -13,6 +13,7 @@ function preloadFeed(subreddit, channel){
     });
     preloadApi.fetchPosts(subreddit, channel, (err, result)=>{
         if (err) console.error(err);
+        else if (!result) throw `Cannot fetch posts for ${subreddit}`;
         else console.debug(`Posts fetched and saved for ${subreddit} / ${channel}`);
         if (!Array.isArray(result.posts)) return console.error('Cannot parse posts' + JSON.stringify(result));
         result.posts.forEach((post)=>{
@@ -31,7 +32,7 @@ function preloadAllFeeds(){
     });
 };
 
-const feeds = ['funny', 'pics', 'aww'];
+const feeds = ['funny', 'pics', 'aww', 'science', 'worldnews', 'gaming','todayilearned','videos','movies'];
 
 exports.init = (app)=>{
     app.use('/api/reddit', routes);
