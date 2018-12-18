@@ -5,6 +5,8 @@ import Card from "@material-ui/core/Card";
 import {CommentsList} from "../comments/commentsList.component";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
+import ForwardIcon from "@material-ui/icons/Forward";
+import { FaTimes } from 'react-icons/fa';
 
 const styles = {
     content: {
@@ -43,10 +45,12 @@ export class FeedItemContent extends React.Component {
                     <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
                     <div style={styles.buttons}>
                         <Button color="primary" onClick={()=>this.openOriginalUrl()}>
-                            All Comments
+                            More
+                            <ForwardIcon/>
                         </Button>
-                        <Button onClick={()=>this.props.closeContent()}>
+                        <Button onClick={()=>this.props.closeContent()} color='secondary'>
                             Close
+                            <FaTimes/>
                         </Button>
                     </div>
                 </CardContent>
