@@ -1,6 +1,6 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
-    import {provideIcon} from './icon.service';
+import {provideIcon} from './icon.service';
 
 const styles = {
   main: {
