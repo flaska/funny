@@ -24,9 +24,15 @@ const theme = createMuiTheme({
 });
 
 const FeedOptions = [
-    {name: 'Funny', url: '/api/reddit/feed?subreddit=funny&channel=hot', icon: 'sentiment_very_satisfied'},
-    {name: 'Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot', icon: 'photo_camera'},
-    {name: 'Aww', url: '/api/reddit/feed?subreddit=aww&channel=hot', icon: 'fa_paw'}
+    {name: 'Funny', url: '/api/reddit/feed?subreddit=funny&channel=hot', icon: 'md_sentiment_very_satisfied'},
+    {name: 'World News', url: '/api/reddit/feed?subreddit=worldnews&channel=hot', icon: 'fa_paw'},
+    {name: 'Pics', url: '/api/reddit/feed?subreddit=pics&channel=hot', icon: 'md_photo_camera'},
+    {name: 'Science', url: '/api/reddit/feed?subreddit=science&channel=hot', icon: 'fa_flask'},
+    {name: 'Gaming', url: '/api/reddit/feed?subreddit=gaming&channel=hot', icon: 'fa_paw'},
+    {name: 'Today I Learned...', url: '/api/reddit/feed?subreddit=todayilearned&channel=hot', icon: 'fa_paw'},
+    {name: 'Videos', url: '/api/reddit/feed?subreddit=videos&channel=hot', icon: 'fa_paw'},
+    {name: 'Movies', url: '/api/reddit/feed?subreddit=movies&channel=hot', icon: 'fa_paw'},
+    {name: 'Aww', url: '/api/reddit/feed?subreddit=aww&channel=hot', icon: 'fa_paw'},
 ];
 export class Main extends React.Component {
     constructor(props){
