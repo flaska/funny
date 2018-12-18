@@ -26,15 +26,10 @@ export class FeedItemContent extends React.Component {
         if (postData.type==='image') return <ImageLoader src={postData.url} imgProps={{style:styles.content}} preloader={()=><CircularProgress style={styles.spinner}/>}/>;
         if (postData.type==='hosted:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
         if (postData.type==='rich:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
-        if (postData.type==='link') return this.openLinkUrl(postData.url);
     }
 
     openOriginalUrl(){
         window.open('https://www.reddit.com' + this.props.postData.permalink, "_blank");
-    }
-
-    openLinkUrl(url){
-        window.open(url, "_blank");
     }
 
     render(){

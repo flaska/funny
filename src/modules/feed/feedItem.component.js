@@ -34,11 +34,16 @@ const styles = {
 export class FeedItem extends React.Component {
     state = {showContent: false,};
     toggleContent(){
+        if (this.props.postData.type==='link') return this.openLinkUrl(this.props.postData.url);;
         if (this.state.showContent) this.setState({showContent: false});
         else this.setState({showContent: true});
     }
     showContent(){
         if (this.state.showContent) return <FeedItemContent postData={this.props.postData} closeContent={()=>this.toggleContent()}/>;
+    }
+
+    openLinkUrl(url){
+        window.open(url, "_blank");
     }
     render() {
         return (
