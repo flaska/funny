@@ -1,6 +1,11 @@
 const preloadApi = require('./preload/redditPreloadApi'),
     routes = require('./deliver/redditRoutes');
 
+routes.get('/refresh', (req, res)=>{
+    preloadAllFeeds();
+    res.send();
+});
+
 function preloadFeed(subreddit, channel){
     preloadApi.deleteComments(subreddit, (err)=>{
         if (err) return console.error(err);
@@ -20,16 +25,20 @@ function preloadFeed(subreddit, channel){
 
 }
 
+function preloadAllFeeds(){
+    feeds.forEach(f=>{
+        preloadFeed(f, 'hot');
+    });
+};
+
 const feeds = ['funny', 'pics', 'aww'];
 
 exports.init = (app)=>{
     app.use('/api/reddit', routes);
-    feeds.forEach(f=>{
-        preloadFeed(f, 'hot');
-    });
+    preloadAllFeeds();
     setInterval(()=>{
         feeds.forEach(f=>{
-            preloadFeed(f, 'hot');
+            preloadAllFeeds();
         });
     }, 15 * 60 * 1000);
 };

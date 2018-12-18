@@ -27,3 +27,14 @@
 Cypress.Commands.add('homepage', ()=>{
     cy.visit('http://localhost:4001');
 });
+
+before(function () {
+    cy.request('http://localhost:4000/api/reddit/refresh').then((response)=>{
+        cy.log('Latest data reloaded');
+    });
+    cy.wait(1000);
+});
+
+
+
+
