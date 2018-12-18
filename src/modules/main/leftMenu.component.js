@@ -7,12 +7,13 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
 import {provideIcon} from '../utils/icon.service';
 import Typography from "@material-ui/core/Typography";
-
+import Divider from '@material-ui/core/Divider';
 
 const styles = {
     feedsTitle: {
         marginTop: 15,
-        marginLeft: 25
+        marginLeft: 25,
+        marginBottom: 10
     },
     feedsIcon: {
         marginRight: 10
@@ -40,6 +41,7 @@ export class LeftMenu extends React.Component {
                     <RssFeedIcon style={styles.feedsIcon}/>
                     Feeds
                 </Typography>
+                <Divider/>
                 <List>
                     {this.getFeedOptions()}
                 </List>
