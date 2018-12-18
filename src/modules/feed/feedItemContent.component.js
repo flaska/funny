@@ -23,11 +23,16 @@ export class FeedItemContent extends React.Component {
     renderContent(postData){
         if (postData.type==='image') return <ImageLoader src={postData.url} imgProps={{style:styles.content}} preloader={()=><CircularProgress style={styles.spinner}/>}/>;
         if (postData.type==='hosted:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
-        if (postData.type==='link') return <embed src={postData.url} style={styles.content}/>;
+        if (postData.type==='rich:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
+        if (postData.type==='link') return this.openLinkUrl(postData.url);
     }
 
-    openSourceUrl(){
+    openOriginalUrl(){
         window.open('https://www.reddit.com' + this.props.postData.permalink, "_blank");
+    }
+
+    openLinkUrl(url){
+        window.open(url, "_blank");
     }
 
     render(){
@@ -35,9 +40,9 @@ export class FeedItemContent extends React.Component {
             <Card>
                 {this.renderContent(this.props.postData)}
                 <CardContent>
-                    <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>;
+                    <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
                     <div style={styles.buttons}>
-                        <Button color="primary" onClick={()=>this.openSourceUrl()}>
+                        <Button color="primary" onClick={()=>this.openOriginalUrl()}>
                             All Comments
                         </Button>
                         <Button onClick={()=>this.props.closeContent()}>
