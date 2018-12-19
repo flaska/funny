@@ -28,13 +28,6 @@ Cypress.Commands.add('homepage', ()=>{
     cy.visit('http://localhost:4001');
 });
 
-// before(function () {
-//     cy.request('http://localhost:4000/api/reddit/refresh').then((response)=>{
-//         cy.log('Latest data reloaded');
-//     });
-//     cy.wait(1000);
-// });
-
 Cypress.Commands.add('getFeed', (subreddit, feed, from, size)=>{
     return cy.request(`http://localhost:4000/api/reddit/feed?subreddit=${subreddit}&channel=${feed}&from=${from}&size=${size}`);
 });
@@ -42,4 +35,26 @@ Cypress.Commands.add('getFeed', (subreddit, feed, from, size)=>{
 
 Cypress.Commands.add('getComments', (postId)=>{
     return cy.request(`http://localhost:4000/api/reddit/comments?postId=${postId}`);
+});
+
+Cypress.Commands.add('checkPostContent', (index, postData)=>{
+
+});
+
+Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
+    cy.get('#feedList .feedItem').eq(index).contains(title);
+});
+
+Cypress.Commands.add('findPostByType', (subreddit, feed, type)=>{
+    cy.getFeed(subreddit, feed, 0, 10).then((response)=>{
+        let result;
+        response.body.posts.forEach((postData, index)=>{
+            if (postData.type === type && !result) result  = {post: postData, index: index};
+        });
+        return result;
+    });
+});
+
+Cypress.Commands.add('openPostByIndex', (index)=>{
+    cy.get('#feedList .feedItem .postTitle').eq(index).click();
 });

@@ -4,8 +4,8 @@ describe('Feed List', function() {
         cy.get('#feedList').find('.feedItem').should('have.length', 10);
         cy.getFeed('funny', 'hot', 0, 10).then((response)=>{
             let posts = response.body.posts;
-            cy.get('#feedList .feedItem').eq(0).contains(posts[0].title);
-            cy.get('#feedList .feedItem').eq(1).contains(posts[1].title);
+            cy.checkPostTitleByIndex(0, posts[0].title);
+            cy.checkPostTitleByIndex(1, posts[1].title);
         });
     });
     it('Can see more posts from /r/Funny', ()=>{
@@ -13,7 +13,7 @@ describe('Feed List', function() {
         cy.get('#feedList').find('.feedItem').should('have.length', 20);
         cy.getFeed('funny', 'hot', 10, 10).then((response)=>{
             let posts = response.body.posts;
-            cy.get('#feedList .feedItem').eq(10).contains(posts[0].title);
+            cy.checkPostTitleByIndex(10, posts[0].title);
         });
     });
 });
