@@ -21,12 +21,12 @@ export class CommentsList extends React.Component {
     render() {
         if (!this.state.dataFetched) return null;
         return (
-            <React.Fragment>
+            <div className='commentsContainer'>
                 <Typography color="primary" style={styles.hint}>
                     Top comments
                 </Typography>
                 <Comment commentData={this.state.commentsRoot}></Comment>
-            </React.Fragment>
+            </div>
         );
     }
 }

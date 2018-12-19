@@ -37,12 +37,16 @@ Cypress.Commands.add('getComments', (postId)=>{
     return cy.request(`http://localhost:4000/api/reddit/comments?postId=${postId}`);
 });
 
-Cypress.Commands.add('checkPostContent', (index, postData)=>{
-
+Cypress.Commands.add('checkPostContentTypeByIndex', (index, type)=>{
+    // cy.get('#feedList .feedItem').eq(index).contains(comment);
 });
 
 Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
     cy.get('#feedList .feedItem').eq(index).contains(title);
+});
+
+Cypress.Commands.add('checkPostCommentsByIndex', (index, comment)=>{
+    cy.get('#feedList .feedItem').eq(index).find('.commentsContainer').contains(comment);
 });
 
 Cypress.Commands.add('findPostByType', (subreddit, feed, type)=>{
