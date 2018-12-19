@@ -1,5 +1,4 @@
 import React from 'react';
-// import {FaSadCry} from 'react-icons/fa';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import Typography from "@material-ui/core/Typography";
 

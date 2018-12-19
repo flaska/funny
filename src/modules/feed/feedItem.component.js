@@ -60,7 +60,7 @@ export class FeedItem extends React.Component {
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <FeedItemMetadata postData={this.props.postData}/>
+                    <FeedItemMetadata onCommentsClick={()=>{this.setState({showContent: true})}} postData={this.props.postData}/>
                 </Card>
                 {this.showContent()}
             </div>

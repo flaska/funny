@@ -27,7 +27,11 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
                         case 'image': jsonPost.url = rPost.url; break;
                         case 'hosted:video': jsonPost.url = rPost.media.reddit_video.fallback_url; break;
                         case 'rich:video': jsonPost.url = rPost.url; break;
-                        case 'link':  if (rPost.preview.reddit_video_preview) jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;; break;
+                        case 'link':  {
+                            if (rPost.preview.reddit_video_preview) jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;
+                            else jsonPost.url = rPost.url;
+                            break;
+                        }
                         default: jsonPost.url = rPost.url;
                     }
 
