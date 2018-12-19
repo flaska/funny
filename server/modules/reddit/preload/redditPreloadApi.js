@@ -10,8 +10,8 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
             .filter(redditPost=>!redditPost.data.distinguished)
             .filter(redditPost=>!redditPost.data.over_18)
             .forEach((redditPost)=>{
+                let rPost = redditPost.data;
                 try {
-                    let rPost = redditPost.data;
                     let jsonPost = {
                         title: rPost.title,
                         thumbnail : rPost.thumbnail,
@@ -23,13 +23,15 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
                         type: rPost.post_hint
                     };
 
+                    switch(jsonPost.type) {
+                        case 'image': jsonPost.url = rPost.url; break;
+                        case 'hosted:video': jsonPost.url = rPost.media.reddit_video.fallback_url; break;
+                        case 'rich:video': jsonPost.url = rPost.url; break;
+                        case 'link':  if (rPost.preview.reddit_video_preview) jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;; break;
+                        default: jsonPost.url = rPost.url;
+                    }
 
-                    if (jsonPost.type === 'image') jsonPost.url = rPost.url;
-                    if (jsonPost.type === 'hosted:video') jsonPost.url = rPost.media.reddit_video.fallback_url;
-                    if (jsonPost.type === 'rich:video') jsonPost.url = rPost.url;
-                    if (jsonPost.type === 'link' && rPost.preview.reddit_video_preview) jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;
                     result.push(jsonPost);
-
                 }catch (e) {
                     console.log(JSON.stringify(rPost));
                     throw e;

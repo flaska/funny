@@ -6,6 +6,7 @@ import {FeedItem} from './feedItem.component';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from "@material-ui/core/Typography";
+import {Offline} from "../utils/offline.component";
 
 const styles = {
     main: {
@@ -27,7 +28,7 @@ const styles = {
 
 export class FeedList extends React.Component {
     chunkSize = 10;
-    state = {posts: [], loading: true};
+    state = {posts: [], loading: true, offline: false};
 
     constructor(props){
         super(props);
@@ -51,6 +52,8 @@ export class FeedList extends React.Component {
             else {
                 this.setState({posts: this.state.posts.concat(response.data.posts)});
             }
+        }).catch((error)=>{
+            this.setState({offline: true, loading: false});
         });
     }
 
@@ -65,7 +68,8 @@ export class FeedList extends React.Component {
                 <br/>
             </React.Fragment>
         );
-        else return (
+        if (this.state.offline) return <Offline/>
+        return (
             <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()}>
                 More Fun
             </Button>

@@ -28,6 +28,7 @@ export class Comment extends React.Component {
         if (commentData.body) return styles.replies;
     }
     render() {
+        if (!this.props.commentData || !this.props.commentData.replies) return null;
         return (
             <React.Fragment>
                 {this.showBody(this.props.commentData)}
