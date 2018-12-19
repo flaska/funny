@@ -28,13 +28,18 @@ Cypress.Commands.add('homepage', ()=>{
     cy.visit('http://localhost:4001');
 });
 
-before(function () {
-    cy.request('http://localhost:4000/api/reddit/refresh').then((response)=>{
-        cy.log('Latest data reloaded');
-    });
-    cy.wait(1000);
+// before(function () {
+//     cy.request('http://localhost:4000/api/reddit/refresh').then((response)=>{
+//         cy.log('Latest data reloaded');
+//     });
+//     cy.wait(1000);
+// });
+
+Cypress.Commands.add('getFeed', (subreddit, feed, from, size)=>{
+    return cy.request(`http://localhost:4000/api/reddit/feed?subreddit=${subreddit}&channel=${feed}&from=${from}&size=${size}`);
 });
 
 
-
-
+Cypress.Commands.add('getComments', (postId)=>{
+    return cy.request(`http://localhost:4000/api/reddit/comments?postId=${postId}`);
+});
