@@ -38,7 +38,7 @@ Cypress.Commands.add('getComments', (postId)=>{
 });
 
 Cypress.Commands.add('checkPostContentTypeByIndex', (index, type)=>{
-    // cy.get('#feedList .feedItem').eq(index).contains(comment);
+    if (type === 'image') cy.get('#feedList .feedItem').eq(index).find('.feedItemContent').find('img');
 });
 
 Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
@@ -61,4 +61,11 @@ Cypress.Commands.add('findPostByType', (subreddit, feed, type)=>{
 
 Cypress.Commands.add('openPostByIndex', (index)=>{
     cy.get('#feedList .feedItem .postTitle').eq(index).click();
+});
+
+Cypress.Commands.add('switchToFeed', (feedName)=>{
+    cy.get('#openLeftMenu').click();
+    cy.contains(feedName).click();
+    cy.get('body').click(300,300);
+
 });

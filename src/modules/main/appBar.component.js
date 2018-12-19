@@ -25,7 +25,7 @@ export class SlackerAppBar extends React.Component {
             <div className={styles.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton color="inherit" aria-label="Menu" onClick={()=>this.props.openMenu()}>
+                        <IconButton color="inherit" aria-label="Menu" onClick={()=>this.props.openMenu()} id='openLeftMenu'>
                             <MenuIcon />
                         </IconButton>
                         <img alt='4slack logo' style={styles.logo} src='./logo-rect.png'/>

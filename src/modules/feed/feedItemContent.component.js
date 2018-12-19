@@ -25,7 +25,6 @@ export class FeedItemContent extends React.Component {
     renderContent(postData){
         if (postData.type==='image') return <ImageLoader src={postData.url} imgProps={{style:styles.content}} preloader={()=><CircularProgress style={styles.spinner}/>}/>;
         if (postData.type==='hosted:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
-        if (postData.type==='rich:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
     }
 
     openOriginalUrl(){
@@ -34,7 +33,7 @@ export class FeedItemContent extends React.Component {
 
     render(){
         return(
-            <Card>
+            <Card className='feedItemContent'>
                 {this.renderContent(this.props.postData)}
                 <CardContent>
                     <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
