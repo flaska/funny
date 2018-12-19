@@ -38,7 +38,14 @@ Cypress.Commands.add('getComments', (postId)=>{
 });
 
 Cypress.Commands.add('checkPostContentTypeByIndex', (index, type)=>{
-    if (type === 'image') cy.get('#feedList .feedItem').eq(index).find('.feedItemContent').find('img');
+    if (type === 'image') {
+        cy.openPostByIndex(index);
+        cy.get('#feedList .feedItem').eq(index).find('.feedItemContent').find('img');
+    }
+    if (type === 'rich:video') {
+        // cy.get('#feedList .feedItem .postTitle').eq(index).should('have.attr', 'target', '_blank')
+    }
+
 });
 
 Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
@@ -46,6 +53,7 @@ Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
 });
 
 Cypress.Commands.add('checkPostCommentsByIndex', (index, comment)=>{
+    cy.openPostByIndex(index);
     cy.get('#feedList .feedItem').eq(index).find('.commentsContainer').contains(comment);
 });
 
@@ -67,5 +75,4 @@ Cypress.Commands.add('switchToFeed', (feedName)=>{
     cy.get('#openLeftMenu').click();
     cy.contains(feedName).click();
     cy.get('body').click(300,300);
-
 });

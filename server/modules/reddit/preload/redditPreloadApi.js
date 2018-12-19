@@ -20,19 +20,13 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
                         dateUtc: new Date(rPost.created_utc * 1000),
                         permalink: rPost.permalink,
                         id: rPost.id,
-                        type: rPost.post_hint
+                        type: rPost.post_hint,
+                        url: rPost.url
                     };
 
+                    if (!jsonPost.type) jsonPost.type = 'link';
                     switch(jsonPost.type) {
-                        case 'image': jsonPost.url = rPost.url; break;
                         case 'hosted:video': jsonPost.url = rPost.media.reddit_video.fallback_url; break;
-                        case 'rich:video': jsonPost.url = rPost.url; break;
-                        case 'link':  {
-                            if (rPost.preview.reddit_video_preview) jsonPost.url = rPost.preview.reddit_video_preview.fallback_url;
-                            else jsonPost.url = rPost.url;
-                            break;
-                        }
-                        default: jsonPost.url = rPost.url;
                     }
 
                     result.push(jsonPost);
