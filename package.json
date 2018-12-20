@@ -9,7 +9,7 @@
     "config": "^3.0.0",
     "express": "^4.16.4",
     "mongoose": "^5.3.15",
-    "node-http-proxy": "^0.2.3",
+    "http-proxy": "1.17.0",
     "open-graph-scraper": "^3.6.0",
     "path": "^0.12.7",
     "request": "^2.88.0"
@@ -45,7 +45,6 @@
     "react-meta-tags": "^0.7.2",
     "react-router": "^4.3.1",
     "react-scripts": "2.1.1",
-    "source-map-explorer": "^1.6.0",
-    "http-proxy": "1.17.0"
+    "source-map-explorer": "^1.6.0"
   }
 }
