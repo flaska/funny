@@ -13,9 +13,6 @@ const styles = {
         height: 42,
         marginLeft: 23,
         marginRight: 23
-    },
-    feedChoice: {
-        color: 'white'
     }
 };
 
@@ -28,7 +25,7 @@ export class SlackerAppBar extends React.Component {
                         <IconButton color="inherit" aria-label="Menu" onClick={()=>this.props.openMenu()} id='openLeftMenu'>
                             <MenuIcon />
                         </IconButton>
-                        <img alt='4slack logo' style={styles.logo} src='./logo-rect.png'/>
+                        <img alt='4slack logo' style={styles.logo} src='./logo-appbar-white.png'/>
                         <Typography variant='h5' color="inherit">
                             {this.props.feed.name}
                         </Typography>
