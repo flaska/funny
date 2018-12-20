@@ -53,7 +53,7 @@ export class FeedItem extends React.Component {
                 <Card style={styles.card}>
                     <CardMedia
                         style={styles.img}
-                        component={()=><PostThumbnail postData={this.props.postData}/>}
+                        component={()=><PostThumbnail postData={this.props.postData} onClick={()=>{this.toggleContent()}}/>}
                         onClick={()=>{this.toggleContent()}}
                     />
                     <CardContent style={styles.content}>

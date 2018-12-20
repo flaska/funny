@@ -37,10 +37,7 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
                 result.push(jsonPost);
             });
         Promise.all(promises).then(()=>{
-        // setTimeout(()=>{
             redditLoadDb.savePosts(subreddit, channel, result, cb);
-        // },5000);
-
         });
     });
 };

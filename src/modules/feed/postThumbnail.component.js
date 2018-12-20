@@ -4,24 +4,38 @@ import { FaImage, FaVideo, FaGrinAlt } from 'react-icons/fa';
 
 const styles = {
     main: {
-      float: 'left'
+        float: 'left',
+        cursor: 'pointer',
+        width: 150,
+        textAlign: 'center'
     },
-    content: {
-        // width: '100%',
-        // backgroundColor: '#1b1b1b'
+    img: {
+        width: 150
     },
+    icon: {
+        zoom: 4,
+        marginTop: 5
+    }
 };
 
 
 export class PostThumbnail extends React.Component {
     getThumbnailIcon(postData){
-        if (postData.type === 'image') return <FaImage/>;
-        if (postData.type === 'hosted:video') return <FaVideo/>;
-        if (postData.type === 'rich:video') return <FaVideo/>;
-        if (postData.type === 'link') return <FaGrinAlt/>;
-        return <FaGrinAlt/>;
+        if (postData.type === 'image') return <FaImage style={styles.icon}/>;
+        if (postData.type === 'hosted:video') return <FaVideo style={styles.icon}/>;
+        if (postData.type === 'rich:video') return <FaVideo style={styles.icon}/>;
+        if (postData.type === 'link') return <FaGrinAlt style={styles.icon}/>;
+        return <FaGrinAlt style={styles.icon}/>;
+    }
+    getThumbnail(postData){
+        if (postData.thumbnail) return <ImageLoader src={postData.thumbnail} imgProps={{style: styles.img}} preloader={()=>this.getThumbnailIcon(postData)}/>
+        if (!postData.thumbnail) return this.getThumbnailIcon(postData)
     }
     render() {
-        return <ImageLoader src={this.props.postData.thumbnail} imgProps={{style: styles.main}} preloader={()=>this.getThumbnailIcon(this.props.postData)}/>
+        return (
+            <div style={styles.main} onClick={()=>this.props.onClick()}>
+                {this.getThumbnail(this.props.postData)}
+            </div>
+        );
     };
 };

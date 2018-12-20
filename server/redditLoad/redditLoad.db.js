@@ -11,7 +11,13 @@ exports.savePosts = (subreddit, channel, posts, cb)=>{
         posts: posts
     }, {
         upsert: true
-    }).lean().exec(cb);
+    }).lean().exec((err)=>{
+        if (err) throw err;
+        redditDb.Feed.findOne({
+            subreddit: subreddit,
+            channel: channel,
+        }).exec(cb);
+    });
 };
 
 exports.saveComments = (subreddit, postId, replies, cb)=>{
