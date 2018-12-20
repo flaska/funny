@@ -36,7 +36,7 @@ export class LeftMenu extends React.Component {
     }
     render(){
         return(
-            <Drawer open={this.props.open} onClose={()=>this.props.onClose()}>
+            <Drawer open={this.props.open} onClose={()=>this.props.onClose()} id='leftMenu'>
                 <Typography variant="h5" style={styles.feedsTitle}>
                     <RssFeedIcon style={styles.feedsIcon}/>
                     Feeds

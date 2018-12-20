@@ -9,7 +9,7 @@ describe('Feed List', function() {
         });
     });
     it('Can see more posts from /r/Funny', ()=>{
-        cy.contains('More Fun').click();
+        cy.getMorePosts();
         cy.get('#feedList').find('.feedItem').should('have.length', 20);
         cy.getFeed('funny', 'hot', 10, 10).then((response)=>{
             let posts = response.body.posts;

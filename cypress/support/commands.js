@@ -28,51 +28,10 @@ Cypress.Commands.add('homepage', ()=>{
     cy.visit('http://localhost:4001');
 });
 
-Cypress.Commands.add('getFeed', (subreddit, feed, from, size)=>{
-    return cy.request(`http://localhost:4000/api/reddit/feed?subreddit=${subreddit}&channel=${feed}&from=${from}&size=${size}`);
-});
 
 
-Cypress.Commands.add('getComments', (postId)=>{
-    return cy.request(`http://localhost:4000/api/reddit/comments?postId=${postId}`);
-});
 
-Cypress.Commands.add('checkPostContentTypeByIndex', (index, type)=>{
-    if (type === 'image') {
-        cy.openPostByIndex(index);
-        cy.get('#feedList .feedItem').eq(index).find('.feedItemContent').find('img');
-    }
-    if (type === 'rich:video') {
-        // cy.get('#feedList .feedItem .postTitle').eq(index).should('have.attr', 'target', '_blank')
-    }
 
-});
 
-Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
-    cy.get('#feedList .feedItem').eq(index).contains(title);
-});
 
-Cypress.Commands.add('checkPostCommentsByIndex', (index, comment)=>{
-    cy.openPostByIndex(index);
-    cy.get('#feedList .feedItem').eq(index).find('.commentsContainer').contains(comment);
-});
 
-Cypress.Commands.add('findPostByType', (subreddit, feed, type)=>{
-    cy.getFeed(subreddit, feed, 0, 10).then((response)=>{
-        let result;
-        response.body.posts.forEach((postData, index)=>{
-            if (postData.type === type && !result) result  = {post: postData, index: index};
-        });
-        return result;
-    });
-});
-
-Cypress.Commands.add('openPostByIndex', (index)=>{
-    cy.get('#feedList .feedItem .postTitle').eq(index).click();
-});
-
-Cypress.Commands.add('switchToFeed', (feedName)=>{
-    cy.get('#openLeftMenu').click();
-    cy.contains(feedName).click();
-    cy.get('body').click(300,300);
-});
