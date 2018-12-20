@@ -1,6 +1,6 @@
 
 Cypress.Commands.add('findPostByType', (subreddit, feed, type)=>{
-    cy.getFeed(subreddit, feed, 0, 20).then((response)=>{
+    cy.getFeed(subreddit, feed, 0, 30).then((response)=>{
         let result;
         response.body.posts.forEach((postData, index)=>{
             if (postData.type === type && !result) result  = {post: postData, index: index};
