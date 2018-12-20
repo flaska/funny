@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import {FeedItemMetadata} from './feedItemMetadata.component';
 import moment from "moment/moment";
 import {FeedItemContent} from "./feedItemContent.component";
+import {PostThumbnail} from "./postThumbnail.component";
 
 const styles = {
     card: {
@@ -50,11 +51,11 @@ export class FeedItem extends React.Component {
         return (
             <div className='feedItem'>
                 <Card style={styles.card}>
-                        <CardMedia
-                            style={styles.img}
-                            image={this.props.postData.thumbnail}
-                            onClick={()=>{this.toggleContent()}}
-                        />
+                    <CardMedia
+                        style={styles.img}
+                        component={()=><PostThumbnail postData={this.props.postData}/>}
+                        onClick={()=>{this.toggleContent()}}
+                    />
                     <CardContent style={styles.content}>
                             <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>
                                 {this.props.postData.title}
