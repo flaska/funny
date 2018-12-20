@@ -1,5 +1,5 @@
 const request = require('request'),
-    redditDb = require('../db/redditDb')
+    redditLoadDb = require('./redditLoad.db')
 ;
 
 exports.fetchPosts = (subreddit, channel, cb)=>{
@@ -37,7 +37,7 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
 
 
             });
-        redditDb.savePosts(subreddit, channel, result, cb);
+        redditLoadDb.savePosts(subreddit, channel, result, cb);
     });
 };
 
@@ -62,10 +62,10 @@ exports.fetchComments = (subreddit, postId, cb)=>{
         if (!JSON.parse(body)[1] || !JSON.parse(body)[1].data) return;
         let result = {replies: []};
         JSON.parse(body)[1].data.children.slice(0,2).forEach((c)=>{getReplies(c, result.replies, 0)});
-        redditDb.saveComments(subreddit, postId, result, cb);
+        redditLoadDb.saveComments(subreddit, postId, result, cb);
     });
 };
 
 exports.deleteComments = (subreddit, cb)=>{
-    redditDb.deleteComments(subreddit, cb);
+    redditLoadDb.deleteComments(subreddit, cb);
 };
