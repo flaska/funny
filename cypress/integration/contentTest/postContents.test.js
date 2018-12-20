@@ -14,13 +14,12 @@ describe('Post Contents', function() {
             cy.checkPostContentTypeByIndex(result.index, 'hosted:video');
         });
     });
-    //
-    // it('Can view "rich:video"', function() {
-    //     cy.switchToFeed('Videos');
-    //     cy.findPostByType('videos', 'hot', 'rich:video').then((result)=>{
-    //         cy.checkPostContentTypeByIndex(result.index, 'rich:video');
-    //     });
-    // });
+    it('Can view "rich:video"', function() {
+        cy.switchToFeed('Videos');
+        cy.findPostByType('videos', 'hot', 'rich:video').then((result)=>{
+            cy.checkPostExternalContentOpenByIndex(result.index, result.post.url);
+        });
+    });
     //
     // it('Can view "link"', function() {
     //     cy.switchToFeed('Videos');

@@ -14,11 +14,9 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './shared.commands'
 import './feedList.commands'
 import './post.commands'
 import './leftBar.commands'
 import './api.commands'
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
