@@ -14,7 +14,7 @@ export class PostActions extends React.Component {
         else return <InfoChip icon='fa_eye-slash' clickable>Close</InfoChip>;
     }
     showToggleCommentsIcon(){
-        if (!this.props.parentState.showComments) return <InfoChip icon='md_comment' clickable color='primary'>{formatNumber(this.props.postData.numComments)}</InfoChip>
+        if (!this.props.parentState.showComments) return <InfoChip icon='md_comment' clickable color='primary'>Comments</InfoChip>
         else return <InfoChip icon='md_comment' clickable>Close</InfoChip>;
     }
     render(){

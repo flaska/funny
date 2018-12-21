@@ -1,4 +1,4 @@
-import {MdSentimentVerySatisfied, MdFace, MdPhotoCamera, MdComment} from 'react-icons/md';
+import {MdSentimentVerySatisfied, MdFace, MdPhotoCamera, MdComment, MdThumbUp} from 'react-icons/md';
 import {FaPaw, FaFlask, FaGamepad, FaLightbulb, FaVideo, FaFilm, FaGlobeAmericas, FaEye, FaExternalLinkAlt, FaEyeSlash} from 'react-icons/fa';
 import React from 'react';
 
@@ -10,6 +10,7 @@ const styles = {
 
 export function provideIcon(iconName){
     switch(iconName) {
+        case 'md_thumb_up': return <MdThumbUp style={styles.icon}/>;
         case 'md_comment': return <MdComment style={styles.icon}/>;
         case 'md_face': return <MdFace style={styles.icon}/>;
         case 'md_sentiment_very_satisfied': return <MdSentimentVerySatisfied style={styles.icon}/>;
@@ -24,9 +25,6 @@ export function provideIcon(iconName){
         case 'fa_eye': return <FaEye style={styles.icon}/>;
         case 'fa_external-link-alt': return <FaExternalLinkAlt style={styles.icon}/>;
         case 'fa_eye-slash': return <FaEyeSlash style={styles.icon}/>;
-
-
-
     }
 
     return <div></div>;
