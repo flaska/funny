@@ -3,10 +3,12 @@ import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import {FeedItemMetadata} from './feedItemMetadata.component';
 import moment from "moment/moment";
-import {FeedItemContent} from "./feedItemContent.component";
+import {PostContent} from "./postContent.component";
 import {PostThumbnail} from "./postThumbnail.component";
+import {CommentsList} from "../comments/commentsList.component";
+import {PostActions} from "./postActions.component";
+
 
 const styles = {
     card: {
@@ -32,24 +34,42 @@ const styles = {
     }
 };
 
-export class FeedItem extends React.Component {
-    state = {showContent: false,};
+export class Post extends React.Component {
+    state = {showContent: false, showComments: false};
     toggleContent(){
         if (this.props.postData.type==='link') return this.openLinkUrl(this.props.postData.url);;
         if (this.props.postData.type==='rich:video') return this.openLinkUrl(this.props.postData.url);;
         if (this.state.showContent) this.setState({showContent: false});
         else this.setState({showContent: true});
     }
+
+    toggleComments(){
+        if (this.state.showComments) this.setState({showComments: false});
+        else this.setState({showComments: true});
+    }
+
     showContent(){
-        if (this.state.showContent) return <FeedItemContent postData={this.props.postData} closeContent={()=>this.toggleContent()}/>;
+        if (this.state.showContent) return <PostContent postData={this.props.postData} closeContent={()=>this.toggleContent()}/>;
     }
 
     openLinkUrl(url){
         window.open(url, "_blank");
     }
+    openOriginalLink(){
+        this.openLinkUrl('https://www.reddit.com/' + this.props.postData.permalink);
+    }
+    showComments(){
+        if (this.state.showComments) return (
+            <Card>
+            <CardContent>
+                <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
+            </CardContent>
+            </Card>
+        );
+    }
     render() {
         return (
-            <div className='feedItem'>
+            <div className='post'>
                 <Card style={styles.card}>
                     <CardMedia
                         style={styles.img}
@@ -63,9 +83,10 @@ export class FeedItem extends React.Component {
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <FeedItemMetadata onCommentsClick={()=>{this.setState({showContent: true})}} postData={this.props.postData}/>
+                    <PostActions postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
                 </Card>
                 {this.showContent()}
+                {this.showComments()}
             </div>
         );
     }

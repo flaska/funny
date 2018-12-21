@@ -6,7 +6,7 @@ describe('Science - Content Test', function() {
     });
 
     it('Has thumbnails', function() {
-        cy.get('#feedList .feedItem').eq(0).find('img');
+        cy.get('#feedList .post').eq(0).find('img');
     });
 
     it('Can view "link"', function() {

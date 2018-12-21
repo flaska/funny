@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import {FeedItem} from './feedItem.component';
+import {Post} from './post.component';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from "@material-ui/core/Typography";
@@ -82,7 +82,7 @@ export class FeedList extends React.Component {
                 <List style={styles.list} id='feedList'>
                     {this.state.posts.map(post=>
                         <ListItem style={styles.listItem} key={post.id}>
-                            <FeedItem postData={post}></FeedItem>
+                            <Post postData={post}></Post>
                         </ListItem>
                     )}
                 </List>

@@ -1,7 +1,7 @@
 describe('Feed List', function() {
     it('Sees ten posts from /r/Funny', function() {
         cy.homepage();
-        cy.get('#feedList').find('.feedItem').should('have.length', 10);
+        cy.get('#feedList').find('.post').should('have.length', 10);
         cy.getFeed('funny', 'hot', 0, 10).then((response)=>{
             let posts = response.body.posts;
             cy.checkPostTitleByIndex(0, posts[0].title);
@@ -10,7 +10,7 @@ describe('Feed List', function() {
     });
     it('Can see more posts from /r/Funny', ()=>{
         cy.getMorePosts();
-        cy.get('#feedList').find('.feedItem').should('have.length', 20);
+        cy.get('#feedList').find('.post').should('have.length', 20);
         cy.getFeed('funny', 'hot', 10, 10).then((response)=>{
             let posts = response.body.posts;
             cy.checkPostTitleByIndex(10, posts[0].title);
