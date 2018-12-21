@@ -2,6 +2,10 @@ Cypress.Commands.add('openPostByIndex', (index)=>{
     return cy.get('#feedList .post .postTitle').eq(index).click();
 });
 
+Cypress.Commands.add('openPostCommentsByIndex', (index)=>{
+    return cy.get('#feedList .post .postActions_openComments').eq(index).click();
+});
+
 Cypress.Commands.add('checkPostContentTypeByIndex', (index, type)=>{
     if (type === 'image') {
         cy.openPostByIndex(index);
@@ -30,7 +34,7 @@ Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
 });
 
 Cypress.Commands.add('checkPostCommentsByIndex', (index, comment)=>{
-    cy.openPostByIndex(index);
+    cy.openPostCommentsByIndex(index);
     let commentContainer = cy.get('#feedList .post').eq(index).find('.commentsContainer');
     let commentLines = comment.split('\n').filter(line=>line!="");
     commentLines.forEach((line)=>{
