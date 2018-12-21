@@ -2,9 +2,14 @@ import React from "react";
 import axios from "axios/index";
 import {Comment} from './comment.component'
 import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const styles = {
-    hint: {display: 'inline-block'}
+    hint: {display: 'inline-block'},
+    progress: {
+        textAlign: 'center',
+        padding: 10
+    }
 };
 
 export class CommentsList extends React.Component {
@@ -19,7 +24,7 @@ export class CommentsList extends React.Component {
         });
     }
     render() {
-        if (!this.state.dataFetched) return null;
+        if (!this.state.dataFetched) return (<div style={styles.progress}><CircularProgress/></div>);
         return (
             <div className='commentsContainer'>
                 <Typography color="primary" style={styles.hint}>
