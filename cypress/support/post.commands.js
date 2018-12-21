@@ -16,7 +16,7 @@ Cypress.Commands.add('checkPostContentTypeByIndex', (index, type)=>{
 
 Cypress.Commands.add('checkPostExternalContentOpenByIndex', (index, url)=>{
     cy.window().then((w)=>{
-        const spy = cy.spy(w, 'open').withArgs(url).as('openExternalUrl');
+        const spy = cy.spy(w, 'open').withArgs(url, '_blank').as('openExternalUrl');
         cy.openPostByIndex(index).then(() => {
             expect(spy).to.be.called;
         });
@@ -33,7 +33,6 @@ Cypress.Commands.add('checkPostCommentsByIndex', (index, comment)=>{
     cy.openPostByIndex(index);
     let commentContainer = cy.get('#feedList .feedItem').eq(index).find('.commentsContainer');
     let commentLines = comment.split('\n').filter(line=>line!="");
-    debugger;
     commentLines.forEach((line)=>{
         commentContainer.contains(line);
     });
