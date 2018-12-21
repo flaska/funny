@@ -46,7 +46,7 @@ export class Main extends React.Component {
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
     }
     selectFeed(f){
-        this.setState({feed: f})
+        this.setState({feed: f, leftMenuOpen: false});
     }
     render() {
         return (
