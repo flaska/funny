@@ -21,4 +21,10 @@ describe('Post Action Bar - Comments - Test', function() {
         cy.checkPostCommentsByIndex(indexOfTestPost, firstComment);
     });
 
+    it('Bottom action bar closes comments', ()=>{
+        bottomActionBar(indexOfTestPost).contains('Close');
+        bottomActionBar(indexOfTestPost).find('.postActions_openComments').click();
+        cy.get('.post').eq(indexOfTestPost).contains(firstComment).should('not.exist');
+    });
+
 });
