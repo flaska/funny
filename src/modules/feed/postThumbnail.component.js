@@ -30,7 +30,7 @@ class _PostThumbnail extends React.Component {
     }
 
     getThumbnail(postData){
-        if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)} />
+        if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)}  className='postThumbnail'/>
         if (!postData.thumbnail) return this.getThumbnailIcon(postData)
     }
     render() {

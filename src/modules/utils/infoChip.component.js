@@ -5,19 +5,22 @@ import withWidth, {isWidthUp} from '@material-ui/core/withWidth';
 import IconButton from '@material-ui/core/IconButton';
 
 const styles = {
-  chip: {
-      margin: 5,
-      zoom: 0.85
-  },
-  iconButton: {
-      zoom: 0.85,
-      marginLeft: 3
-  }
+    chip: {
+        margin: 5,
+        zoom: 0.85
+    },
+    iconButton: {
+        zoom: 0.85,
+        marginLeft: 3
+    },
+    invisibleText: {
+        display: 'none'
+    }
 };
 
 class _InfoChip extends React.Component {
     render(){
-        if (isWidthUp('sm', this.props.width)) return (
+        if (isWidthUp('sm', this.props.width) || !this.props.responsive) return (
             <Chip
                 icon={provideIcon(this.props.icon)}
                 color={this.props.color}
@@ -29,6 +32,7 @@ class _InfoChip extends React.Component {
         else return (
             <IconButton  size="small" color="primary" aria-label={this.props.children} style={styles.iconButton}>
                 {provideIcon(this.props.icon)}
+                <span style={styles.invisibleText}>{this.props.children}</span>
             </IconButton>
         );
     }
