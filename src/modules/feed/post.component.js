@@ -83,7 +83,7 @@ export class Post extends React.Component {
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <PostActions postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                    <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
                 </Card>
                 {this.showContent()}
                 {this.showComments()}
