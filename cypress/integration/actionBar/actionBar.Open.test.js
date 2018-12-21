@@ -1,8 +1,8 @@
 let topActionBar = (i)=>cy.get('.post').eq(i).find('.topActionBar');
 let bottomActionBar = (i)=>cy.get('.post').eq(i).find('.bottomActionBar');
-let indexOfTestPost ;
+let indexOfTestPost;
 
-describe('Post Action Bar Test', function() {
+describe('Post Action Bar - Open - Test', function() {
     before(function() {
         cy.homepage();
         cy.switchToFeed('Funny');
@@ -27,4 +27,13 @@ describe('Post Action Bar Test', function() {
         topActionBar(indexOfTestPost).find('.postActions_openContent').click();
         cy.get('.post').eq(indexOfTestPost).find('.postContent').should('not.exist');
     });
+
+    it('Should close with bottom action bar', function() {
+        cy.openPostByIndex(indexOfTestPost);
+        bottomActionBar(indexOfTestPost).contains('Close');
+        bottomActionBar(indexOfTestPost).contains('Source');
+        bottomActionBar(indexOfTestPost).find('.postActions_openContent').click();
+        cy.get('.post').eq(indexOfTestPost).find('.postContent').should('not.exist');
+    });
+
 });
