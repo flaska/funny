@@ -9,7 +9,7 @@ describe('Post Action Bar - Comments - Test', function() {
         cy.switchToFeed('Funny');
         cy.findPostByType('funny', 'hot', 'image').then((result)=>{
             indexOfTestPost = result.index;
-            cy.getComments(indexOfTestPost).then((response)=>{
+            cy.getComments(result.post.id).then((response)=>{
                 firstComment = response.body.replies[0].body;
             });
         });
@@ -17,7 +17,7 @@ describe('Post Action Bar - Comments - Test', function() {
 
     it('Bottom action bar opens comments', ()=>{
         cy.openPostByIndex(indexOfTestPost);
-        bottomActionBar(indexOfTestPost).find('.postActions_openComments');
+        bottomActionBar(indexOfTestPost).find('.postActions_openComments').click();
         cy.checkPostCommentsByIndex(indexOfTestPost, firstComment);
     });
 
