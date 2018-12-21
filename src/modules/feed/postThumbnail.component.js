@@ -1,12 +1,12 @@
 import React from "react";
 import { FaImage, FaVideo, FaGrinAlt } from 'react-icons/fa';
-import withWidth, {isWidthUp} from "@material-ui/core/withWidth/index";
+import withWidth from "@material-ui/core/withWidth/index";
+import fixCss from '../utils/fixCss.function';
 
 const styles = {
     main: {
         float: 'left',
         cursor: 'pointer',
-        width: 150,
         textAlign: 'center'
     },
     img: {
@@ -29,17 +29,8 @@ class _PostThumbnail extends React.Component {
         return <FaGrinAlt style={styles.icon}/>;
     }
 
-    fixWidth(style){
-        if(isWidthUp('sm', this.props.width)) return style;
-        else {
-            let s = {...style};
-            s.width = 120;
-            return s;
-        }
-    }
-
     getThumbnail(postData){
-        if (postData.thumbnail) return <img src={postData.thumbnail} style={this.fixWidth(styles.img)} />
+        if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)} />
         if (!postData.thumbnail) return this.getThumbnailIcon(postData)
     }
     render() {

@@ -8,9 +8,8 @@ import {PostContent} from "./postContent.component";
 import {PostThumbnail} from "./postThumbnail.component";
 import {CommentsList} from "../comments/commentsList.component";
 import {PostActions} from "./postActions.component";
-import withWidth, {isWidthUp} from '@material-ui/core/withWidth';
-// import ShowMore from 'react-show-more';
-
+import withWidth from '@material-ui/core/withWidth';
+import fixCss from '../utils/fixCss.function';
 
 const styles = {
     card: {
@@ -18,8 +17,6 @@ const styles = {
         position: 'relative'
     },
     img: {
-        // width: 150,
-        // height: 100,
         float: 'left',
         marginRight: 10,
         cursor: 'pointer'
@@ -48,7 +45,7 @@ const styles = {
     }
 };
 
-export class Post extends React.Component {
+class _Post extends React.Component {
     state = {showContent: false, showComments: false};
     toggleContent(){
         if (this.props.postData.type==='link') return this.openLinkUrl(this.props.postData.url);;
@@ -72,13 +69,7 @@ export class Post extends React.Component {
     openOriginalLink(){
         this.openLinkUrl('https://www.reddit.com' + this.props.postData.permalink);
     }
-    // fixWidth(style){
-    //     if(isWidthUp('sm', this.props.width)) return style;
-    //     else {
-    //         style.width = 120;
-    //         return style;
-    //     }
-    // }
+
     showComments(){
         if (this.state.showComments) return (
             <Card style={styles.commentsCard}>
@@ -112,10 +103,8 @@ export class Post extends React.Component {
                         src='img'
                         onClick={()=>{this.toggleContent()}}
                     />
-                    <CardContent style={styles.content}>
-                            <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>
-                                {this.props.postData.title}
-                            </Typography>
+                    <CardContent style={fixCss('marginLeft', 120)(styles.content, this.props.width)}>
+                        <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{this.props.postData.title}</Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
                     <div style={styles.postActions} className='topActionBar'>
@@ -129,3 +118,6 @@ export class Post extends React.Component {
         );
     }
 }
+
+let Post = withWidth()(_Post);
+export {Post};
