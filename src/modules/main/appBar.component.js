@@ -26,7 +26,7 @@ export class SlackerAppBar extends React.Component {
                             <MenuIcon />
                         </IconButton>
                         <img alt='4slack logo' style={styles.logo} src='./logo-appbar-white.png'/>
-                        <Typography variant='h5' color="inherit">
+                        <Typography color="inherit">
                             {this.props.feed.name}
                         </Typography>
                     </Toolbar>
