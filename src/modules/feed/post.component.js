@@ -32,11 +32,11 @@ const styles = {
         marginLeft: 150,
         paddingBottom: 40
     },
-    postActionsMain: {
-        position: 'relative'
-    },
-    commentsCard: {
-        paddingBottom: 15
+    topPostActions: {
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        display: 'inline-block'
     }
 };
 
@@ -76,7 +76,7 @@ export class Post extends React.Component {
     showBottomActionBar(){
         if (this.state.showComments || this.state.showContent)
         return  (
-            <div style={styles.postActionsMain}>
+            <div style={styles.bottomPostActions}>
                 <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
             </div>
         );
@@ -97,7 +97,9 @@ export class Post extends React.Component {
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                    <div style={styles.topPostActions}>
+                        <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                    </div>
                 </Card>
                 {this.showContent()}
                 {this.showComments()}
