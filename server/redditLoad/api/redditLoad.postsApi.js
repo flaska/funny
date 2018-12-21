@@ -25,6 +25,7 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
                     url: rPost.url
                 };
                 if (!jsonPost.type) jsonPost.type = 'link';
+                if (!jsonPost.thumbnail.indexOf('http')==0) jsonPost.thumbnail = null;
                 if (jsonPost.type === 'hosted:video') jsonPost.url = rPost.media.reddit_video.fallback_url;
 
                 if (!jsonPost.thumbnail) {

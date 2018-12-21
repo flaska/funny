@@ -1,5 +1,4 @@
 import React from "react";
-import ImageLoader from 'react-imageloader';
 import { FaImage, FaVideo, FaGrinAlt } from 'react-icons/fa';
 
 const styles = {
@@ -14,7 +13,8 @@ const styles = {
     },
     icon: {
         zoom: 4,
-        marginTop: 5
+        marginTop: 5,
+        opacity: 0.5
     }
 };
 
@@ -28,7 +28,7 @@ export class PostThumbnail extends React.Component {
         return <FaGrinAlt style={styles.icon}/>;
     }
     getThumbnail(postData){
-        if (postData.thumbnail) return <ImageLoader src={postData.thumbnail} imgProps={{style: styles.img}} preloader={()=>this.getThumbnailIcon(postData)}/>
+        if (postData.thumbnail) return <img src={postData.thumbnail} style={styles.img} />
         if (!postData.thumbnail) return this.getThumbnailIcon(postData)
     }
     render() {
