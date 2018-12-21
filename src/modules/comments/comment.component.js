@@ -5,7 +5,7 @@ import {CommentMetadata} from "./commentMetadata.component";
 
 const styles = {
     replies: {
-        marginLeft: 50
+        marginLeft: 20
     }
 };
 
