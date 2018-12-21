@@ -3,7 +3,7 @@
   "name": "4slack",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "logo-black.png",
       "sizes": "512x512 256x256 64x64 32x32 24x24 16x16",
       "type": "image/png"
     }
@@ -11,5 +11,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#2196f3",
-  "background_color": "#ffffff"
+  "background_color": "#2196f3"
 }
