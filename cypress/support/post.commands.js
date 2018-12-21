@@ -37,7 +37,6 @@ Cypress.Commands.add('checkPostTitleByIndex', (index, title)=>{
 });
 
 Cypress.Commands.add('checkPostCommentsByIndex', (index, comment)=>{
-    cy.openPostCommentsByIndex(index);
     let commentContainer = cy.get('#feedList .post').eq(index).find('.commentsContainer');
     let commentLines = comment.split('\n').filter(line=>line!="");
     commentLines.forEach((line)=>{

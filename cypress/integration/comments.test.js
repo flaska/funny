@@ -5,6 +5,7 @@ describe('Comments', function() {
         cy.getFeed('funny', 'hot', 0, 10).then((response)=>{
             cy.getComments(response.body.posts[0].id).then((response)=>{
                 let firstComment = response.body.replies[0].body;
+                cy.openPostCommentsByIndex(0);
                 cy.checkPostCommentsByIndex(0, firstComment);
             });
         });
