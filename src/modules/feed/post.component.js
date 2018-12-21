@@ -68,7 +68,7 @@ export class Post extends React.Component {
         window.open(url, "_blank");
     }
     openOriginalLink(){
-        this.openLinkUrl('https://www.reddit.com/' + this.props.postData.permalink);
+        this.openLinkUrl('https://www.reddit.com' + this.props.postData.permalink);
     }
     showComments(){
         if (this.state.showComments) return (
