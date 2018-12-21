@@ -8,6 +8,8 @@ import {PostContent} from "./postContent.component";
 import {PostThumbnail} from "./postThumbnail.component";
 import {CommentsList} from "../comments/commentsList.component";
 import {PostActions} from "./postActions.component";
+import withWidth, {isWidthUp} from '@material-ui/core/withWidth';
+// import ShowMore from 'react-show-more';
 
 
 const styles = {
@@ -16,8 +18,8 @@ const styles = {
         position: 'relative'
     },
     img: {
-        width: 150,
-        height: 100,
+        // width: 150,
+        // height: 100,
         float: 'left',
         marginRight: 10,
         cursor: 'pointer'
@@ -70,6 +72,13 @@ export class Post extends React.Component {
     openOriginalLink(){
         this.openLinkUrl('https://www.reddit.com' + this.props.postData.permalink);
     }
+    // fixWidth(style){
+    //     if(isWidthUp('sm', this.props.width)) return style;
+    //     else {
+    //         style.width = 120;
+    //         return style;
+    //     }
+    // }
     showComments(){
         if (this.state.showComments) return (
             <Card style={styles.commentsCard}>

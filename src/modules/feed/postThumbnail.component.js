@@ -1,5 +1,6 @@
 import React from "react";
 import { FaImage, FaVideo, FaGrinAlt } from 'react-icons/fa';
+import withWidth, {isWidthUp} from "@material-ui/core/withWidth/index";
 
 const styles = {
     main: {
@@ -19,7 +20,7 @@ const styles = {
 };
 
 
-export class PostThumbnail extends React.Component {
+class _PostThumbnail extends React.Component {
     getThumbnailIcon(postData){
         if (postData.type === 'image') return <FaImage style={styles.icon}/>;
         if (postData.type === 'hosted:video') return <FaVideo style={styles.icon}/>;
@@ -27,8 +28,18 @@ export class PostThumbnail extends React.Component {
         if (postData.type === 'link') return <FaGrinAlt style={styles.icon}/>;
         return <FaGrinAlt style={styles.icon}/>;
     }
+
+    fixWidth(style){
+        if(isWidthUp('sm', this.props.width)) return style;
+        else {
+            let s = {...style};
+            s.width = 120;
+            return s;
+        }
+    }
+
     getThumbnail(postData){
-        if (postData.thumbnail) return <img src={postData.thumbnail} style={styles.img} />
+        if (postData.thumbnail) return <img src={postData.thumbnail} style={this.fixWidth(styles.img)} />
         if (!postData.thumbnail) return this.getThumbnailIcon(postData)
     }
     render() {
@@ -39,3 +50,7 @@ export class PostThumbnail extends React.Component {
         );
     };
 };
+
+
+let PostThumbnail = withWidth()(_PostThumbnail);
+export {PostThumbnail};
