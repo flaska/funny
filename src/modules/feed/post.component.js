@@ -31,6 +31,12 @@ const styles = {
     content: {
         marginLeft: 150,
         paddingBottom: 40
+    },
+    postActionsMain: {
+        position: 'relative'
+    },
+    commentsCard: {
+        paddingBottom: 15
     }
 };
 
@@ -60,11 +66,19 @@ export class Post extends React.Component {
     }
     showComments(){
         if (this.state.showComments) return (
-            <Card>
-            <CardContent>
-                <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
-            </CardContent>
+            <Card style={styles.commentsCard}>
+                <CardContent>
+                    <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
+                </CardContent>
             </Card>
+        );
+    }
+    showBottomActionBar(){
+        if (this.state.showComments || this.state.showContent)
+        return  (
+            <div style={styles.postActionsMain}>
+                <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+            </div>
         );
     }
     render() {
@@ -87,6 +101,7 @@ export class Post extends React.Component {
                 </Card>
                 {this.showContent()}
                 {this.showComments()}
+                {this.showBottomActionBar()}
             </div>
         );
     }
