@@ -8,13 +8,16 @@ Cypress.Commands.add('openPostCommentsByIndex', (index)=>{
 
 Cypress.Commands.add('checkPostContentTypeByIndex', (index, type)=>{
     if (type === 'image') {
-        cy.openPostByIndex(index);
         cy.get('#feedList .post').eq(index).find('.postContent').find('img');
     }
     if (type === 'hosted:video') {
-        cy.openPostByIndex(index);
         cy.get('#feedList .post').eq(index).find('.postContent').find('video');
     }
+});
+
+Cypress.Commands.add('checkOpenPostContentTypeByIndex', (index, type)=>{
+    cy.openPostByIndex(index);
+    cy.checkPostContentTypeByIndex(index, type);
 });
 
 

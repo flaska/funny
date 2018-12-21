@@ -85,7 +85,7 @@ export class Post extends React.Component {
     showBottomActionBar(){
         if (this.state.showComments || this.state.showContent)
         return  (
-            <Card>
+            <Card className='bottomActionBar'>
                 <div style={styles.bottomPostActions}>
                     {this.renderPostActions()}
                 </div>
@@ -109,7 +109,7 @@ export class Post extends React.Component {
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <div style={styles.postActions}>
+                    <div style={styles.postActions} className='topActionBar'>
                         {this.renderPostActions()}
                     </div>
                 </Card>

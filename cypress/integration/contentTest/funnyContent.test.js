@@ -8,13 +8,13 @@ describe('Funny - Content Test', function() {
 
     it('Can view "image"', function() {
         cy.findPostByType('funny', 'hot', 'image').then((result)=>{
-            cy.checkPostContentTypeByIndex(result.index, 'image')
+            cy.checkOpenPostContentTypeByIndex(result.index, 'image')
         });
     });
 
     it('Can view "hosted:video"', function() {
         cy.findPostByType('funny', 'hot', 'hosted:video').then((result)=>{
-            cy.checkPostContentTypeByIndex(result.index, 'hosted:video');
+            cy.checkOpenPostContentTypeByIndex(result.index, 'hosted:video');
         });
     });
 
