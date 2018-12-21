@@ -32,11 +32,17 @@ const styles = {
         marginLeft: 150,
         paddingBottom: 40
     },
-    topPostActions: {
+    postActions: {
         position: 'absolute',
         bottom: 0,
         right: 0,
-        display: 'inline-block'
+        display: 'inline-block',
+    },
+    bottomPostActions: {
+        float: 'right'
+    },
+    bottomPostActionsAfter: {
+        clear: 'both'
     }
 };
 
@@ -73,12 +79,18 @@ export class Post extends React.Component {
             </Card>
         );
     }
+    renderPostActions(){
+        return <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+    }
     showBottomActionBar(){
         if (this.state.showComments || this.state.showContent)
         return  (
-            <div style={styles.bottomPostActions}>
-                <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
-            </div>
+            <Card>
+                <div style={styles.bottomPostActions}>
+                    {this.renderPostActions()}
+                </div>
+                <div style={styles.bottomPostActions}></div>
+            </Card>
         );
     }
     render() {
@@ -97,8 +109,8 @@ export class Post extends React.Component {
                             </Typography>
                         <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
                     </CardContent>
-                    <div style={styles.topPostActions}>
-                        <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                    <div style={styles.postActions}>
+                        {this.renderPostActions()}
                     </div>
                 </Card>
                 {this.showContent()}

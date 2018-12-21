@@ -3,7 +3,7 @@ import {InfoChip} from "../utils/infoChip.component";
 import {formatNumber} from "../utils/formatNumber.function";
 
 const styles = {
-    div: {
+    button: {
         display: 'inline-block'
     }
 };
@@ -20,13 +20,13 @@ export class PostActions extends React.Component {
     render(){
         return (
             <div>
-                <div style={styles.div}  className='postActions_openContent' onClick={()=>{this.props.onOpenContentClick()}}>
+                <div style={styles.button}  className='postActions_openContent' onClick={()=>{this.props.onOpenContentClick()}}>
                     {this.showOpenCloseIcon()}
                 </div>
-                <div style={styles.div} className='postActions_openComments' onClick={()=>{this.props.onCommentsClick()}}>
+                <div style={styles.button} className='postActions_openComments' onClick={()=>{this.props.onCommentsClick()}}>
                     {this.showToggleCommentsIcon()}
                 </div>
-                <div style={styles.div} className='postActions_openSource' onClick={()=>{this.props.onOpenSourceClick()}}>
+                <div style={styles.button} className='postActions_openSource' onClick={()=>{this.props.onOpenSourceClick()}}>
                     <InfoChip icon='fa_external-link-alt' clickable color='primary'>Source</InfoChip>
                 </div>
             </div>
