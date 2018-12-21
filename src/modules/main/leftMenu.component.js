@@ -27,10 +27,10 @@ export class LeftMenu extends React.Component {
     getFeedOptions(){
         return this.props.feedOptions.map((feed)=>{ return(
             <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
-                <ListItemIcon style={styles.feedIcon}>
+                <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                     {provideIcon(feed.icon)}
                 </ListItemIcon>
-                <ListItemText primary={feed.name}/>
+                <ListItemText primary={feed.name} className='leftMenu_selectSource'/>
             </ListItem>
         )});
     }
