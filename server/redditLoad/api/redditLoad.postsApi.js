@@ -9,6 +9,7 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
         let result = [];
         if (!JSON.parse(body).data) return console.error(`Cannot fetch posts for ${subreddit}`);
         JSON.parse(body).data.children
+            .filter(redditPost=>redditPost.data.url.indexOf('imgur')==-1)
             .filter(redditPost=>!redditPost.data.distinguished)
             .filter(redditPost=>!redditPost.data.over_18)
             .forEach((redditPost)=>{
