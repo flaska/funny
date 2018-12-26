@@ -30,7 +30,7 @@ class _InfoChip extends React.Component {
             />
         );
         else return (
-            <IconButton  size="small" color="primary" aria-label={this.props.children} style={styles.iconButton}>
+            <IconButton  size="small" color={this.props.color} aria-label={this.props.children} style={styles.iconButton}>
                 {provideIcon(this.props.icon)}
                 <span style={styles.invisibleText}>{this.props.children}</span>
             </IconButton>

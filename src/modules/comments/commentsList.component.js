@@ -10,6 +10,9 @@ const styles = {
     progress: {
         textAlign: 'center',
         padding: 10
+    },
+    seeAllButton: {
+        display: 'inline-block'
     }
 };
 
@@ -28,11 +31,11 @@ export class CommentsList extends React.Component {
         if (!this.state.dataFetched) return (<div style={styles.progress}><CircularProgress/></div>);
         return (
             <div className='commentsContainer'>
-                <Typography color="primary" style={styles.hint}>
+                <InfoChip style={styles.hint}  icon='md_thumb_up'>
                     Top comments
-                </Typography>
-                <div style={styles.button} className='comments_openSource' onClick={()=>{this.props.onOpenSourceClick()}}>
-                    <InfoChip icon='fa_reddit-alien' clickable color='primary' responsive={true}>Reddit</InfoChip>
+                </InfoChip>
+                <div style={styles.seeAllButton} className='comments_openSource' onClick={()=>{this.props.onOpenSourceClick()}}>
+                    <InfoChip icon='fa_comments' clickable color='primary' responsive={false}>All Comments</InfoChip>
                 </div>
                 <Comment commentData={this.state.commentsRoot}></Comment>
             </div>
