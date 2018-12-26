@@ -27,7 +27,7 @@ export class PostActions extends React.Component {
                     {this.showToggleCommentsIcon()}
                 </div>
                 <div style={styles.button} className='postActions_openSource' onClick={()=>{this.props.onOpenSourceClick()}}>
-                    <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Source</InfoChip>
+                    <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Reddit</InfoChip>
                 </div>
             </div>
         );
