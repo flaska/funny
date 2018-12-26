@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios/index";
 import {Comment} from './comment.component'
-import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {InfoChip} from "../utils/infoChip.component";
 
