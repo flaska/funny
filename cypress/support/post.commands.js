@@ -24,6 +24,7 @@ Cypress.Commands.add('checkOpenPostContentTypeByIndex', (index, type)=>{
 Cypress.Commands.add('checkPostExternalContentOpenByIndex', (index, url)=>{
     cy.window().then((w)=>{
         const spy = cy.spy(w, 'open').withArgs(url, '_blank').as('openExternalUrl');
+        debugger;
         cy.openPostByIndex(index).then(() => {
             expect(spy).to.be.called;
         });

@@ -1,4 +1,3 @@
-let topActionBar = (i)=>cy.get('.post').eq(i).find('.topActionBar');
 let indexOfTestPost;
 let testPost;
 
@@ -13,9 +12,10 @@ describe('Post Action Bar - Source - Test', function() {
     });
 
     it('Source button opens a new tab', function() {
+        cy.openPostCommentsByIndex(indexOfTestPost);
         cy.window().then((w)=>{
             const spy = cy.spy(w, 'open').withArgs('https://www.reddit.com' + testPost.permalink, '_blank').as('openExternalUrl');
-            topActionBar(indexOfTestPost).find('.postActions_openSource').click().then(() => {
+            cy.get('.post').eq(indexOfTestPost).find('.comments_openSource').click().then(() => {
                 expect(spy).to.be.called;
             });
         });

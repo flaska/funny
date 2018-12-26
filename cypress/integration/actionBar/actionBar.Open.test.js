@@ -11,7 +11,6 @@ describe('Post Action Bar - Open - Test', function() {
 
     it('Has top action bar', function() {
         topActionBar(0).contains('Open');
-        topActionBar(0).contains('Source');
     });
 
     it('Top action bar opens content', ()=>{
@@ -31,7 +30,6 @@ describe('Post Action Bar - Open - Test', function() {
     it('Should close with bottom action bar', function() {
         cy.openPostByIndex(indexOfTestPost);
         bottomActionBar(indexOfTestPost).contains('Close');
-        bottomActionBar(indexOfTestPost).contains('Source');
         bottomActionBar(indexOfTestPost).find('.postActions_openContent').click();
         cy.get('.post').eq(indexOfTestPost).find('.postContent').should('not.exist');
     });

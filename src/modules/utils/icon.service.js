@@ -1,5 +1,5 @@
 import {MdSentimentVerySatisfied, MdFace, MdPhotoCamera, MdComment, MdThumbUp} from 'react-icons/md';
-import {FaPaw, FaFlask, FaGamepad, FaLightbulb, FaVideo, FaFilm, FaGlobeAmericas, FaEye, FaExternalLinkAlt, FaEyeSlash} from 'react-icons/fa';
+import {FaPaw, FaFlask, FaGamepad, FaLightbulb, FaVideo, FaFilm, FaGlobeAmericas, FaEye, FaExternalLinkAlt, FaEyeSlash, FaRedditAlien} from 'react-icons/fa';
 import React from 'react';
 
 const styles = {
@@ -25,6 +25,7 @@ export function provideIcon(iconName){
         case 'fa_eye': return <FaEye style={styles.icon}/>;
         case 'fa_external-link-alt': return <FaExternalLinkAlt style={styles.icon}/>;
         case 'fa_eye-slash': return <FaEyeSlash style={styles.icon}/>;
+        case 'fa_reddit-alien': return <FaRedditAlien style={styles.icon}/>;
     }
 
     return <div></div>;

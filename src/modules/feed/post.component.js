@@ -73,13 +73,13 @@ class _Post extends React.Component {
         if (this.state.showComments) return (
             <Card style={styles.commentsCard}>
                 <CardContent>
-                    <CommentsList style={styles.commentList} postId={this.props.postData.id} onClick={(e)=>this.handleClick(e)}/>
+                    <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
                 </CardContent>
             </Card>
         );
     }
     renderPostActions(){
-        return <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+        return <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}}/>
     }
     showBottomActionBar(){
         if (this.state.showComments || this.state.showContent)

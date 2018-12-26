@@ -3,6 +3,7 @@ import axios from "axios/index";
 import {Comment} from './comment.component'
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {InfoChip} from "../utils/infoChip.component";
 
 const styles = {
     hint: {display: 'inline-block'},
@@ -30,6 +31,9 @@ export class CommentsList extends React.Component {
                 <Typography color="primary" style={styles.hint}>
                     Top comments
                 </Typography>
+                <div style={styles.button} className='comments_openSource' onClick={()=>{this.props.onOpenSourceClick()}}>
+                    <InfoChip icon='fa_reddit-alien' clickable color='primary' responsive={true}>Reddit</InfoChip>
+                </div>
                 <Comment commentData={this.state.commentsRoot}></Comment>
             </div>
         );
