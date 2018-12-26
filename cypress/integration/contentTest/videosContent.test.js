@@ -8,7 +8,7 @@ describe('Videos - Content Test', function() {
 
     it('Can view "rich:video"', function() {
         cy.switchToFeed('Videos');
-        cy.findPostByType('videos', 'hot', 'rich:video').then((result)=>{
+        cy.findPostByType('videos', 'hot', 'link').then((result)=>{
             cy.checkPostExternalContentOpenByIndex(result.index, result.post.url);
         });
     });
