@@ -47,15 +47,23 @@ const styles = {
 
 class _Post extends React.Component {
     state = {showContent: false, showComments: false};
+    constructor(props){
+        super(props);
+        this.componentRef = React.createRef();
+    }
     toggleContent(){
         if (this.props.postData.type==='link') return this.openLinkUrl(this.props.postData.url);
-        if (this.state.showContent) this.setState({showContent: false});
-        else this.setState({showContent: true});
+        if (this.state.showContent) {
+            this.setState({showContent: false});
+            this.scrollToComponent();
+        } else this.setState({showContent: true});
     }
 
     toggleComments(){
-        if (this.state.showComments) this.setState({showComments: false});
-        else this.setState({showComments: true});
+        if (this.state.showComments) {
+            this.setState({showComments: false});
+            this.scrollToComponent();
+        } else this.setState({showComments: true});
     }
 
     showContent(){
@@ -92,9 +100,15 @@ class _Post extends React.Component {
             </Card>
         );
     }
+    scrollToComponent(){
+        let postYPos = this.componentRef.current.getBoundingClientRect().top;
+        let scrollYPos = window.pageYOffset;
+        let appBarSize = 64;
+        window.scrollTo({top: scrollYPos+postYPos-appBarSize, behavior: 'smooth' });
+    }
     render() {
         return (
-            <div className='post'>
+            <div className='post' ref={this.componentRef}>
                 <Card style={styles.card}>
                     <CardMedia
                         style={styles.img}
