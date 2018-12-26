@@ -38,7 +38,7 @@ export class PostActions extends React.Component {
                 <div style={styles.button} className='postActions_share' onClick={()=>{this.shareLink()}}>
                     <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Share</InfoChip>
                 </div>
-                <InfoAlert open={this.state.shareDialogOpen} onClose={()=>this.setState({shareDialogOpen: false})}/>
+                <InfoAlert open={this.state.shareDialogOpen} onClose={()=>this.setState({shareDialogOpen: false})}>Link copied to clip-board...</InfoAlert>
             </div>
         );
     }
