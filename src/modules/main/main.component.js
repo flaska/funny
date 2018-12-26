@@ -8,7 +8,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
-// import {LeftMenu} from "./leftMenu.component";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Typography from "@material-ui/core/Typography";
 const LeftMenu = React.lazy(() =>  import("./leftMenu.component"));
 
 const theme = createMuiTheme({
@@ -23,6 +24,22 @@ const theme = createMuiTheme({
         useNextVariants: true,
     },
 });
+const styles = {
+    leftMenuLoading: {
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100%',
+        height: '100%',
+        background: 'rgba(0,0,0,0.5)',
+        zIndex: 100,
+        textAlign: 'center',
+        paddingTop: 200
+    },
+    leftMenuLoadingText: {
+        color: 'white!important'
+    }
+};
 
 const FeedOptions = [
     {name: 'Funny', url: '/api/reddit/feed?subreddit=funny&channel=hot', icon: 'md_sentiment_very_satisfied'},
@@ -51,7 +68,12 @@ export class Main extends React.Component {
     }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={
+                <div style={styles.leftMenuLoading}>
+                    <CircularProgress/>
+                    <Typography variant='h4' color='primary' style={styles.leftMenuLoadingText}>Loading...</Typography>
+                </div>
+            }>
                 <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
             </Suspense>
         );
