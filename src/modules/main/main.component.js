@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import MetaTags from 'react-meta-tags';
 import {FeedList} from "../feed/feedList.component";
 import {SlackerAppBar} from "./appBar.component";
@@ -8,7 +8,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
-import {LeftMenu} from "./leftMenu.component";
+// import {LeftMenu} from "./leftMenu.component";
+const LeftMenu = React.lazy(() =>  import("./leftMenu.component"));
 
 const theme = createMuiTheme({
     palette: {
@@ -48,6 +49,13 @@ export class Main extends React.Component {
     selectFeed(f){
         this.setState({feed: f, leftMenuOpen: false});
     }
+    renderLeftMenu(){
+        if (this.state.leftMenuOpen) return (
+            <Suspense fallback={<div>Loading...</div>}>
+                <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
+            </Suspense>
+        );
+    }
     render() {
         return (
             <React.Fragment>
@@ -57,7 +65,7 @@ export class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar feedOptions={FeedOptions} openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
-                    <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
+                    {this.renderLeftMenu()}
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>
             </React.Fragment>

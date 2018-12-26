@@ -20,7 +20,7 @@ const styles = {
     }
 };
 
-export class LeftMenu extends React.Component {
+export default class LeftMenu extends React.Component {
     constructor(props) {
         super(props);
     }
