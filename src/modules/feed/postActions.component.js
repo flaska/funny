@@ -1,6 +1,7 @@
 import React from 'react';
 import {InfoChip} from "../utils/infoChip.component";
-import {formatNumber} from "../utils/formatNumber.function";
+import copy from 'copy-to-clipboard';
+import {InfoAlert} from "../utils/infoAlert.component";
 
 const styles = {
     button: {
@@ -9,6 +10,10 @@ const styles = {
 };
 
 export class PostActions extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
     showOpenCloseIcon(){
         if (!this.props.parentState.showContent) return <InfoChip icon='fa_eye' clickable color='primary' responsive={true}>Open</InfoChip>;
         else return <InfoChip icon='fa_eye-slash' clickable responsive={true}>Close</InfoChip>;
@@ -16,6 +21,10 @@ export class PostActions extends React.Component {
     showToggleCommentsIcon(){
         if (!this.props.parentState.showComments) return <InfoChip icon='md_comment' clickable color='primary' responsive={true}>Comments</InfoChip>
         else return <InfoChip icon='md_comment' clickable responsive={true}>Close</InfoChip>;
+    }
+    shareLink(){
+        copy(this.props.postData.url);
+        this.setState({shareDialogOpen: true})
     }
     render(){
         return (
@@ -26,9 +35,10 @@ export class PostActions extends React.Component {
                 <div style={styles.button} className='postActions_openComments' onClick={()=>{this.props.onCommentsClick()}}>
                     {this.showToggleCommentsIcon()}
                 </div>
-                {/*<div style={styles.button} className='postActions_share' onClick={()=>{this.props.onShareClick()}}>*/}
-                    {/*<InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Share</InfoChip>*/}
-                {/*</div>*/}
+                <div style={styles.button} className='postActions_share' onClick={()=>{this.shareLink()}}>
+                    <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Share</InfoChip>
+                </div>
+                <InfoAlert open={this.state.shareDialogOpen} onClose={()=>this.setState({shareDialogOpen: false})}/>
             </div>
         );
     }
