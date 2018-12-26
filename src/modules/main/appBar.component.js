@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
+import Headroom from "react-headroom";
 
 const styles = {
     root: {
@@ -20,6 +21,7 @@ export class SlackerAppBar extends React.Component {
     render(){
         return (
             <div className={styles.root}>
+                <Headroom>
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton color="inherit" aria-label="Menu" onClick={()=>this.props.openMenu()} id='openLeftMenu'>
@@ -31,6 +33,7 @@ export class SlackerAppBar extends React.Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
+                </Headroom>
             </div>
         );
     }
