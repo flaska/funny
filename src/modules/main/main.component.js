@@ -11,7 +11,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
 import LazyLoad from "../utils/lazyLoad.component";
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
-const LeftMenu = React.lazy(() =>  import("./leftMenu.component"));
+const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 
 const theme = createMuiTheme({
     palette: {

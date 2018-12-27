@@ -5,9 +5,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
+import SettingsIcon from "@material-ui/icons/Settings";
 import {provideIcon} from '../utils/icon.service';
 import Typography from "@material-ui/core/Typography";
 import Divider from '@material-ui/core/Divider';
+import IconButton from "@material-ui/core/IconButton";
 
 const styles = {
     feedsTitle: {
@@ -16,7 +18,13 @@ const styles = {
         marginBottom: 10
     },
     feedsIcon: {
-        marginRight: 10
+        marginRight: 10,
+        marginTop: 7,
+        display: 'inline-block'
+    },
+    settingsIcon: {
+        float: 'right',
+        marginRight: 15
     }
 };
 
@@ -40,6 +48,9 @@ export default class LeftMenu extends React.Component {
                 <Typography variant="h5" style={styles.feedsTitle}>
                     <RssFeedIcon style={styles.feedsIcon}/>
                     Feeds
+                    <IconButton color='primary' style={styles.settingsIcon}>
+                        <SettingsIcon/>
+                    </IconButton>
                 </Typography>
                 <Divider/>
                 <List>
