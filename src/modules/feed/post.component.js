@@ -124,7 +124,6 @@ class _Post extends React.Component {
                     />
                     <CardContent style={fixCss('marginLeft', 120)(styles.content, this.props.width)}>
                         <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{this.props.postData.title}</Typography>
-                        {/*<Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>*/}
                         <Typography style={styles.datePosted}>{timeDiff(this.props.postData.dateUtc)}</Typography>
                     </CardContent>
                     <div style={styles.postActions} className='topActionBar'>
