@@ -21,4 +21,24 @@ describe('Left Menu Settings', function() {
             cy.get('#leftMenuSettings_'+tag).should('not.be.checked');
         });
     });
+
+    it('Should be able to select science', ()=>{
+        cy.get('#leftMenuSettings_science').click();
+        cy.get('#leftMenuSettings_science').should('be.checked');
+        cy.get('#leftMenuSettings_save').click();
+    });
+
+    it('Should save and update feed options', ()=>{
+        cy.hasTextsIn(['Funny','Aww','Videos','Pics','Gaming', 'Science'], '#leftMenu');
+    });
+
+    it('Should show science feed', ()=>{
+        cy.get('#leftMenu').contains('Science').click();
+    });
+
+    it('Can view "link"', function() {
+        cy.findPostByType('science', 'hot', 'link').then((result)=>{
+            cy.checkPostExternalContentOpenByIndex(result.index, result.post.url);
+        });
+    });
 });
