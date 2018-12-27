@@ -10,6 +10,7 @@ import {provideIcon} from '../utils/icon.service';
 import Typography from "@material-ui/core/Typography";
 import Divider from '@material-ui/core/Divider';
 import IconButton from "@material-ui/core/IconButton";
+import LeftMenuSettings from "./leftMenuSettings.component";
 
 const styles = {
     feedsTitle: {
@@ -31,6 +32,7 @@ const styles = {
 export default class LeftMenu extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {settingsOpen: false};
     }
     getFeedOptions(){
         return this.props.feedOptions.map((feed)=>{ return(
@@ -42,21 +44,28 @@ export default class LeftMenu extends React.Component {
             </ListItem>
         )});
     }
+    toggleSettings(){
+        if (this.state.settingsOpen) this.setState({settingsOpen: false});
+        else this.setState({settingsOpen: true});
+    }
     render(){
         return(
-            <Drawer open={this.props.open} onClose={()=>this.props.onClose()} id='leftMenu'>
-                <Typography variant="h5" style={styles.feedsTitle}>
-                    <RssFeedIcon style={styles.feedsIcon}/>
-                    Feeds
-                    <IconButton color='primary' style={styles.settingsIcon}>
-                        <SettingsIcon/>
-                    </IconButton>
-                </Typography>
-                <Divider/>
-                <List>
-                    {this.getFeedOptions()}
-                </List>
-            </Drawer>
+            <React.Fragment>
+                <Drawer open={this.props.open} onClose={()=>this.props.onClose()} id='leftMenu'>
+                    <Typography variant="h5" style={styles.feedsTitle}>
+                        <RssFeedIcon style={styles.feedsIcon}/>
+                        Feeds
+                        <IconButton color='primary' style={styles.settingsIcon} onClick={()=>this.toggleSettings()}>
+                            <SettingsIcon/>
+                        </IconButton>
+                    </Typography>
+                    <Divider/>
+                    <List>
+                        {this.getFeedOptions()}
+                    </List>
+                </Drawer>
+                <LeftMenuSettings open={this.state.settingsOpen}/>
+            </React.Fragment>
         );
     }
 }

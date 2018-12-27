@@ -42,12 +42,12 @@ const styles = {
     }
 };
 
-const FeedOptions = require('../../shared/redditFeeds').reactFeeds;
+const Feeds = require('../../shared/redditFeeds').reactFeeds;
 
 export class Main extends React.Component {
     constructor(props){
         super(props);
-        this.state = {feed: FeedOptions[0], leftMenuOpen: false};
+        this.state = {feed: Feeds[0], leftMenuOpen: false};
     }
     openMenu(){
         this.setState({leftMenuOpen: true})
@@ -67,7 +67,7 @@ export class Main extends React.Component {
                 </div>)}
                 errorFallback={<div><SentimentDissatisfiedIcon/><Typography>Offline... cannot open menu...</Typography></div>}
             >
-                <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
+                <LeftMenu feedOptions={Feeds} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
             </LazyLoad>
         );
     }
@@ -79,7 +79,7 @@ export class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar feedOptions={FeedOptions} openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
+                    <SlackerAppBar feedOptions={Feeds} openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
                     {this.renderLeftMenu()}
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>

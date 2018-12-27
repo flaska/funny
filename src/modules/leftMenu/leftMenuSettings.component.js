@@ -10,14 +10,16 @@ const styles = {
 
 };
 
+const Feeds = require('../../shared/redditFeeds').reactFeeds;
+
 export default class LeftMenuSettings extends React.Component {
 
     constructor(props) {
         super(props);
     }
 
-    getFeedOptions(){
-        return this.props.feedOptions.map((feed)=>{ return(
+    getFeedOptions(feeds){
+        return feeds.map((feed)=>{ return(
             <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
                 <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                     {provideIcon(feed.icon)}
@@ -32,7 +34,7 @@ export default class LeftMenuSettings extends React.Component {
         return(
             <Dialog {...other}>
                 <DialogTitle>Set backup account</DialogTitle>
-                {this.getFeedOptions()}
+                {this.getFeedOptions(Feeds)}
             </Dialog>
         );
     }
