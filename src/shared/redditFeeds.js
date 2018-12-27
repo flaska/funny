@@ -11,7 +11,7 @@ const feeds = [
 ];
 
 function reactFeed(jsonFeed){
-    return {name: jsonFeed.fullName, url: `/api/reddit/feed?subreddit=${jsonFeed.tag}&channel=hot`, icon: jsonFeed.icon, enabled: jsonFeed.defaultEnabled};
+    return {name: jsonFeed.fullName, url: `/api/reddit/feed?subreddit=${jsonFeed.tag}&channel=hot`, icon: jsonFeed.icon, enabled: jsonFeed.defaultEnabled, tag: jsonFeed.tag};
 }
 
 function nodeFeed(jsonFeed){

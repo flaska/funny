@@ -28,8 +28,18 @@ Cypress.Commands.add('homepage', ()=>{
     cy.visit('http://localhost:4001');
 });
 
+Cypress.Commands.add('hasTextsIn', (texts, css)=>{
+    texts.forEach((t)=>{
+        cy.get(css).contains(t);
+    });
+});
 
 
+Cypress.Commands.add('hasNoTextsIn', (texts, css)=>{
+    texts.forEach(text=>{
+        cy.get(css).contains(text).should('not.exist');
+    });
+});
 
 
 

@@ -71,7 +71,7 @@ export default class LeftMenu extends React.Component {
                     <Typography variant="h5" style={styles.feedsTitle}>
                         <RssFeedIcon style={styles.feedsIcon}/>
                         Feeds
-                        <IconButton color='primary' style={styles.settingsIcon} onClick={()=>this.toggleSettings()}>
+                        <IconButton color='primary' id='openLeftMenuSettings' style={styles.settingsIcon} onClick={()=>this.toggleSettings()}>
                             <SettingsIcon/>
                         </IconButton>
                     </Typography>

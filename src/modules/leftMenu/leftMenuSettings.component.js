@@ -40,6 +40,7 @@ export default class LeftMenuSettings extends React.Component {
                         this.setState({feedOptions: this.state.feedOptions})
                     }}
                     color="primary"
+                    id={'leftMenuSettings_'+feed.tag}
                 />
                 <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                     {provideIcon(feed.icon)}
@@ -57,7 +58,7 @@ export default class LeftMenuSettings extends React.Component {
     render(){
         const {onClose, ...other } = this.props;
         return(
-            <Dialog onClose={onClose} {...other}>
+            <Dialog onClose={onClose} {...other} id='leftMenuSettingDialog'>
                 <DialogTitle>Show/Hide Feeds in Left Menu</DialogTitle>
                 {this.getFeedOptions()}
                 <div style={styles.buttons}>
