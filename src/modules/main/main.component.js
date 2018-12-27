@@ -65,7 +65,7 @@ export class Main extends React.Component {
                     <CircularProgress/>
                     <Typography variant='h4' color='primary' style={styles.leftMenuLoadingText}>Loading...</Typography>
                 </div>)}
-                errorFallback={<div><SentimentDissatisfiedIcon/><Typography></Typography></div>}
+                errorFallback={<div><SentimentDissatisfiedIcon/><Typography>Offline... cannot open menu...</Typography></div>}
             >
                 <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
             </LazyLoad>

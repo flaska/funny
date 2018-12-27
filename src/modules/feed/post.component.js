@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import moment from "moment/moment";
+// import moment from "moment/moment";
 import {PostContent} from "./postContent.component";
 import {PostThumbnail} from "./postThumbnail.component";
 import {PostActions} from "./postActions.component";
@@ -11,6 +11,7 @@ import withWidth from '@material-ui/core/withWidth';
 import fixCss from '../utils/fixCss.function';
 import Spinner from "../utils/spinner.component";
 import LazyLoad from "../utils/lazyLoad.component";
+import timeDiff from "../utils/timeDiff.function";
 
 const CommentsList = React.lazy(() =>  import("../comments/commentsList.component"));
 
@@ -123,7 +124,8 @@ class _Post extends React.Component {
                     />
                     <CardContent style={fixCss('marginLeft', 120)(styles.content, this.props.width)}>
                         <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{this.props.postData.title}</Typography>
-                        <Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>
+                        {/*<Typography style={styles.datePosted}>{moment.utc(this.props.postData.dateUtc).fromNow()}</Typography>*/}
+                        <Typography style={styles.datePosted}>{timeDiff(this.props.postData.dateUtc)}</Typography>
                     </CardContent>
                     <div style={styles.postActions} className='topActionBar'>
                         {this.renderPostActions()}

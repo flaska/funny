@@ -1,6 +1,4 @@
-import numeral from "numeral";
-
 export function formatNumber(n){
-    if (n>1000) return numeral(n).format('0.0a');
-    else return n;
+    if (n<1000) return n;
+    return Math.round(n * 0.01)*0.1 + 'k';
 }
