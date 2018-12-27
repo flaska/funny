@@ -1,6 +1,6 @@
 import React from "react";
-import {InfoChip} from "../utils/infoChip.component";
-import {formatNumber} from "../utils/formatNumber.function";
+import {InfoChip} from "../utils/components/infoChip.component";
+import {formatNumber} from "../utils/functions/formatNumber.function";
 
 export function CommentMetadata(props){
     return(

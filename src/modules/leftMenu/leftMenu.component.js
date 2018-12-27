@@ -6,15 +6,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
 import SettingsIcon from "@material-ui/icons/Settings";
-import {provideIcon} from '../utils/icon.service';
+import {provideIcon} from '../utils/functions/icon.service';
 import Typography from "@material-ui/core/Typography";
 import Divider from '@material-ui/core/Divider';
 import IconButton from "@material-ui/core/IconButton";
-import LazyLoad from "../utils/lazyLoad.component";
-import DialogLoading from "../utils/dialogLoading.component";
-import LazyLoadError from "../utils/lazyLoadError.component";
+import LazyLoad from "../utils/components/lazyLoad.component";
+import DialogLoading from "../utils/components/dialogLoading.component";
+import LazyLoadError from "../utils/components/lazyLoadError.component";
+
+import {getEnabledFeeds} from '../utils/functions/feeds.provider'
 
 const LeftMenuSettings = React.lazy(() =>  import("./leftMenuSettings.component"));
+
 
 const styles = {
     feedsTitle: {
@@ -29,7 +32,8 @@ const styles = {
     },
     settingsIcon: {
         float: 'right',
-        marginRight: 15
+        marginRight: 15,
+        marginLeft: 15
     }
 };
 
@@ -39,7 +43,7 @@ export default class LeftMenu extends React.Component {
         this.state = {settingsOpen: false};
     }
     getFeedOptions(){
-        return this.props.feedOptions.map((feed)=>{ return(
+        return getEnabledFeeds().map((feed)=>{ return(
             <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
                 <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                     {provideIcon(feed.icon)}

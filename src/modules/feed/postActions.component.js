@@ -1,7 +1,7 @@
 import React from 'react';
-import {InfoChip} from "../utils/infoChip.component";
+import {InfoChip} from "../utils/components/infoChip.component";
 import copy from 'copy-to-clipboard';
-import {InfoAlert} from "../utils/infoAlert.component";
+import {InfoAlert} from "../utils/components/infoAlert.component";
 
 const styles = {
     button: {

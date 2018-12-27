@@ -7,9 +7,10 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
-import LazyLoad from "../utils/lazyLoad.component";
-import DialogLoading from "../utils/dialogLoading.component";
-import LazyLoadError from "../utils/lazyLoadError.component";
+import LazyLoad from "../utils/components/lazyLoad.component";
+import DialogLoading from "../utils/components/dialogLoading.component";
+import LazyLoadError from "../utils/components/lazyLoadError.component";
+import {getDefaultFeed} from '../utils/functions/feeds.provider';
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 
 const theme = createMuiTheme({
@@ -25,12 +26,10 @@ const theme = createMuiTheme({
     },
 });
 
-const Feeds = require('../../shared/redditFeeds').reactFeeds;
-
 export class Main extends React.Component {
     constructor(props){
         super(props);
-        this.state = {feed: Feeds[0], leftMenuOpen: false};
+        this.state = {feed: getDefaultFeed(), leftMenuOpen: false};
     }
     openMenu(){
         this.setState({leftMenuOpen: true})
@@ -47,7 +46,7 @@ export class Main extends React.Component {
                 loadingFallback={(<DialogLoading/>)}
                 errorFallback={<LazyLoadError message='Offline... cannot open menu...'/>}
             >
-                <LeftMenu feedOptions={Feeds} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
+                <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
             </LazyLoad>
         );
     }
@@ -59,7 +58,7 @@ export class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar feedOptions={Feeds} openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
                     {this.renderLeftMenu()}
                     <FeedList feed={this.state.feed}></FeedList>
                 </MuiThemeProvider>

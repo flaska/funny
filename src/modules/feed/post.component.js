@@ -8,10 +8,10 @@ import {PostContent} from "./postContent.component";
 import {PostThumbnail} from "./postThumbnail.component";
 import {PostActions} from "./postActions.component";
 import withWidth from '@material-ui/core/withWidth';
-import fixCss from '../utils/fixCss.function';
-import Spinner from "../utils/spinner.component";
-import LazyLoad from "../utils/lazyLoad.component";
-import timeDiff from "../utils/timeDiff.function";
+import fixCss from '../utils/functions/fixCss.function';
+import Spinner from "../utils/components/spinner.component";
+import LazyLoad from "../utils/components/lazyLoad.component";
+import timeDiff from "../utils/functions/timeDiff.function";
 
 const CommentsList = React.lazy(() =>  import("../comments/commentsList.component"));
 

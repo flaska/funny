@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios/index";
 import {Comment} from './comment.component'
-import {InfoChip} from "../utils/infoChip.component";
-import Spinner from "../utils/spinner.component";
+import {InfoChip} from "../utils/components/infoChip.component";
+import Spinner from "../utils/components/spinner.component";
 
 const styles = {
     hint: {display: 'inline-block'},

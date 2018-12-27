@@ -1,8 +1,8 @@
 import React from "react";
 import { FaImage, FaVideo, FaGrinAlt } from 'react-icons/fa';
 import withWidth from "@material-ui/core/withWidth/index";
-import fixCss from '../utils/fixCss.function';
-import {InfoChip} from "../utils/infoChip.component";
+import fixCss from '../utils/functions/fixCss.function';
+import {InfoChip} from "../utils/components/infoChip.component";
 
 const styles = {
     main: {

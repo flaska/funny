@@ -6,7 +6,7 @@ import {Post} from './post.component';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from "@material-ui/core/Typography";
-import {Offline} from "../utils/offline.component";
+import {Offline} from "../utils/components/offline.component";
 
 const styles = {
     main: {

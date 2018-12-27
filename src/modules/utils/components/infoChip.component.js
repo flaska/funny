@@ -1,6 +1,6 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
-import {provideIcon} from './icon.service';
+import {provideIcon} from '../functions/icon.service';
 import withWidth, {isWidthUp} from '@material-ui/core/withWidth';
 import IconButton from '@material-ui/core/IconButton';
 
