@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,7 +10,7 @@ import {PostActions} from "./postActions.component";
 import withWidth from '@material-ui/core/withWidth';
 import fixCss from '../utils/fixCss.function';
 import Spinner from "../utils/spinner.component";
-import ErrorBoundary from "../utils/errorBoundary.component";
+import LazyLoad from "../utils/lazyLoad.component";
 
 const CommentsList = React.lazy(() =>  import("../comments/commentsList.component"));
 
@@ -84,11 +84,9 @@ class _Post extends React.Component {
         if (this.state.showComments) return (
             <Card style={styles.commentsCard}>
                 <CardContent>
-                    <ErrorBoundary fallback={<Typography>Cannot load comments..</Typography>}>
-                        <Suspense fallback={<Spinner/>}>
-                            <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
-                        </Suspense>
-                    </ErrorBoundary>
+                    <LazyLoad loadingFallback={<Spinner/>} errorFallback={<Typography>Cannot load comments..</Typography>}>
+                        <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                    </LazyLoad>
                 </CardContent>
             </Card>
         );

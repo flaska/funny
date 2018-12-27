@@ -1,16 +1,16 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import MetaTags from 'react-meta-tags';
 import {FeedList} from "../feed/feedList.component";
 import {SlackerAppBar} from "./appBar.component";
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
-import ErrorBoundary from "../utils/errorBoundary.component";
+import LazyLoad from "../utils/lazyLoad.component";
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 const LeftMenu = React.lazy(() =>  import("./leftMenu.component"));
 
 const theme = createMuiTheme({
@@ -60,16 +60,15 @@ export class Main extends React.Component {
     }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
-            <ErrorBoundary>
-                <Suspense fallback={
-                    <div style={styles.leftMenuLoading}>
-                        <CircularProgress/>
-                        <Typography variant='h4' color='primary' style={styles.leftMenuLoadingText}>Loading...</Typography>
-                    </div>
-                }>
-                    <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
-                </Suspense>
-            </ErrorBoundary>
+            <LazyLoad
+                loadingFallback={(<div style={styles.leftMenuLoading}>
+                    <CircularProgress/>
+                    <Typography variant='h4' color='primary' style={styles.leftMenuLoadingText}>Loading...</Typography>
+                </div>)}
+                errorFallback={<div><SentimentDissatisfiedIcon/><Typography></Typography></div>}
+            >
+                <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
+            </LazyLoad>
         );
     }
     render() {
