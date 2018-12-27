@@ -17,24 +17,22 @@ const styles = {
     }
 };
 
-export class SlackerAppBar extends React.Component {
-    render(){
-        return (
-            <div className={styles.root}>
-                <Headroom>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton color="inherit" aria-label="Menu" onClick={()=>this.props.openMenu()} id='openLeftMenu'>
-                            <MenuIcon />
-                        </IconButton>
-                        <img alt='4slack logo' style={styles.logo} src='./logo-appbar-white.png'/>
-                        <Typography color="inherit">
-                            {this.props.feed.name}
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                </Headroom>
-            </div>
-        );
-    }
+export function SlackerAppBar(props){
+    return (
+        <div className={styles.root}>
+            <Headroom>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton color="inherit" aria-label="Menu" onClick={()=>props.openMenu()} id='openLeftMenu'>
+                        <MenuIcon />
+                    </IconButton>
+                    <img alt='4slack logo' style={styles.logo} src='./logo-appbar-white.png'/>
+                    <Typography color="inherit">
+                        {props.feed.name}
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            </Headroom>
+        </div>
+    );
 }

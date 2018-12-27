@@ -5,6 +5,7 @@ import {provideIcon} from "../utils/icon.service";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from '@material-ui/core/ListItemText';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = {
 
@@ -13,14 +14,20 @@ const styles = {
 const Feeds = require('../../shared/redditFeeds').reactFeeds;
 
 export default class LeftMenuSettings extends React.Component {
-
+    state = {};
     constructor(props) {
         super(props);
     }
 
     getFeedOptions(feeds){
         return feeds.map((feed)=>{ return(
-            <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
+            <ListItem button key={feed.name} className='leftMenu_feedSource'>
+                <Checkbox
+                    checked={this.state.checkedB}
+                    onChange={()=>{}}
+                    value="checkedB"
+                    color="primary"
+                />
                 <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                     {provideIcon(feed.icon)}
                 </ListItemIcon>
@@ -33,7 +40,7 @@ export default class LeftMenuSettings extends React.Component {
         const {onClose, ...other } = this.props;
         return(
             <Dialog onClose={onClose} {...other}>
-                <DialogTitle>Set backup account</DialogTitle>
+                <DialogTitle>Show/Hide Feeds in Left Menu</DialogTitle>
                 {this.getFeedOptions(Feeds)}
             </Dialog>
         );

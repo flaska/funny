@@ -10,7 +10,11 @@ import {provideIcon} from '../utils/icon.service';
 import Typography from "@material-ui/core/Typography";
 import Divider from '@material-ui/core/Divider';
 import IconButton from "@material-ui/core/IconButton";
-import LeftMenuSettings from "./leftMenuSettings.component";
+import LazyLoad from "../utils/lazyLoad.component";
+import DialogLoading from "../utils/dialogLoading.component";
+import LazyLoadError from "../utils/lazyLoadError.component";
+
+const LeftMenuSettings = React.lazy(() =>  import("./leftMenuSettings.component"));
 
 const styles = {
     feedsTitle: {
@@ -48,6 +52,14 @@ export default class LeftMenu extends React.Component {
         if (this.state.settingsOpen) this.setState({settingsOpen: false});
         else this.setState({settingsOpen: true});
     }
+    renderSettings(){
+        if (this.state.settingsOpen) return (
+            <LazyLoad loadingFallback={(<DialogLoading/>)}
+                    errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}
+                >
+                <LeftMenuSettings open={this.state.settingsOpen} onClose={()=>this.toggleSettings()}/>
+            </LazyLoad>);
+    }
     render(){
         return(
             <React.Fragment>
@@ -64,7 +76,7 @@ export default class LeftMenu extends React.Component {
                         {this.getFeedOptions()}
                     </List>
                 </Drawer>
-                <LeftMenuSettings open={this.state.settingsOpen} onClose={()=>this.toggleSettings()}/>
+                {this.renderSettings()}
             </React.Fragment>
         );
     }

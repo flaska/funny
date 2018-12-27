@@ -9,12 +9,10 @@ const styles = {
     }
 };
 
-export default class Spinner extends React.Component {
-    render(){
-        return (
-            <div style={styles.main}>
-                <CircularProgress/>
-            </div>
-        )
-    }
+export default function Spinner(){
+    return (
+        <div style={styles.main}>
+            <CircularProgress/>
+        </div>
+    )
 }
