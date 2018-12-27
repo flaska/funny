@@ -1,21 +1,17 @@
 import React from "react";
 import axios from "axios/index";
 import {Comment} from './comment.component'
-import CircularProgress from "@material-ui/core/CircularProgress";
 import {InfoChip} from "../utils/infoChip.component";
+import Spinner from "../utils/spinner.component";
 
 const styles = {
     hint: {display: 'inline-block'},
-    progress: {
-        textAlign: 'center',
-        padding: 10
-    },
     seeAllButton: {
         display: 'inline-block'
     }
 };
 
-export class CommentsList extends React.Component {
+export default class CommentsList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -27,7 +23,7 @@ export class CommentsList extends React.Component {
         });
     }
     render() {
-        if (!this.state.dataFetched) return (<div style={styles.progress}><CircularProgress/></div>);
+        if (!this.state.dataFetched) return (<Spinner/>);
         return (
             <div className='commentsContainer'>
                 <InfoChip style={styles.hint}  icon='md_thumb_up'>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -6,10 +6,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import moment from "moment/moment";
 import {PostContent} from "./postContent.component";
 import {PostThumbnail} from "./postThumbnail.component";
-import {CommentsList} from "../comments/commentsList.component";
+// import {CommentsList} from "../comments/commentsList.component";
 import {PostActions} from "./postActions.component";
 import withWidth from '@material-ui/core/withWidth';
 import fixCss from '../utils/fixCss.function';
+import Spinner from "../utils/spinner.component";
+
+const CommentsList = React.lazy(() =>  import("../comments/commentsList.component"));
 
 const styles = {
     card: {
@@ -81,7 +84,9 @@ class _Post extends React.Component {
         if (this.state.showComments) return (
             <Card style={styles.commentsCard}>
                 <CardContent>
-                    <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                    <Suspense fallback={<Spinner/>}>
+                        <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                    </Suspense>
                 </CardContent>
             </Card>
         );

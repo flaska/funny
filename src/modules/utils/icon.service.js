@@ -27,6 +27,5 @@ export function provideIcon(iconName){
         case 'fa_eye-slash': return <FaEyeSlash style={styles.icon}/>;
         case 'fa_comments': return <FaComments style={styles.icon}/>;
     }
-
     return <div></div>;
 }
