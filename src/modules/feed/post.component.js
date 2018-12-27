@@ -6,11 +6,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import moment from "moment/moment";
 import {PostContent} from "./postContent.component";
 import {PostThumbnail} from "./postThumbnail.component";
-// import {CommentsList} from "../comments/commentsList.component";
 import {PostActions} from "./postActions.component";
 import withWidth from '@material-ui/core/withWidth';
 import fixCss from '../utils/fixCss.function';
 import Spinner from "../utils/spinner.component";
+import ErrorBoundary from "../utils/errorBoundary.component";
 
 const CommentsList = React.lazy(() =>  import("../comments/commentsList.component"));
 
@@ -84,9 +84,11 @@ class _Post extends React.Component {
         if (this.state.showComments) return (
             <Card style={styles.commentsCard}>
                 <CardContent>
-                    <Suspense fallback={<Spinner/>}>
-                        <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
-                    </Suspense>
+                    <ErrorBoundary>
+                        <Suspense fallback={<Spinner/>}>
+                            <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
+                        </Suspense>
+                    </ErrorBoundary>
                 </CardContent>
             </Card>
         );
