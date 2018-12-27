@@ -10,6 +10,7 @@ import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
+import ErrorBoundary from "../utils/errorBoundary.component";
 const LeftMenu = React.lazy(() =>  import("./leftMenu.component"));
 
 const theme = createMuiTheme({
@@ -59,14 +60,16 @@ export class Main extends React.Component {
     }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
-            <Suspense fallback={
-                <div style={styles.leftMenuLoading}>
-                    <CircularProgress/>
-                    <Typography variant='h4' color='primary' style={styles.leftMenuLoadingText}>Loading...</Typography>
-                </div>
-            }>
-                <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
-            </Suspense>
+            <ErrorBoundary fallback={}>
+                <Suspense fallback={
+                    <div style={styles.leftMenuLoading}>
+                        <CircularProgress/>
+                        <Typography variant='h4' color='primary' style={styles.leftMenuLoadingText}>Loading...</Typography>
+                    </div>
+                }>
+                    <LeftMenu feedOptions={FeedOptions} open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
+                </Suspense>
+            </ErrorBoundary>
         );
     }
     render() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 
 export default class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ export default class ErrorBoundary extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            return <h1>Something went wrong.</h1>;
+            return (<div> <SentimentDissatisfiedIcon /> {this.props.fallback}</div>);
         }
         return this.props.children;
     }

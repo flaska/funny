@@ -84,7 +84,7 @@ class _Post extends React.Component {
         if (this.state.showComments) return (
             <Card style={styles.commentsCard}>
                 <CardContent>
-                    <ErrorBoundary>
+                    <ErrorBoundary fallback={<Typography>Cannot load comments..</Typography>}>
                         <Suspense fallback={<Spinner/>}>
                             <CommentsList style={styles.commentList} postId={this.props.postData.id} onOpenSourceClick={()=>{this.openOriginalLink()}}/>
                         </Suspense>
