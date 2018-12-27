@@ -23,8 +23,16 @@ export class PostActions extends React.Component {
         else return <InfoChip icon='md_comment' clickable responsive={true}>Close</InfoChip>;
     }
     shareLink(){
-        copy(this.props.postData.url);
-        this.setState({shareDialogOpen: true})
+        if (navigator.share) {
+            navigator.share({
+                title: this.props.postData.title,
+                url: this.props.postData.url,
+            }).then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+        } else {
+            copy(this.props.postData.url);
+            this.setState({shareDialogOpen: true});
+        }
     }
     render(){
         return (
