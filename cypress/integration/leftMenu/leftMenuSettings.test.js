@@ -2,17 +2,17 @@ describe('Left Menu Settings', function() {
     it('Has left menu & sees only default feeds', function() {
         cy.homepage();
         cy.get('#openLeftMenu').click();
-        cy.hasTextsIn(['Funny','Aww','Videos','Pics','Gaming'], '#leftMenu');
+        cy.hasTextsIn(['Funny','Aww','Facepalm','Comics'], '#leftMenu');
         cy.hasNoTextsIn(['Science','World News'], '#leftMenu');
     });
 
     it('Has left menu settings dialog', ()=>{
         cy.get('#openLeftMenuSettings').click();
-        cy.hasTextsIn(['Funny','Aww','Videos','Pics','Gaming', 'Science','World News'], '#leftMenuSettingDialog');
+        cy.hasTextsIn(['Funny','Aww','Facepalm','Comics', 'Science','World News'], '#leftMenuSettingDialog');
     });
 
     it('Appropriate checkboxes are checked', ()=>{
-        let checked = ['funny', 'aww', 'pics', 'videos'];
+        let checked = ['funny', 'aww', 'comics', 'facepalm'];
         checked.forEach(tag=>{
             cy.get('#leftMenuSettings_'+tag).should('be.checked');
         });
@@ -29,7 +29,7 @@ describe('Left Menu Settings', function() {
     });
 
     it('Should save and update feed options', ()=>{
-        cy.hasTextsIn(['Funny','Aww','Videos','Pics','Gaming', 'Science'], '#leftMenu');
+        cy.hasTextsIn(['Funny','Aww','Facepalm', 'Comics', 'Science'], '#leftMenu');
     });
 
     it('Should show science feed', ()=>{

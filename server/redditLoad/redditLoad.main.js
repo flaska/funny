@@ -1,7 +1,5 @@
-const redditLoadLogic = require('./redditLoad.logic');
-
-
-const feeds = ['funny', 'pics', 'aww', 'science', 'worldnews', 'gaming','todayilearned','videos','movies'];
+const redditLoadLogic = require('./redditLoad.logic'),
+feeds = require('../../src/shared/redditFeeds').nodeFeeds;
 
 redditLoadLogic.loadFeeds(feeds);
 setInterval(()=>{
