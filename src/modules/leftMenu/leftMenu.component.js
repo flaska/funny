@@ -64,7 +64,7 @@ export default class LeftMenu extends React.Component {
                         {this.getFeedOptions()}
                     </List>
                 </Drawer>
-                <LeftMenuSettings open={this.state.settingsOpen}/>
+                <LeftMenuSettings open={this.state.settingsOpen} onClose={()=>this.toggleSettings()}/>
             </React.Fragment>
         );
     }

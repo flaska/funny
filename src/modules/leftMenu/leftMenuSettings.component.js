@@ -32,7 +32,7 @@ export default class LeftMenuSettings extends React.Component {
     render(){
         const {onClose, ...other } = this.props;
         return(
-            <Dialog {...other}>
+            <Dialog onClose={onClose} {...other}>
                 <DialogTitle>Set backup account</DialogTitle>
                 {this.getFeedOptions(Feeds)}
             </Dialog>
