@@ -8,7 +8,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = {
-
+    feedIcon: {
+        marginRight: 0,
+        marginLeft: 10
+    }
 };
 
 const Feeds = require('../../shared/redditFeeds').reactFeeds;
