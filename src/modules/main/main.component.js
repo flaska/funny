@@ -60,7 +60,7 @@ export class Main extends React.Component {
     }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
-            <ErrorBoundary fallback={}>
+            <ErrorBoundary>
                 <Suspense fallback={
                     <div style={styles.leftMenuLoading}>
                         <CircularProgress/>
