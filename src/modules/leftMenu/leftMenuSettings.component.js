@@ -31,7 +31,7 @@ export default class LeftMenuSettings extends React.Component {
     }
 
     getFeedOptions(){
-        return getAllFeedsFromStorage().map((feed, i)=>{ return(
+        return this.state.feedOptions.map((feed, i)=>{ return(
             <ListItem button key={feed.name} className='leftMenu_feedSource'>
                 <Checkbox
                     checked={feed.enabled}
