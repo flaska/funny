@@ -16,8 +16,8 @@ const styles = {
     },
     icon: {
         zoom: 4,
-        marginTop: 5,
-        opacity: 0.5
+        margin: 10,
+        opacity: 0.1
     },
     external: {
         position: 'absolute',
@@ -37,7 +37,6 @@ class _PostThumbnail extends React.Component {
 
     getThumbnail(postData){
         if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)}  className='postThumbnail'/>
-        if (!postData.thumbnail) return this.getThumbnailIcon(postData)
     }
     externalWatermark(){
         if (this.props.postData.type==='link') return (<div style={styles.external}><InfoChip icon='fa_external-link-alt'>External</InfoChip></div>);

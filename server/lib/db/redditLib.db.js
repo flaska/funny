@@ -1,7 +1,9 @@
 const mongoose = require('mongoose'),
     config = require('config');
 
-const db = mongoose.createConnection(config.database.reddit.uri, config.database.reddit.opts);
+let db;
+if (config.database.reddit.opts) db = mongoose.createConnection(config.database.reddit.uri);
+else db = mongoose.createConnection(config.database.reddit.uri);
 
 db.on('error', console.error.bind(console, 'MongoDB connection error. '));
 db.once('open', function() {

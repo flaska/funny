@@ -1,17 +1,16 @@
 const request = require('request'),
-    redditLoadDb = require('../redditLoad.db'),
-    openGraph = require('./utils/redditLoad.openGraph.js')
+    redditLoadDb = require('../redditLoad.db')
 ;
 
 exports.fetchPosts = (subreddit, channel, cb)=>{
     request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json?limit=100', function (error, response, body) {
-        let promises = [];
         let result = [];
         if (!JSON.parse(body).data) return console.error(`Cannot fetch posts for ${subreddit}`);
         JSON.parse(body).data.children
             .filter(redditPost=>!redditPost.data.distinguished)
             .filter(redditPost=>!redditPost.data.over_18)
             .filter(redditPost=>!redditPost.data.is_self)
+            .filter(redditPost=>redditPost.data.thumbnail && redditPost.data.thumbnail.indexOf('http')==0)
             .forEach((redditPost)=>{
                 let rPost = redditPost.data;
                 let jsonPost = {
@@ -28,20 +27,9 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
                 jsonPost.title = jsonPost.title.replace(new RegExp('p'+'orn','g'), '');
                 if (!jsonPost.type) jsonPost.type = 'link';
                 if (jsonPost.type === 'rich:video') jsonPost.type = 'link';
-                if (!jsonPost.thumbnail.indexOf('http')==0) jsonPost.thumbnail = null;
                 if (jsonPost.type === 'hosted:video') jsonPost.url = rPost.media.reddit_video.fallback_url;
-
-                if (!jsonPost.thumbnail) {
-                    let p = openGraph.getImage(jsonPost.url);
-                    promises.push(p);
-                    p.then((imgUrl) => {
-                        jsonPost.thumbnail = imgUrl;
-                    });
-                }
                 result.push(jsonPost);
             });
-        Promise.all(promises).then(()=>{
-            redditLoadDb.savePosts(subreddit, channel, result, cb);
-        });
+        redditLoadDb.savePosts(subreddit, channel, result, cb);
     });
 };
