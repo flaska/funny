@@ -1,5 +1,5 @@
 import {MdSentimentVerySatisfied, MdFace, MdPhotoCamera, MdComment, MdThumbUp} from 'react-icons/md';
-import {FaPaw, FaFlask, FaGamepad, FaLightbulb, FaVideo, FaFilm, FaGlobeAmericas, FaEye, FaExternalLinkAlt, FaEyeSlash, FaComments, FaHandPaper, FaBookOpen, FaDna} from 'react-icons/fa';
+import {FaPaw, FaGlobeAmericas, FaEye, FaExternalLinkAlt, FaEyeSlash, FaComments, FaHandPaper, FaBookOpen, FaDna, FaClock} from 'react-icons/fa';
 import React from 'react';
 
 const styles = {
@@ -16,19 +16,16 @@ export function provideIcon(iconName){
         case 'md_sentiment_very_satisfied': return <MdSentimentVerySatisfied style={styles.icon}/>;
         case 'md_photo_camera': return <MdPhotoCamera style={styles.icon}/>;
         case 'fa_paw': return <FaPaw style={styles.icon}/>;
-        case 'fa_flask': return <FaFlask style={styles.icon}/>;
-        case 'fa_gamepad': return <FaGamepad style={styles.icon}/>;
-        case 'fa_lightbulb': return <FaLightbulb style={styles.icon}/>;
-        case 'fa_video': return <FaVideo style={styles.icon}/>;
-        case 'fa_film': return <FaFilm style={styles.icon}/>;
-        case 'fa_globe_americas': return <FaGlobeAmericas style={styles.icon}/>;
+        case 'fa_globe-americas': return <FaGlobeAmericas style={styles.icon}/>;
         case 'fa_eye': return <FaEye style={styles.icon}/>;
         case 'fa_external-link-alt': return <FaExternalLinkAlt style={styles.icon}/>;
         case 'fa_eye-slash': return <FaEyeSlash style={styles.icon}/>;
         case 'fa_comments': return <FaComments style={styles.icon}/>;
-        case 'fa-hand-paper': return <FaHandPaper style={styles.icon}/>;
-        case 'fa-book-open': return <FaBookOpen style={styles.icon}/>;
-        case 'fa-dna': return <FaDna style={styles.icon}/>;
+        case 'fa_hand-paper': return <FaHandPaper style={styles.icon}/>;
+        case 'fa_book-open': return <FaBookOpen style={styles.icon}/>;
+        case 'fa_dna': return <FaDna style={styles.icon}/>;
+        case 'fa_clock': return <FaClock style={styles.icon}/>;
+
     }
     return <div></div>;
 }

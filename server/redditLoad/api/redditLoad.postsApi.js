@@ -24,6 +24,7 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
                     type: rPost.post_hint,
                     url: rPost.url
                 };
+                jsonPost.title = jsonPost.title.replace(new RegExp('p'+'orn','g'), '');
                 if (!jsonPost.type) jsonPost.type = 'link';
                 if (jsonPost.type === 'rich:video') jsonPost.type = 'link';
                 if (!jsonPost.thumbnail.indexOf('http')==0) jsonPost.thumbnail = null;
