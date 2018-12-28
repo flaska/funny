@@ -1,18 +1,26 @@
 import {getData, saveData} from "./localStorage.service";
-const defaultFeeds = require('../../../shared/redditFeeds').reactFeeds;
+const getDefaultFeeds = require('../../../shared/redditFeeds').getReactFeeds;
 
-export function getAllFeedsFromStorage(){
-    let localStorageFeeds = getData('redditFeeds_v1');
-    if (localStorageFeeds) return localStorageFeeds;
-    return defaultFeeds;
+export function getAllFeeds(){
+   let localStorageFeeds2 = getData('redditFeeds_v2');
+    if (localStorageFeeds2) {
+        let allFeeds = getDefaultFeeds();
+        allFeeds.forEach(f=>{
+            if (localStorageFeeds2.indexOf(f.tag)!=-1) f.enabled = true;
+            else f.enabled = false;
+        });
+        return allFeeds;
+    }
+    return getDefaultFeeds();
 }
 
 export function saveSelectedFeeds(feeds){
-    saveData('redditFeeds_v1', feeds);
+    let toStore = feeds.filter(f=>f.enabled).map(f=>f.tag);
+    saveData('redditFeeds_v2', toStore);
 }
 
 export function getEnabledFeeds() {
-    return getAllFeedsFromStorage().filter(f=>f.enabled);
+    return getAllFeeds().filter(f=>f.enabled);
 }
 
 export function getDefaultFeed(){
