@@ -11,6 +11,7 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
         JSON.parse(body).data.children
             .filter(redditPost=>!redditPost.data.distinguished)
             .filter(redditPost=>!redditPost.data.over_18)
+            .filter(redditPost=>!redditPost.data.is_self)
             .forEach((redditPost)=>{
                 let rPost = redditPost.data;
                 let jsonPost = {
