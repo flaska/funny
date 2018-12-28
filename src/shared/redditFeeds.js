@@ -4,8 +4,8 @@ let feeds = [
     {fullName: 'Comics', tag: 'comics', icon: 'fa_book-open', defaultEnabled: true},
     {fullName: 'Troll Chromosomes', tag: 'TrollXChromosomes', icon: 'fa_dna', defaultEnabled: true},
     {fullName: 'Aww', tag: 'aww', icon: 'fa_paw', defaultEnabled: true},
-    {fullName: 'Pics', tag: 'pics', icon: 'md_photo_camera', defaultEnabled: true},
     {fullName: 'Mildly Interesting', tag: 'mildlyinteresting', icon: 'md_photo_camera', defaultEnabled: true},
+    {fullName: 'Pics', tag: 'pics', icon: 'md_photo_camera', defaultEnabled: false},
 ];
 
 if (process.env.PORT) {

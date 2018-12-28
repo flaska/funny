@@ -16,7 +16,7 @@ function getReplies(redditComment, replies, level){
     if (!comment.body) return false;
     comment.body = comment.body.replace(new RegExp('p'+'orn','g'), '');
     replies.push(comment);
-    if (l>=3) return false;
+    if (l>=2) return false;
     if (redditComment.data.replies && redditComment.data.replies.data) redditComment.data.replies.data.children.slice(0,2).forEach((c)=>{getReplies(c, comment.replies, l)});
 }
 

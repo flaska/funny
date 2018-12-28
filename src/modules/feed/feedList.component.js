@@ -68,8 +68,8 @@ export class FeedList extends React.Component {
                 <br/>
             </React.Fragment>
         );
-        if (this.state.offline) return <Offline/>
-        return (
+        if (this.state.offline) return <Offline/>;
+        if (this.state.posts.length<100)return (
             <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()}>
                 More Fun
             </Button>
