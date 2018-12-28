@@ -15,15 +15,18 @@ import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
 
 import {getEnabledFeeds} from '../utils/functions/feeds.provider'
+import Button from "@material-ui/core/es/Button/Button";
+import {FaComment} from 'react-icons/fa';
+
+import {InfoAlert} from "../utils/components/infoAlert.component";
 
 const LeftMenuSettings = React.lazy(() =>  import("./leftMenuSettings.component"));
-
+const FeedbackDialog = React.lazy(() =>  import("./feedbackDialog.component"));
 
 const styles = {
     feedsTitle: {
         marginTop: 15,
         marginLeft: 25,
-        marginBottom: 10
     },
     feedsIcon: {
         marginRight: 10,
@@ -34,6 +37,12 @@ const styles = {
         float: 'right',
         marginRight: 15,
         marginLeft: 15
+    },
+    feedbackIcon: {
+        transform: 'scaleX(-1)'
+    },
+    about: {
+        margin: 20
     }
 };
 
@@ -46,9 +55,9 @@ export default class LeftMenu extends React.Component {
         return getEnabledFeeds().map((feed)=>{ return(
             <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
                 <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
-                    {provideIcon(feed.icon)}
+                    <Typography color='primary'>{provideIcon(feed.icon)}</Typography>
                 </ListItemIcon>
-                <ListItemText primary={feed.name} className='leftMenu_selectSource'/>
+                <ListItemText color='primary' primary={<Typography color='primary'>{feed.name}</Typography>} className='leftMenu_selectSource'/>
             </ListItem>
         )});
     }
@@ -58,10 +67,18 @@ export default class LeftMenu extends React.Component {
     }
     renderSettings(){
         if (this.state.settingsOpen) return (
-            <LazyLoad loadingFallback={(<DialogLoading/>)}
-                    errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}
-                >
+            <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}>
                 <LeftMenuSettings open={this.state.settingsOpen} onClose={()=>this.toggleSettings()}/>
+            </LazyLoad>);
+    }
+    toggleFeedbackDialog(){
+        if (this.state.feedbackDialogOpen) this.setState({feedbackDialogOpen: false});
+        else this.setState({feedbackDialogOpen: true});
+    }
+    renderFeedbackDialog(){
+        if (this.state.feedbackDialogOpen) return (
+            <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline...'/>}>
+                <FeedbackDialog open={this.state.feedbackDialogOpen} onClose={()=>this.toggleFeedbackDialog()}/>
             </LazyLoad>);
     }
     render(){
@@ -75,12 +92,22 @@ export default class LeftMenu extends React.Component {
                             <SettingsIcon/>
                         </IconButton>
                     </Typography>
-                    <Divider/>
                     <List>
                         {this.getFeedOptions()}
                     </List>
+                    <Divider/>
+                    <br/><br/>
+                    <Typography variant="h5"  style={styles.feedsTitle}>
+                        About 4slack
+                    </Typography>
+                    <div style={styles.about}>
+                        <Button color="primary" onClick={()=>this.toggleFeedbackDialog()} id='#openFeedback'>
+                            <FaComment style={styles.feedbackIcon}/>&nbsp;Feedback
+                        </Button>
+                    </div>
                 </Drawer>
                 {this.renderSettings()}
+                {this.renderFeedbackDialog()}
             </React.Fragment>
         );
     }

@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import {getAllFeeds, saveSelectedFeeds} from '../utils/functions/feeds.provider';
+import DialogContent from "@material-ui/core/es/DialogContent/DialogContent";
 
 const styles = {
     feedIcon: {
@@ -16,7 +17,6 @@ const styles = {
     },
     buttons: {
         textAlign: 'right',
-        margin: 15
     }
 };
 
@@ -60,13 +60,15 @@ export default class LeftMenuSettings extends React.Component {
         return(
             <Dialog onClose={onClose} {...other} id='leftMenuSettingDialog'>
                 <DialogTitle>Show/Hide Feeds in Left Menu</DialogTitle>
-                {this.getFeedOptions()}
-                <div style={styles.buttons}>
-                    <Button onClick={onClose}>Cancel</Button>
-                    <Button onClick={()=>this.saveSelectedFeeds()} variant="contained" color="secondary" id='leftMenuSettings_save'>
-                        Save
-                    </Button>
-                </div>
+                <DialogContent>
+                    {this.getFeedOptions()}
+                    <div style={styles.buttons}>
+                        <Button onClick={onClose}>Cancel</Button>
+                        <Button onClick={()=>this.saveSelectedFeeds()} variant="contained" color="secondary" id='leftMenuSettings_save'>
+                            Save
+                        </Button>
+                    </div>
+                </DialogContent>
             </Dialog>
         );
     }
