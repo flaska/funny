@@ -34,7 +34,7 @@ export class Main extends React.Component {
     constructor(props){
         super(props);
         this.state = {feed: getDefaultFeed(), leftMenuOpen: false};
-        // Analytics.setFeed(getDefaultFeed().tag);
+        Analytics.setFeed(getDefaultFeed().tag);
     }
     openMenu(){
         this.setState({leftMenuOpen: true})
@@ -44,7 +44,7 @@ export class Main extends React.Component {
     }
     selectFeed(f){
         this.setState({feed: f, leftMenuOpen: false});
-        // Analytics.setFeed(f.tag);
+        Analytics.setFeed(f.tag);
     }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
