@@ -11,7 +11,11 @@ import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
 import {getDefaultFeed} from '../utils/functions/feeds.provider';
+import Analytics from '../utils/functions/analytics.service';
+
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
+
+
 
 const theme = createMuiTheme({
     palette: {
@@ -30,6 +34,7 @@ export class Main extends React.Component {
     constructor(props){
         super(props);
         this.state = {feed: getDefaultFeed(), leftMenuOpen: false};
+        // Analytics.setFeed(getDefaultFeed().tag);
     }
     openMenu(){
         this.setState({leftMenuOpen: true})
@@ -39,6 +44,7 @@ export class Main extends React.Component {
     }
     selectFeed(f){
         this.setState({feed: f, leftMenuOpen: false});
+        // Analytics.setFeed(f.tag);
     }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
