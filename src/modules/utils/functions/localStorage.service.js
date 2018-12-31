@@ -1,11 +1,13 @@
-export function saveData(key, item) {
-    return window.localStorage.setItem(key, JSON.stringify(item));
-}
+export default class LocalStorage{
+    static saveData(key, item) {
+        return window.localStorage.setItem(key, JSON.stringify(item));
+    }
 
-export function getData(key) {
-    try {
-        return JSON.parse(window.localStorage.getItem(key));
-    } catch(e) {
-        console.error(e);
+    static getData(key) {
+        try {
+            return JSON.parse(window.localStorage.getItem(key));
+        } catch(e) {
+            console.error(e);
+        }
     }
 }

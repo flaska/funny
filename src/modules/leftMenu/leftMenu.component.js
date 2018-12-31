@@ -14,7 +14,7 @@ import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
 
-import {getEnabledFeeds} from '../utils/functions/feeds.provider'
+import FeedsProvider from '../utils/functions/feeds.provider'
 import Button from "@material-ui/core/es/Button/Button";
 import {FaComment} from 'react-icons/fa';
 
@@ -44,6 +44,9 @@ const styles = {
     },
     about: {
         margin: 20
+    },
+    link: {
+        textDecoration: 'none'
     }
 };
 
@@ -57,9 +60,9 @@ export default class LeftMenu extends React.Component {
         Analytics.setFeed(f.tag);
     }
     getFeedOptions(){
-        return getEnabledFeeds().map((feed)=>{ return(
-            <Link to={feed.tag}>
-                <ListItem button key={feed.name} onClick={()=>this.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
+        return FeedsProvider.getEnabledFeeds().map((feed)=>{ return(
+            <Link to={feed.tag} key={feed.name} style={styles.link}>
+                <ListItem button onClick={()=>this.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
                     <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                         <Typography color='primary'>{provideIcon(feed.icon)}</Typography>
                     </ListItemIcon>

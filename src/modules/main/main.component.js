@@ -11,7 +11,7 @@ import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
 import Analytics from '../utils/functions/analytics.service';
-import {getEnabledFeeds, getFeedByName, getDefaultFeed} from '../utils/functions/feeds.provider'
+import FeedsProvider from '../utils/functions/feeds.provider'
 
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
@@ -33,8 +33,8 @@ const theme = createMuiTheme({
 export class Main extends React.Component {
     constructor(props){
         super(props);
-        this.state = {feed: getDefaultFeed(), leftMenuOpen: false};
-        Analytics.setFeed(getDefaultFeed().tag);
+        this.state = {feed: FeedsProvider.getDefaultFeed(), leftMenuOpen: false};
+        Analytics.setFeed(FeedsProvider.getDefaultFeed().tag);
     }
     openMenu(){
         this.setState({leftMenuOpen: true})
@@ -54,13 +54,14 @@ export class Main extends React.Component {
     }
 
     getFeed(feedName){
-        return <FeedList feed={getFeedByName(feedName)}></FeedList>;
+        return <FeedList feed={FeedsProvider.getFeedByName(feedName)}></FeedList>;
     }
 
     getContent(){
         return (
             <React.Fragment>
-                {getEnabledFeeds().map(f=><Route path={'/'+f.tag} exact component={()=>this.getFeed(f.tag)} />)}
+                <Route path='/' exact component={()=>this.getFeed('funny')} />
+                {FeedsProvider.getEnabledFeeds().map(feed=><Route path={'/'+feed.tag} exact component={()=>this.getFeed(feed.tag)} />)}
             </React.Fragment>
         );
     }
