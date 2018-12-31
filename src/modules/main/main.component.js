@@ -61,6 +61,11 @@ export class Main extends React.Component {
             <React.Fragment>
                 <MetaTags>
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
+                    <style>
+                        { "#openLeftMenu:hover {\
+                            background-color: rgba(0, 0, 0, 0.08)!important;\
+                        }"}
+                    </style>
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>

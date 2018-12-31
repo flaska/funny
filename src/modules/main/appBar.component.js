@@ -17,7 +17,8 @@ const styles = {
         marginRight: 23
     },
     menuButton: {
-        zoom: 0.8
+        // zoom: 0.8
+        backgroundColor: 'rgba(255, 255, 255, 0.2)'
     }
 };
 
@@ -27,9 +28,9 @@ export function SlackerAppBar(props){
             <Headroom>
             <AppBar position="static">
                 <Toolbar>
-                    <Fab style={styles.menuButton} color="secondary" aria-label="Menu" onClick={()=>props.openMenu()} id='openLeftMenu'>
+                    <IconButton style={styles.menuButton} color="inherit" aria-label="Menu" onClick={()=>props.openMenu()} id='openLeftMenu'>
                         <MenuIcon />
-                    </Fab>
+                    </IconButton>
                     <img alt='4slack logo' style={styles.logo} src='./logo-appbar-white.png'/>
                     <Typography color="inherit">
                         {props.feed.name}
