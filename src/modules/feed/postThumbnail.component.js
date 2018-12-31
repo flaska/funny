@@ -18,9 +18,16 @@ const styles = {
         margin: 10,
         opacity: 0.1
     },
-    external: {
+    videoLogo: {
         position: 'absolute',
-        right: 0
+        right: 0,
+        margin: 5,
+        color: 'rgb(88, 87, 87)',
+        background: '#ffffff9e',
+        padding: 4,
+        borderRadius: 3,
+        paddingBottom: 0,
+
     }
 };
 
@@ -35,7 +42,7 @@ class _PostThumbnail extends React.Component {
         if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)}  className='postThumbnail'/>
     }
     videoLogo(){
-        if (this.props.postData.type==='hosted:video') return (<div style={styles.external}><FaVideo/></div>);
+        if (this.props.postData.type==='hosted:video') return (<div style={styles.videoLogo}><FaVideo/></div>);
     }
     render() {
         return (

@@ -3,7 +3,7 @@
   "database":{
     "reddit": {
       "uri": "mongodb://localhost:27017/red",
-      "opts": {}
+      "opts": false
     }
   }
 }
