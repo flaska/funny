@@ -30,12 +30,18 @@ const theme = createMuiTheme({
     },
 });
 
-export class Main extends React.Component {
+export default class Main extends React.Component {
     constructor(props){
         super(props);
-        this.state = {feed: FeedsProvider.getDefaultFeed(), leftMenuOpen: false};
+        this.state = {leftMenuOpen: false};
         Analytics.setFeed(FeedsProvider.getDefaultFeed().tag);
     }
+
+
+    componentDidUpdate(prevProps, prevState, snapshot){
+        console.log(prevState);
+    }
+
     openMenu(){
         this.setState({leftMenuOpen: true})
     }
@@ -60,8 +66,8 @@ export class Main extends React.Component {
     getContent(){
         return (
             <React.Fragment>
-                <Route path='/' exact component={()=>this.getFeed('funny')} />
-                {FeedsProvider.getEnabledFeeds().map(feed=><Route path={'/'+feed.tag} exact component={()=>this.getFeed(feed.tag)} />)}
+                <Route path='/' exact render={()=>this.getFeed('funny')} />
+                {FeedsProvider.getEnabledFeeds().map(feed=><Route path={'/'+feed.tag} render={()=>this.getFeed(feed.tag)} />)}
             </React.Fragment>
         );
     }
@@ -79,7 +85,7 @@ export class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={''}></SlackerAppBar>
                     <Router>
                         <React.Fragment>
                             {this.renderLeftMenu()}

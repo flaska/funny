@@ -38,11 +38,11 @@ export class FeedList extends React.Component {
         this.loadMorePosts();
     }
 
-    componentWillReceiveProps(props) {
-        if (this.props.feed.url === props.feed.url) return;
-        this.setState({posts: []});
-        setTimeout(()=>{this.loadMorePosts()},0);
-    }
+    // componentWillReceiveProps(props) {
+    //     if (this.props.feed.url === props.feed.url) return;
+    //     this.setState({posts: []});
+    //     setTimeout(()=>{this.loadMorePosts()},0);
+    // }
 
     loadMorePosts(){
         this.setState({loading: true});
