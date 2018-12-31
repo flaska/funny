@@ -13,7 +13,7 @@ import LazyLoadError from "../utils/components/lazyLoadError.component";
 import Analytics from '../utils/functions/analytics.service';
 import {getEnabledFeeds, getFeedByName, getDefaultFeed} from '../utils/functions/feeds.provider'
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 

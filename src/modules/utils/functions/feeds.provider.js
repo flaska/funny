@@ -30,3 +30,7 @@ export function getDefaultFeed(){
 export function getFeedByName(feedName){
     return getEnabledFeeds().filter(f=>f.tag===feedName)[0];
 }
+
+export class FeedProvider {
+
+}
