@@ -26,11 +26,12 @@ export class PostActions extends React.Component {
         if (navigator.share) {
             navigator.share({
                 title: this.props.postData.title,
+                text: this.props.postData.title,
                 url: this.props.postData.url,
             }).then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error sharing', error));
         } else {
-            copy(this.props.postData.url);
+            copy(this.props.postData.title + ' ' + this.props.postData.url);
             this.setState({shareDialogOpen: true});
         }
     }
