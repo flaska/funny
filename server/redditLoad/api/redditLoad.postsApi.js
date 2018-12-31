@@ -4,15 +4,20 @@ const request = require('request'),
 
 exports.fetchPosts = (subreddit, channel, cb)=>{
 
-       if (process.env.heroku==='true') {
+    let sr;
+   if (process.env.heroku==='true') {
+        sr = subreddit;
         console.log('\n\nProduction Load\n\n');
-        if (subreddit === 'earth' || subreddit === 'history') {
-            subreddit += 'po';
-            if (!!subreddit) subreddit += 'rn';
+        if (sr === 'earth' || sr === 'history') {
+            sr += 'po';
+            if (!!subreddit) sr += 'rn';
         }
-    }
+    } else {
+       if (subreddit==='earth') return false;
+       if (subreddit==='history') return false;
+   }
 
-    request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json?limit=100', function (error, response, body) {
+    request('https://www.reddit.com/r/' + (sr || subreddit) + '/' + channel + '.json?limit=100', function (error, response, body) {
         let result = [];
         if (!JSON.parse(body).data) return console.error(`Cannot fetch posts for ${subreddit}`);
         JSON.parse(body).data.children
