@@ -7,7 +7,7 @@ const services = [
 ];
 
 function spawnService(path){
-    const service = fork(path);
+    const service = fork(path, [], {env: {heroku: !!process.env.PORT}});
     service.on('message', (m)=>{
         console.log('message: ' + m);
     });
