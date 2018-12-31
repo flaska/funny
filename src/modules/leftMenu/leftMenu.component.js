@@ -20,6 +20,8 @@ import {FaComment} from 'react-icons/fa';
 
 import {InfoAlert} from "../utils/components/infoAlert.component";
 
+import {Link} from "react-router-dom";
+
 const LeftMenuSettings = React.lazy(() =>  import("./leftMenuSettings.component"));
 const FeedbackDialog = React.lazy(() =>  import("./feedbackDialog.component"));
 
@@ -53,12 +55,14 @@ export default class LeftMenu extends React.Component {
     }
     getFeedOptions(){
         return getEnabledFeeds().map((feed)=>{ return(
-            <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
-                <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
-                    <Typography color='primary'>{provideIcon(feed.icon)}</Typography>
-                </ListItemIcon>
-                <ListItemText color='primary' primary={<Typography color='primary'>{feed.name}</Typography>} className='leftMenu_selectSource'/>
-            </ListItem>
+            <Link to={feed.tag}>
+                <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
+                    <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
+                        <Typography color='primary'>{provideIcon(feed.icon)}</Typography>
+                    </ListItemIcon>
+                    <ListItemText color='primary' primary={<Typography color='primary'>{feed.name}</Typography>} className='leftMenu_selectSource'/>
+                </ListItem>
+            </Link>
         )});
     }
     toggleSettings(){

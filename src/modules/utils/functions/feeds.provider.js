@@ -26,3 +26,7 @@ export function getEnabledFeeds() {
 export function getDefaultFeed(){
     return getEnabledFeeds()[0];
 }
+
+export function getFeedByName(feedName){
+    return getEnabledFeeds().filter(f=>f.tag===feedName)[0];
+}

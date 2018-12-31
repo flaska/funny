@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*",
-    "buildpush": "npm run build && git add build/ && git commit -a -m 'x' && git push origin master && git push heroku master && git push origin master"
+    "buildpush": "npm run build && git add build/ && git commit -a -m 'x' && git push origin master && git push heroku master && git push origin master",
+    "disable-dev-dep": "heroku config:set NPM_CONFIG_PRODUCTION=true"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +45,7 @@
     "react-imageloader": "^3.0.0",
     "react-meta-tags": "^0.7.2",
     "react-scripts": "2.1.1",
-    "source-map-explorer": "^1.6.0"
+    "source-map-explorer": "^1.6.0",
+    "react-router-dom": "^4.3.1"
   }
 }

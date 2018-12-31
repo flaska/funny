@@ -10,12 +10,12 @@ import red from '@material-ui/core/colors/red';
 import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
-import {getDefaultFeed} from '../utils/functions/feeds.provider';
 import Analytics from '../utils/functions/analytics.service';
+import {getEnabledFeeds, getFeedByName, getDefaultFeed} from '../utils/functions/feeds.provider'
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
-
-
 
 const theme = createMuiTheme({
     palette: {
@@ -43,7 +43,7 @@ export class Main extends React.Component {
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
     }
     selectFeed(f){
-        this.setState({feed: f, leftMenuOpen: false});
+        this.setState({leftMenuOpen: false});
         Analytics.setFeed(f.tag);
     }
     renderLeftMenu(){
@@ -56,6 +56,19 @@ export class Main extends React.Component {
             </LazyLoad>
         );
     }
+
+    getFeed(feedName){
+        return <FeedList feed={getFeedByName(feedName)}></FeedList>;
+    }
+
+    getContent(){
+        return (
+            <React.Fragment>
+                {getEnabledFeeds().map(f=><Route path={'/'+f.tag} exact component={()=>this.getFeed(f.tag)} />)}
+            </React.Fragment>
+        );
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -70,8 +83,12 @@ export class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
+                    <Router>
+                        <React.Fragment>
                     {this.renderLeftMenu()}
-                    <FeedList feed={this.state.feed}></FeedList>
+                    {this.getContent()}
+                        </React.Fragment>
+                    </Router>
                 </MuiThemeProvider>
             </React.Fragment>
         );
