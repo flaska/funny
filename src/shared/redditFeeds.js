@@ -9,7 +9,10 @@ let feeds = [
     {fullName: 'Troll Chromosomes', tag: 'TrollXChromosomes', icon: 'fa_dna', defaultEnabled: false},
 ];
 
-if (process.env.heroku) {
+console.log('Heroku Load Process: ' + process.env.heroku);
+
+
+if (process.env.heroku==='true') {
     console.log('\n\nProd Load');
     feeds.push({fullName: 'History', tag: 'historypo'+'rn', icon: 'fa_clock', defaultEnabled: true});
     feeds.push({fullName: 'Earth', tag: 'earthpo'+'rn', icon: 'fa_globe-americas', defaultEnabled: true});
