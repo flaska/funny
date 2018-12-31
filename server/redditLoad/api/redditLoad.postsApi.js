@@ -3,6 +3,15 @@ const request = require('request'),
 ;
 
 exports.fetchPosts = (subreddit, channel, cb)=>{
+
+       if (process.env.heroku==='true') {
+        console.log('\n\nProduction Load\n\n');
+        if (subreddit === 'earth' || subreddit === 'history') {
+            subreddit += 'po';
+            if (!!subreddit) subreddit += 'rn';
+        }
+    }
+
     request('https://www.reddit.com/r/' + subreddit + '/' + channel + '.json?limit=100', function (error, response, body) {
         let result = [];
         if (!JSON.parse(body).data) return console.error(`Cannot fetch posts for ${subreddit}`);
