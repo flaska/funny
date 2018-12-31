@@ -18,9 +18,8 @@ import {getEnabledFeeds} from '../utils/functions/feeds.provider'
 import Button from "@material-ui/core/es/Button/Button";
 import {FaComment} from 'react-icons/fa';
 
-import {InfoAlert} from "../utils/components/infoAlert.component";
-
 import {Link} from "react-router-dom";
+import Analytics from "../utils/functions/analytics.service";
 
 const LeftMenuSettings = React.lazy(() =>  import("./leftMenuSettings.component"));
 const FeedbackDialog = React.lazy(() =>  import("./feedbackDialog.component"));
@@ -53,10 +52,14 @@ export default class LeftMenu extends React.Component {
         super(props);
         this.state = {settingsOpen: false};
     }
+    onSelectFeedSource(f){
+        this.props.onSelectFeedSource();
+        Analytics.setFeed(f.tag);
+    }
     getFeedOptions(){
         return getEnabledFeeds().map((feed)=>{ return(
             <Link to={feed.tag}>
-                <ListItem button key={feed.name} onClick={()=>this.props.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
+                <ListItem button key={feed.name} onClick={()=>this.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
                     <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                         <Typography color='primary'>{provideIcon(feed.icon)}</Typography>
                     </ListItemIcon>

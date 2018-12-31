@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 import Headroom from "react-headroom";
-import Fab from '@material-ui/core/Fab';
 
 const styles = {
     root: {
@@ -17,7 +16,6 @@ const styles = {
         marginRight: 23
     },
     menuButton: {
-        // zoom: 0.8
         backgroundColor: 'rgba(255, 255, 255, 0.2)'
     }
 };

@@ -42,17 +42,13 @@ export class Main extends React.Component {
     closeMenu(){
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
     }
-    selectFeed(f){
-        this.setState({leftMenuOpen: false});
-        Analytics.setFeed(f.tag);
-    }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
             <LazyLoad
                 loadingFallback={(<DialogLoading/>)}
                 errorFallback={<LazyLoadError message='Offline... cannot open menu...'/>}
             >
-                <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={(f)=>this.selectFeed(f)}></LeftMenu>
+                <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={()=>this.closeMenu()}></LeftMenu>
             </LazyLoad>
         );
     }
@@ -85,8 +81,8 @@ export class Main extends React.Component {
                     <SlackerAppBar openMenu={()=>this.openMenu()} feed={this.state.feed}></SlackerAppBar>
                     <Router>
                         <React.Fragment>
-                    {this.renderLeftMenu()}
-                    {this.getContent()}
+                            {this.renderLeftMenu()}
+                            {this.getContent()}
                         </React.Fragment>
                     </Router>
                 </MuiThemeProvider>
