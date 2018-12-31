@@ -67,7 +67,7 @@ export default class Main extends React.Component {
         return (
             <React.Fragment>
                 <Route path='/' exact render={()=>this.getFeed('funny')} />
-                {FeedsProvider.getEnabledFeeds().map(feed=><Route path={'/'+feed.tag} render={()=>this.getFeed(feed.tag)} />)}
+                {FeedsProvider.getEnabledFeeds().map(feed=><Route path={'/f/'+feed.tag} render={()=>this.getFeed(feed.tag)} />)}
             </React.Fragment>
         );
     }

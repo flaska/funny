@@ -29,7 +29,7 @@ export function SlackerAppBar(props){
                     <IconButton style={styles.menuButton} color="inherit" aria-label="Menu" onClick={()=>props.openMenu()} id='openLeftMenu'>
                         <MenuIcon />
                     </IconButton>
-                    <img alt='4slack logo' style={styles.logo} src='./logo-appbar-white.png'/>
+                    <img alt='4slack logo' style={styles.logo} src='/logo-appbar-white.png'/>
                     <Typography color="inherit">
                         {props.feed.name}
                     </Typography>

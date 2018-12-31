@@ -7,4 +7,8 @@ const express = require('express'),
 const staticPath = join(process.cwd(), 'build');
 app.use(express.static(staticPath));
 
+app.get('/f/*', (req, res) => {
+    res.sendfile(staticPath + '/index.html');
+});
+
 app.listen(PORT, () => console.log(`jsServe listening on port ${PORT}!`));
