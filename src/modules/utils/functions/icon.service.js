@@ -1,5 +1,5 @@
 import {MdSentimentVerySatisfied, MdFace, MdPhotoCamera, MdComment, MdThumbUp} from 'react-icons/md';
-import {FaPaw, FaGlobeAmericas, FaEye, FaExternalLinkAlt, FaEyeSlash, FaComments, FaHandPaper, FaBookOpen, FaDna, FaClock} from 'react-icons/fa';
+import {FaPaw, FaGlobeAmericas, FaEye, FaExternalLinkAlt, FaEyeSlash, FaComments, FaHandPaper, FaBookOpen, FaDna, FaClock, FaRegSurprise} from 'react-icons/fa';
 import React from 'react';
 
 const styles = {
@@ -25,7 +25,7 @@ export function provideIcon(iconName){
         case 'fa_book-open': return <FaBookOpen style={styles.icon}/>;
         case 'fa_dna': return <FaDna style={styles.icon}/>;
         case 'fa_clock': return <FaClock style={styles.icon}/>;
-
+        case 'fa_surprise': return <FaRegSurprise style={styles.icon}/>;
     }
     return <div></div>;
 }
