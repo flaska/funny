@@ -5,7 +5,7 @@ let indexOfTestPost;
 describe('Post Action Bar - Open - Test', function() {
     before(function() {
         cy.homepage();
-        cy.switchToFeed('Funny');
+        cy.switchToFeed('funny');
     });
 
 

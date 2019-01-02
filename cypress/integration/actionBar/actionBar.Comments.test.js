@@ -6,7 +6,7 @@ let firstComment;
 describe('Post Action Bar - Comments - Test', function() {
     before(function() {
         cy.homepage();
-        cy.switchToFeed('Funny');
+        cy.switchToFeed('funny');
         cy.findPostByType('funny', 'hot', 'image').then((result)=>{
             indexOfTestPost = result.index;
             cy.getComments(result.post.id).then((response)=>{

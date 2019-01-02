@@ -1,7 +1,7 @@
 describe('Funny - Content Test', function() {
     before(function() {
         cy.homepage();
-        cy.switchToFeed('Funny');
+        cy.switchToFeed('funny');
         cy.getMorePosts();
         cy.getMorePosts();
     });

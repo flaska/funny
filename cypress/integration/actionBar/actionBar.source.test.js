@@ -4,7 +4,7 @@ let testPost;
 describe('Post Action Bar - Source - Test', function() {
     before(function() {
         cy.homepage();
-        cy.switchToFeed('Funny');
+        cy.switchToFeed('funny');
         cy.findPostByType('funny', 'hot', 'image').then((result)=>{
             indexOfTestPost = result.index;
             testPost = result.post;

@@ -62,7 +62,7 @@ export default class LeftMenu extends React.Component {
     getFeedOptions(){
         return FeedsProvider.getEnabledFeeds().map((feed)=>{ return(
             <Link to={`/f/${feed.tag}`} key={feed.name} style={styles.link}>
-                <ListItem button onClick={()=>this.onSelectFeedSource(feed)} className='leftMenu_feedSource'>
+                <ListItem button onClick={()=>this.onSelectFeedSource(feed)} className='leftMenu_feedSource'  id={'leftMenu_changeSourceLink_' + feed.tag}>
                     <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>
                         <Typography color='primary'>{provideIcon(feed.icon)}</Typography>
                     </ListItemIcon>
