@@ -11,7 +11,7 @@ db.once('open', function() {
     console.log('Share Page connected to MongoDB');
 });
 
- exports.SharedPost = db.model('SharedPost', mongoose.Schema({
+exports.SharedPost = db.model('SharedPost', mongoose.Schema({
     date: Date,
     post:  mongoose.Schema({
         title: String,

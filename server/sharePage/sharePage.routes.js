@@ -1,11 +1,11 @@
 const router = require('express').Router(),
-    sharePersistDb = require('./sharePersist.db')
+    sharePageDb = require('./sharePage.db')
 ;
 
-router.put('/persistPost', (req, res)=>{
-    if (!req.query.postId) return res.status(404).send('Please specify post id');
-    sharePersistDb.copyPostToPreserved(req.query.postId, (err, result)=>{
-        res.send(result);
+router.get('/:postId', (req, res)=>{
+    if (!req.params.postId) return res.status(404).send('Please specify post id');
+    sharePageDb.getPost(req.params.postId, (err, result)=>{
+        res.render('sharedPost', { post: result.post });
     });
 });
 

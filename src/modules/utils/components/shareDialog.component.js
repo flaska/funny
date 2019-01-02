@@ -44,7 +44,7 @@ export default class ShareDialog extends React.Component {
                 <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}>
                     <ShareDialogButtons text={this.props.postData.title} url={this.generateShareLink()}/>
                 </LazyLoad>
-                <Button color="primary" onClick={()=>{this.copyToClipboard()}}>
+                <Button color="primary" onClick={()=>{this.copyToClipboard()}} className='cy_shareDialog_copyLink'>
                     Copy Link
                 </Button>
                 {this.generateShareLink()}
@@ -70,6 +70,7 @@ export default class ShareDialog extends React.Component {
                         key='close'
                         color="inherit"
                         onClick={()=>this.close()}
+                        className='cy_shareDialog_close'
                     >
                         <CloseIcon />
                     </IconButton>,

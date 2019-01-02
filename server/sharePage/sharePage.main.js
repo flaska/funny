@@ -1,9 +1,28 @@
 const express = require('express'),
     app = express(),
-    sharePersistRoutes = require('./sharePersist.routes'),
-    PORT = 5003
+    sharePageRoutes = require('./sharePage.routes'),
+    path = require('path'),
+    minifyHTML = require('express-minify-html'),
+    PORT = 5004
 ;
 
-app.use('/api/sharePersist', sharePersistRoutes);
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(minifyHTML({
+    override:      true,
+    exception_url: false,
+    htmlMinifier: {
+        removeComments:            true,
+        collapseWhitespace:        true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes:     true,
+        removeEmptyAttributes:     true,
+        minifyJS:                  true
+    }
+}));
+
+app.use('/sh', sharePageRoutes);
 
 app.listen(PORT, () => console.log(`Share Page listening on port ${PORT}!`));

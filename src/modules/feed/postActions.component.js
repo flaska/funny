@@ -22,7 +22,7 @@ export class PostActions extends React.Component {
         else return <InfoChip icon='md_comment' clickable responsive={true}>Close</InfoChip>;
     }
     showToggleShareDialogIcon(){
-        if (!this.state.shareDialogOpen) return <div onClick={()=>{this.toggleShareDialog()}}><InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true} >Share</InfoChip></div>
+        if (!this.state.shareDialogOpen) return <div className='cy_actionBar_sharePost' onClick={()=>{this.toggleShareDialog()}}><InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true} >Share</InfoChip></div>
         else return <div onClick={()=>{this.toggleShareDialog()}}><InfoChip icon='fa_external-link-alt' clickable responsive={true}>Share</InfoChip></div>
     }
     renderShareDialog(){

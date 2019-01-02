@@ -1,0 +1,18 @@
+<html>
+    <header>
+        <title><%= post.title %> | 4slack</title>
+    </header>
+    <body>
+        <h1>
+            <%= post.title %>
+        </h1>
+
+        <% if (post.type==='image') { %>
+            <img src="<%= post.url%>" />
+        <% } %>
+
+        <% if (post.type==='hosted:video') { %>
+            <video controls autoPlay src="<%= post.url%>" />
+        <% } %>
+    </body>
+</html>

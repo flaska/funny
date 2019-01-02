@@ -5,7 +5,7 @@ const services = [
     './server/redditLoad/redditLoad.main.js',
     './server/redditServe/redditServe.main.js',
     './server/sharePersist/sharePersist.main.js',
-    // './server/sharePage/sharePersist.main.js'
+    './server/sharePage/sharePage.main.js'
 ];
 
 function spawnService(path){
