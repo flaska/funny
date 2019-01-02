@@ -1,3 +1,4 @@
+
 describe('Share Post Test', function() {
     it('Can share "image" post from /r/Funny', function() {
         cy.homepage();
@@ -17,6 +18,12 @@ describe('Share Post Test', function() {
             });
             cy.contains('Link copied to clip-board...');
             cy.get('.cy_shareDialog_close').click();
+        });
+    });
+    it('Share page works', ()=>{
+        cy.findPostByType('funny', 'hot', 'image').then((result)=> {
+            cy.visit('http://localhost:4000/sh/' + result.post.id);
+            cy.contains(result.post.title);
         });
     });
 });
