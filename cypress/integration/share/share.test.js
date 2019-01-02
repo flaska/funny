@@ -22,7 +22,7 @@ describe('Share Post Test', function() {
     });
     it('Share page works', ()=>{
         cy.findPostByType('funny', 'hot', 'image').then((result)=> {
-            cy.visit('http://localhost:4000/sh/' + result.post.id);
+            cy.visit('/sh/' + result.post.id);
             cy.contains(result.post.title);
         });
     });

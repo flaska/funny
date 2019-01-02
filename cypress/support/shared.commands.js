@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('homepage', ()=>{
-    cy.visit('http://localhost:4001');
+    cy.visit('/');
 });
 
 Cypress.Commands.add('hasTextsIn', (texts, css)=>{
