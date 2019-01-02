@@ -23,6 +23,10 @@ export class PostActions extends React.Component {
         if (!this.props.parentState.showComments) return <InfoChip icon='md_comment' clickable color='primary' responsive={true}>Comments</InfoChip>
         else return <InfoChip icon='md_comment' clickable responsive={true}>Close</InfoChip>;
     }
+    showToggleShareDialogIcon(){
+        if (!this.state.shareDialogOpen) return <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Share</InfoChip>
+        else return <InfoChip icon='fa_external-link-alt' clickable responsive={true}>Share</InfoChip>
+    }
     renderShareDialog(){
         if (this.state.shareDialogOpen) return <ShareDialog onClose={()=>{this.toggleShareDialog()}} postData={this.props.postData}/>;
     }
@@ -40,10 +44,9 @@ export class PostActions extends React.Component {
                     {this.showToggleCommentsIcon()}
                 </div>
                 <div style={styles.button} className='postActions_share' onClick={()=>{this.toggleShareDialog()}}>
-                    <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Share</InfoChip>
+                    {this.showToggleShareDialogIcon()}
                     {this.renderShareDialog()}
                 </div>
-                {/*<InfoAlert open={this.state.shareDialogOpen} onClose={()=>this.setState({shareDialogOpen: false})}>Link copied to clip-board...</InfoAlert>*/}
             </div>
         );
     }
