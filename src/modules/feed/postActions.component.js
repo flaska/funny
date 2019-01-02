@@ -1,8 +1,6 @@
 import React from 'react';
 import {InfoChip} from "../utils/components/infoChip.component";
-import copy from 'copy-to-clipboard';
 import ShareDialog from '../utils/components/shareDialog.component';
-// import {InfoAlert} from "../utils/components/infoAlert.component";
 
 const styles = {
     button: {
@@ -24,8 +22,8 @@ export class PostActions extends React.Component {
         else return <InfoChip icon='md_comment' clickable responsive={true}>Close</InfoChip>;
     }
     showToggleShareDialogIcon(){
-        if (!this.state.shareDialogOpen) return <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Share</InfoChip>
-        else return <InfoChip icon='fa_external-link-alt' clickable responsive={true}>Share</InfoChip>
+        if (!this.state.shareDialogOpen) return <div onClick={()=>{this.toggleShareDialog()}}><InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true} >Share</InfoChip></div>
+        else return <div onClick={()=>{this.toggleShareDialog()}}><InfoChip icon='fa_external-link-alt' clickable responsive={true}>Share</InfoChip></div>
     }
     renderShareDialog(){
         if (this.state.shareDialogOpen) return <ShareDialog onClose={()=>{this.toggleShareDialog()}} postData={this.props.postData}/>;
@@ -43,7 +41,7 @@ export class PostActions extends React.Component {
                 <div style={styles.button} className='postActions_openComments' onClick={()=>{this.props.onCommentsClick()}}>
                     {this.showToggleCommentsIcon()}
                 </div>
-                <div style={styles.button} className='postActions_share' onClick={()=>{this.toggleShareDialog()}}>
+                <div style={styles.button} className='postActions_share'>
                     {this.showToggleShareDialogIcon()}
                     {this.renderShareDialog()}
                 </div>

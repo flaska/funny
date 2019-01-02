@@ -6,6 +6,9 @@ import LazyLoad from './lazyLoad.component';
 import DialogLoading from "./dialogLoading.component";
 import LazyLoadError from "./lazyLoadError.component";
 import axios from 'axios';
+import Button from "@material-ui/core/es/Button/Button";
+import copy from 'copy-to-clipboard';
+import {InfoAlert} from "./infoAlert.component";
 
 const ShareDialogButtons = React.lazy(() =>  import('./shareDialogButtons.component'));
 
@@ -29,14 +32,23 @@ export default class ShareDialog extends React.Component {
             console.log(error);
         });
     }
+    copyToClipboard(){
+        copy(this.props.postData.title + ' ' + this.props.postData.url);
+        this.setState({linkCopied: true});
+
+    }
     renderShareDialogContent(){
         return (
             <div>
-                Share
+                Share - {this.props.postData.title.substr(0, 50)}...
                 <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}>
                     <ShareDialogButtons text={this.props.postData.title} url={this.generateShareLink()}/>
                 </LazyLoad>
-                Copy Link
+                <Button color="primary" onClick={()=>{this.copyToClipboard()}}>
+                    Copy Link
+                </Button>
+                {this.generateShareLink()}
+                <InfoAlert open={this.state.linkCopied} onClose={()=>this.setState({linkCopied: false})}>Link copied to clip-board...</InfoAlert>
             </div>
         );
     }

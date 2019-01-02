@@ -29,7 +29,6 @@ exports.copyPostToPreserved = (postId, cb)=>{
             if (p.id === postId) post = p;
         });
 
-
         SharedPost.findOneAndUpdate({
             'post.id': postId
         },{
@@ -39,11 +38,5 @@ exports.copyPostToPreserved = (postId, cb)=>{
             upsert: true
         }).lean().exec(cb);
 
-
-        // let sharedPost = new SharedPost({
-        //     date: new Date(),
-        //     post: post
-        // });
-        // sharedPost.save(cb);
     });
 };
