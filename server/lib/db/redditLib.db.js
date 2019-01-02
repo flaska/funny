@@ -7,10 +7,10 @@ else db = mongoose.createConnection(config.database.reddit.uri);
 
 db.on('error', console.error.bind(console, 'MongoDB connection error. '));
 db.once('open', function() {
-    console.log('Reddit DB connected to MongoDB');
+    console.log('Reddit DB connected to MongoDB: ' + config.database.reddit.uri);
 });
 
-const Post = mongoose.Schema({
+const Post = exports.postSchema = mongoose.Schema({
     title: String,
     url: String,
     thumbnail: String,

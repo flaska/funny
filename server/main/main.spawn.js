@@ -3,11 +3,12 @@ const fork = require('child_process').fork;
 const services = [
     './server/jsServe/jsServe.main.js',
     './server/redditLoad/redditLoad.main.js',
-    './server/redditServe/redditServe.main.js'
+    './server/redditServe/redditServe.main.js',
+    './server/sharePage/sharePage.main.js'
 ];
 
 function spawnService(path){
-    const service = fork(path, [], {env: {heroku: !!process.env.PORT}});
+    const service = fork(path, [], {env: {heroku: !!process.env.PORT, NODE_ENV: process.env.NODE_ENV}});
     service.on('message', (m)=>{
         console.log('message: ' + m);
     });
