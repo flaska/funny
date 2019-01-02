@@ -28,7 +28,8 @@ const proxy = httpProxy.createProxyServer({});
 app.use((req, res, next)=>{
     try {
         if (req.originalUrl.indexOf('/api/reddit') === 0) return proxy.web(req, res, {target: 'http://127.0.0.1:5002'});
-        if (req.originalUrl.indexOf('/api/sharePage') === 0) return proxy.web(req, res, {target: 'http://127.0.0.1:5003'});
+        if (req.originalUrl.indexOf('/api/sharePersist') === 0) return proxy.web(req, res, {target: 'http://127.0.0.1:5003'});
+        if (req.originalUrl.indexOf('/sh/') === 0) return proxy.web(req, res, {target: 'http://127.0.0.1:5003'});
         proxy.web(req, res, {target: 'http://127.0.0.1:5001'});
     } catch (e) {
         res.status(404).send();

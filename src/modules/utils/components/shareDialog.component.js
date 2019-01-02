@@ -26,7 +26,7 @@ export default class ShareDialog extends React.Component {
         this.props.onClose();
     }
     requestPostCopy(){
-        axios.put('/api/sharePage/persistPost?postId=' + this.props.postData.id).then(response => {
+        axios.put('/api/sharePersist/persistPost?postId=' + this.props.postData.id).then(response => {
             console.log(response);
         }).catch((error)=>{
             console.log(error);

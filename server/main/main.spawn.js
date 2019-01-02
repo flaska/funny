@@ -4,7 +4,8 @@ const services = [
     './server/jsServe/jsServe.main.js',
     './server/redditLoad/redditLoad.main.js',
     './server/redditServe/redditServe.main.js',
-    './server/sharePage/sharePage.main.js'
+    './server/sharePersist/sharePersist.main.js',
+    // './server/sharePage/sharePersist.main.js'
 ];
 
 function spawnService(path){
