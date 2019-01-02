@@ -1,7 +1,8 @@
 import React from 'react';
 import {InfoChip} from "../utils/components/infoChip.component";
 import copy from 'copy-to-clipboard';
-import {InfoAlert} from "../utils/components/infoAlert.component";
+import ShareDialog from '../utils/components/shareDialog.component';
+// import {InfoAlert} from "../utils/components/infoAlert.component";
 
 const styles = {
     button: {
@@ -22,18 +23,25 @@ export class PostActions extends React.Component {
         if (!this.props.parentState.showComments) return <InfoChip icon='md_comment' clickable color='primary' responsive={true}>Comments</InfoChip>
         else return <InfoChip icon='md_comment' clickable responsive={true}>Close</InfoChip>;
     }
-    shareLink(){
-        if (navigator.share) {
-            navigator.share({
-                title: this.props.postData.title,
-                text: this.props.postData.title,
-                url: this.props.postData.url,
-            }).then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing', error));
-        } else {
-            copy(this.props.postData.title + ' ' + this.props.postData.url);
-            this.setState({shareDialogOpen: true});
-        }
+    // shareLink(){
+    //     if (navigator.share) {
+    //         navigator.share({
+    //             title: this.props.postData.title,
+    //             text: this.props.postData.title,
+    //             url: this.props.postData.url,
+    //         }).then(() => console.log('Successful share'))
+    //             .catch((error) => console.log('Error sharing', error));
+    //     } else {
+    //         copy(this.props.postData.title + ' ' + this.props.postData.url);
+    //         this.setState({shareDialogOpen: true});
+    //     }
+    // }
+    renderShareDialog(){
+        if (this.state.shareDialogOpen) return <ShareDialog onClose={()=>{this.toggleShareDialog()}}/>;
+    }
+    toggleShareDialog(){
+        if (this.state.shareDialogOpen) this.setState({shareDialogOpen: false});
+        this.setState({shareDialogOpen: true});
     }
     render(){
         return (
@@ -44,10 +52,11 @@ export class PostActions extends React.Component {
                 <div style={styles.button} className='postActions_openComments' onClick={()=>{this.props.onCommentsClick()}}>
                     {this.showToggleCommentsIcon()}
                 </div>
-                <div style={styles.button} className='postActions_share' onClick={()=>{this.shareLink()}}>
+                <div style={styles.button} className='postActions_share' onClick={()=>{this.toggleShareDialog()}}>
                     <InfoChip icon='fa_external-link-alt' clickable color='primary' responsive={true}>Share</InfoChip>
+                    {this.renderShareDialog()}
                 </div>
-                <InfoAlert open={this.state.shareDialogOpen} onClose={()=>this.setState({shareDialogOpen: false})}>Link copied to clip-board...</InfoAlert>
+                {/*<InfoAlert open={this.state.shareDialogOpen} onClose={()=>this.setState({shareDialogOpen: false})}>Link copied to clip-board...</InfoAlert>*/}
             </div>
         );
     }
