@@ -3,7 +3,7 @@ import {FacebookShareButton, FacebookIcon} from 'react-share';
 
 export default function(props){
     return (
-        <FacebookShareButton url={props.postData.url} quote={props.postData.title}>
+        <FacebookShareButton url={props.url} quote={props.text}>
             <FacebookIcon
                 size={32}
                 round />
