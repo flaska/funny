@@ -28,10 +28,22 @@ exports.copyPostToPreserved = (postId, cb)=>{
         feed.posts.forEach((p)=>{
             if (p.id === postId) post = p;
         });
-        let sharedPost = new SharedPost({
+
+
+        SharedPost.findOneAndUpdate({
+            'post.id': postId
+        },{
             date: new Date(),
             post: post
-        });
-        sharedPost.save(cb);
+        }, {
+            upsert: true
+        }).lean().exec(cb);
+
+
+        // let sharedPost = new SharedPost({
+        //     date: new Date(),
+        //     post: post
+        // });
+        // sharedPost.save(cb);
     });
 };
