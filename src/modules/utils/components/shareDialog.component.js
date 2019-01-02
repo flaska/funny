@@ -5,9 +5,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import LazyLoad from './lazyLoad.component';
 import DialogLoading from "./dialogLoading.component";
 import LazyLoadError from "./lazyLoadError.component";
-import {FacebookShareButton, FacebookIcon} from 'react-share';
 
-// const FacebookShareButton = React.lazy(() =>  import('react-share').FacebookShareButton);
+const ShareDialogButtons = React.lazy(() =>  import('./shareDialogButtons.component'));
 
 export default class ShareDialog extends React.Component {
     constructor(props){
@@ -22,13 +21,9 @@ export default class ShareDialog extends React.Component {
         return (
             <div>
                 Share link
-                {/*<LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}>*/}
-                <FacebookShareButton url={this.props.postData.url} quote={this.props.postData.title}>
-                    <FacebookIcon
-                        size={32}
-                        round />
-                </FacebookShareButton>
-                {/*</LazyLoad>*/}
+                <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}>
+                    <ShareDialogButtons postData={this.props.postData}/>
+                </LazyLoad>
             </div>
         );
     }
