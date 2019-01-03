@@ -48,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/scripts/buildServiceWorker.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+              <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -1633,12 +1633,12 @@
       <workItem from="1546288132738" duration="2172000" />
       <workItem from="1546290383316" duration="3443000" />
       <workItem from="1546443790573" duration="15720000" />
-      <workItem from="1546527781475" duration="15598000" />
+      <workItem from="1546527781475" duration="15627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283561000" />
+    <option name="totallyTimeSpent" value="283590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -2068,7 +2068,7 @@
     <entry file="file://$PROJECT_DIR$/scripts/buildServiceWorker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
         </state>
       </provider>
     </entry>
