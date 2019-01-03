@@ -56,7 +56,7 @@
                 border-radius: 4px;
                 letter-spacing: 0.02857em;
                 text-transform: uppercase;
-                margin: 25px auto 50px auto;
+                margin: 40px auto 40px auto;
                 color: #fff;
                 background-color: #2196f3;
                 border: 0;
@@ -69,6 +69,12 @@
                 text-decoration: none;
                 -webkit-appearance: none;
                 -webkit-tap-highlight-color: transparent;
+            }
+
+            #slackLogo {
+                display: block;
+                margin: auto;
+                width: 100px;
             }
         </style>
 
@@ -85,11 +91,15 @@
             <% } %>
 
             <% if (post.type==='hosted:video') { %>
-                <video controls autoPlay src="<%= post.url%>" id="content"/>
+                <video controls autoplay src="<%= post.url%>" id="content"/>
             <% } %>
 
             <a href="https://www.4slack.com/">
                 <button id="moreFun">More Fun</button>
+            </a>
+
+            <a href="https://www.4slack.com/">
+                <img id='slackLogo' src="https://www.4slack.com/logo-appbar-white.png"/>
             </a>
         </div>
     </body>
