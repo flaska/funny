@@ -10,7 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read http://bit.ly/CRA-PWA
 
-let isLocalhost = Boolean(
+const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
     window.location.hostname === '[::1]' ||
@@ -20,12 +20,11 @@ let isLocalhost = Boolean(
     )
 );
 
-isLocalhost = false;
-
 
 export function register(config) {
-  //TODO remove comment
-  // if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+    // return registerValidSW(swUrl, config);
+
+  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
@@ -55,7 +54,7 @@ export function register(config) {
         registerValidSW(swUrl, config);
       }
     });
-  // }
+  }
 }
 
 function registerValidSW(swUrl, config) {
