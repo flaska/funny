@@ -3,7 +3,6 @@ const redditDb = require('../lib/db/redditLib.db'),
 ;
 
 exports.copyPostToPreserved = (postId, cb)=>{
-    console.log(postId);
     redditDb.Feed.findOne({'posts.id': postId}).lean().exec((err, feed)=>{
         if (!feed) return cb('Cannot find post by ID');
         let post;
@@ -19,6 +18,5 @@ exports.copyPostToPreserved = (postId, cb)=>{
         }, {
             upsert: true
         }).lean().exec(cb);
-
     });
 };
