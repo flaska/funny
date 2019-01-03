@@ -1,18 +1,96 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <header>
+
         <title><%= post.title %> | 4slack</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#000000">
+
+        <meta property="og:title" content="<%= post.title %>" />
+        <meta property="og:type"
+            <% if (post.type==='image') { %> content="article" <% } %>
+            <% if (post.type==='hosted:video') { %> content="video.other" <% } %>
+         />
+        <meta property="og:description" content="4slack" />
+        <meta property="og:url" content="https://www.4slack.com/sh/<%= post.id %>" />
+        <meta property="og:image"
+                <% if (post.type==='image') { %> content="<%= post.url %>" <% } %>
+                <% if (post.type==='hosted:video') { %> content="<%= post.thumbnail %>" <% } %>
+        />
+        <style>
+            body {
+                background-color: #212121;
+
+                color: rgba(255, 255, 255, 0.87);
+                font-size: 0.875rem;
+                font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+                font-weight: 400;
+                line-height: 1.5;
+                letter-spacing: 0.01071em;
+            }
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 400;
+                line-height: 1.33;
+                letter-spacing: 0em;
+            }
+            #contentContainer {
+                margin: auto;
+                max-width: 700px;
+            }
+            #content {
+                width: 100%;
+            }
+            a {text-decoration: none;}
+            #moreFun {
+                padding: 8px 16px;
+                font-size: 0.875rem;
+                min-width: 64px;
+                box-sizing: border-box;
+                min-height: 36px;
+                font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+                font-weight: 400;
+                line-height: 1.5;
+                border-radius: 4px;
+                letter-spacing: 0.02857em;
+                text-transform: uppercase;
+                margin: 25px auto 50px auto;
+                color: #fff;
+                background-color: #2196f3;
+                border: 0;
+                cursor: pointer;
+                display: block;
+                outline: none;
+                vertical-align: middle;
+                justify-content: center;
+                -moz-appearance: none;
+                text-decoration: none;
+                -webkit-appearance: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+        </style>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400">
     </header>
     <body>
-        <h1>
-            <%= post.title %>
-        </h1>
+        <div id="contentContainer">
+            <h1>
+                <%= post.title %>
+            </h1>
 
-        <% if (post.type==='image') { %>
-            <img src="<%= post.url%>" />
-        <% } %>
+            <% if (post.type==='image') { %>
+                <img src="<%= post.url%>" id="content"/>
+            <% } %>
 
-        <% if (post.type==='hosted:video') { %>
-            <video controls autoPlay src="<%= post.url%>" />
-        <% } %>
+            <% if (post.type==='hosted:video') { %>
+                <video controls autoPlay src="<%= post.url%>" id="content"/>
+            <% } %>
+
+            <a href="https://www.4slack.com/">
+                <button id="moreFun">More Fun</button>
+            </a>
+        </div>
     </body>
 </html>
