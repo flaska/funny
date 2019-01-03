@@ -14,10 +14,10 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-manifest.dff76c94ab0e2176f897d0756a544d45.js';
+const PRECACHE = 'precache-manifest.69fb55ef9eba54b1c30c52be8c10d644.js';
 const RUNTIME = 'runtime';
 
-importScripts("precache-manifest.dff76c94ab0e2176f897d0756a544d45.js");
+importScripts("precache-manifest.69fb55ef9eba54b1c30c52be8c10d644.js");
 
 const PRECACHE_URLS = self.__precacheManifest.map(e=>e.url);
 
@@ -44,6 +44,20 @@ self.addEventListener('activate', event => {
     );
 });
 
+function unregister(){
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+            registration.unregister()
+        }
+    });
+}
+
+function reload(){
+    setTimeout(function(){
+        location.reload();
+    }, 150);
+}
+
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
@@ -53,6 +67,13 @@ self.addEventListener('fetch', event => {
         event.respondWith(
             caches.match(event.request).then(cachedResponse => {
                 if (cachedResponse) {
+
+                    if (cachedResponse.status===404) {
+                        console.error('Service worker error.');
+                        unregister();
+                        reload();
+                    }
+
                     return cachedResponse;
                 }
 
