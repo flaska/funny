@@ -23,7 +23,8 @@
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*",
     "buildpush": "npm run build && git add build/ && git commit -a -m 'x' && git push origin master && git push heroku master && git push origin master",
-    "disable-dev-dep": "heroku config:set NPM_CONFIG_PRODUCTION=true"
+    "disable-dev-dep": "heroku config:set NPM_CONFIG_PRODUCTION=true",
+    "testqa": "cypress open --config baseUrl=https://forslack-qa.herokuapp.com/"
   },
   "eslintConfig": {
     "extends": "react-app"

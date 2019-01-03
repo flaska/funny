@@ -5,7 +5,8 @@ describe('Share Post Test', function() {
         cy.findPostByType('funny', 'hot', 'image').then((result)=>{
             cy.checkOpenPostContentTypeByIndex(result.index, 'image');
             cy.get('.post').eq(result.index).find('.topActionBar').find('.cy_actionBar_sharePost').click();
-            cy.contains('Share - ' + result.post.title);
+            debugger;
+            cy.contains('Share - ' + result.post.title.substr(0,50));
             cy.contains('https://www.4slack.com/sh/' + result.post.id);
         });
     });
@@ -23,7 +24,7 @@ describe('Share Post Test', function() {
     it('Share page works', ()=>{
         cy.findPostByType('funny', 'hot', 'image').then((result)=> {
             cy.visit('/sh/' + result.post.id);
-            cy.contains(result.post.title.substr(0,50));
+            cy.contains(result.post.title);
         });
     });
 });
