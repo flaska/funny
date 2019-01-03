@@ -1,6 +1,6 @@
 process.on('uncaughtException', function (err) {
     console.error(err);
-})
+});
 
 const express = require('express'),
     app = express(),
