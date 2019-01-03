@@ -33,9 +33,8 @@ export default class ShareDialog extends React.Component {
         });
     }
     copyToClipboard(){
-        copy(this.props.postData.title + ' ' + this.props.postData.url);
+        copy(this.generateShareLink());
         this.setState({linkCopied: true});
-
     }
     renderShareDialogContent(){
         return (
