@@ -92,7 +92,9 @@
             <% } %>
 
             <% if (post.type==='hosted:video') { %>
-                <video controls autoplay src="<%= post.url%>" id="content"/>
+                <video controls autoplay id="content">
+                    <source src="<%= post.url%>" type="video/ogg">
+                </video>
             <% } %>
 
             <a href="https://www.4slack.com/">

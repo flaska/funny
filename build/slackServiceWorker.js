@@ -14,10 +14,10 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-manifest.a9e2a51bed1dd565351a09b1122fb678.js';
+const PRECACHE = 'precache-manifest.d9d0b8d9fb5b28059b319a21db2f5aa5.js';
 const RUNTIME = 'runtime';
 
-importScripts("precache-manifest.a9e2a51bed1dd565351a09b1122fb678.js");
+importScripts("precache-manifest.d9d0b8d9fb5b28059b319a21db2f5aa5.js");
 
 const PRECACHE_URLS = self.__precacheManifest.map(e=>e.url);
 
