@@ -19,7 +19,11 @@ export class PostContent extends React.Component {
 
     renderContent(postData){
         if (postData.type==='image') return <ImageLoader src={postData.url} imgProps={{style:styles.content}} preloader={()=><CircularProgress style={styles.spinner}/>}/>;
-        if (postData.type==='hosted:video') return <video controls autoPlay src={postData.url} style={styles.content}/>;
+        if (postData.type==='hosted:video') return (
+            <video controls autoPlay style={styles.content}>
+                <source src={postData.url}/>
+            </video>
+        );
     }
 
     openOriginalUrl(){
