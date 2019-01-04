@@ -47,6 +47,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="serviceWorkerTemplate.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="commentsList.component.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/comments/commentsList.component.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serviceWorker.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serviceWorker.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            <state relative-caret-position="289">
+              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -77,18 +89,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.component.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,14 +98,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sharedPost.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sharedPost.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="346">
-              <caret line="104" column="4" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
+              <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
               <folding>
                 <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slackServiceWorker.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/slackServiceWorker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -196,17 +206,17 @@
         <option value="$PROJECT_DIR$/scripts/templates/slackServiceWorker.js" />
         <option value="$PROJECT_DIR$/scripts/buildServiceWorker.js" />
         <option value="$PROJECT_DIR$/node_modules/copy-to-clipboard/index.js" />
-        <option value="$PROJECT_DIR$/build/slackServiceWorker.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/postContent.component.js" />
-        <option value="$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js" />
-        <option value="$PROJECT_DIR$/src/serviceWorker.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/feedList.component.js" />
         <option value="$PROJECT_DIR$/src/modules/comments/commentsList.component.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs" />
+        <option value="$PROJECT_DIR$/build/slackServiceWorker.js" />
+        <option value="$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js" />
+        <option value="$PROJECT_DIR$/src/serviceWorker.js" />
       </list>
     </option>
   </component>
@@ -2324,12 +2334,12 @@
       <workItem from="1546290383316" duration="3443000" />
       <workItem from="1546443790573" duration="15720000" />
       <workItem from="1546527781475" duration="21981000" />
-      <workItem from="1546612831667" duration="10239000" />
+      <workItem from="1546612831667" duration="12631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300183000" />
+    <option name="totallyTimeSpent" value="302575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -2589,13 +2599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/slackServiceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="45" column="3" selection-start-line="4" selection-start-column="71" selection-end-line="45" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/precache-manifest.0654d2b7ffd1b13b3fd11ec475bec19e.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -2613,16 +2616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
           <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2647,13 +2640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -2697,10 +2683,35 @@
     <entry file="file://$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
-          <caret line="104" column="4" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
+          <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
           <folding>
             <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/slackServiceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
         </state>
       </provider>
     </entry>

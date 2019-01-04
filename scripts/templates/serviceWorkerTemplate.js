@@ -30,14 +30,15 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    if (event.request.url.startsWith(self.location.origin)) {
-        event.respondWith(
-            caches.match(event.request).then(cachedResponse => {
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
-                return fetch(event.request);
-            })
-        );
-    }
+    if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') return;
+    if (!event.request.url.startsWith(self.location.origin)) return;
+    event.respondWith(
+        caches.match(event.request).then(cachedResponse => {
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+            return fetch(event.request);
+        })
+    );
+
 });

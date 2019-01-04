@@ -76,7 +76,7 @@
                 background-color: #2196f3;
                 border: 0;
                 cursor: pointer;
-                display: block;
+                display: inline-block;
                 outline: none;
                 vertical-align: middle;
                 justify-content: center;
@@ -102,7 +102,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7P7DQW"
                       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
         <div id="contentContainer">
             <h1>
                 <%= post.title %>
@@ -121,10 +121,13 @@
             <a href="https://www.4slack.com/">
                 <img id='slackLogo' src="https://www.4slack.com/logo-appbar-white.png" alt="4slack logo"/>
             </a>
-            <a href="https://www.4slack.com/">
-                <button id="moreFun">More Fun</button>
-            </a>
-
+            <div style="text-align: center;">
+                <a href="https://www.4slack.com/">
+                    <div id="moreFun">More Fun</div>
+                </a>
+            </div>
+            <br>
+            <br>
         </div>
     </body>
 </html>
