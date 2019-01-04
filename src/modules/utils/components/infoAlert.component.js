@@ -7,7 +7,7 @@ export function InfoAlert(props) {
         return (
         <Snackbar
             open={props.open}
-            autoHideDuration={5000}
+            autoHideDuration={1000}
             onClose={()=>props.onClose()}
             message={props.children}
             action={[
