@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios/index";
 import {Comment} from './comment.component'
 import {InfoChip} from "../utils/components/infoChip.component";
 import Spinner from "../utils/components/spinner.component";
@@ -18,8 +17,8 @@ export default class CommentsList extends React.Component {
             postId: this.props.postId,
             dataFetched: false
         };
-        axios.get('/api/reddit/comments?postId='+this.state.postId).then(response => {
-            this.setState({commentsRoot: response.data, dataFetched: true});
+        fetch('/api/reddit/comments?postId='+this.state.postId).then(response => response.json()).then(response => {
+            this.setState({commentsRoot: response, dataFetched: true});
         });
     }
     render() {

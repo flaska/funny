@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import {Post} from './post.component';
@@ -40,11 +39,11 @@ export class FeedList extends React.Component {
 
     loadMorePosts(){
         this.setState({loading: true});
-        axios.get(this.props.feed.url + `&from=${this.state.posts.length}&size=${this.chunkSize}`).then(response => {
+        fetch(this.props.feed.url + `&from=${this.state.posts.length}&size=${this.chunkSize}`).then(response => response.json()).then(response => {
             this.setState({loading: false});
-            if (this.state.posts.length==0) this.setState(response.data);
+            if (this.state.posts.length==0) this.setState(response);
             else {
-                this.setState({posts: this.state.posts.concat(response.data.posts)});
+                this.setState({posts: this.state.posts.concat(response.posts)});
             }
         }).catch((error)=>{
             this.setState({offline: true, loading: false});

@@ -23,8 +23,8 @@ const isLocalhost = Boolean(
 
 export function register() {
   if (!('serviceWorker' in navigator)) return;
-  // if (process.env.NODE_ENV !== 'production') return;
-  // if (isLocalhost) return;
+  if (process.env.NODE_ENV !== 'production') return;
+  if (isLocalhost) return;
   window.addEventListener('load', () => {
     registerValidSW('/slackServiceWorker.js');
   });

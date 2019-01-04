@@ -17,8 +17,8 @@
       <file leaf-file-name="shareDialog.component.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="49" column="24" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="274">
+              <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -26,11 +26,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="infoAlert.component.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feedList.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/feed/feedList.component.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="41" column="128" selection-start-line="41" selection-start-column="94" selection-end-line="41" selection-end-column="128" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commentsList.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/comments/commentsList.component.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serviceWorker.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="infoAlert.component.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="17">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -51,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+              <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -69,7 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FaRegSurprise</find>
       <find>Prod Load</find>
       <find>share</find>
       <find>process.env.heroku</find>
@@ -81,7 +122,6 @@
       <find>redditLib</find>
       <find>lazyload</find>
       <find>&lt;lazyload</find>
-      <find>axios</find>
       <find>FacebookShareButton</find>
       <find>/sharePAge</find>
       <find>sharePage</find>
@@ -99,6 +139,8 @@
       <find>slackservice</find>
       <find>service-worker</find>
       <find>popover</find>
+      <find>acios</find>
+      <find>axios</find>
     </findStrings>
     <replaceStrings>
       <replace>rPost</replace>
@@ -111,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/jsServe/jsServe.main.js" />
         <option value="$PROJECT_DIR$/src/modules/main/appBar.component.js" />
         <option value="$PROJECT_DIR$/src/modules/main/main.component.js" />
         <option value="$PROJECT_DIR$/cypress/integration/actionBar/actionBar.source.test.js" />
@@ -123,7 +164,6 @@
         <option value="$PROJECT_DIR$/cypress/integration/leftMenu/leftMenuSettings.test.js" />
         <option value="$PROJECT_DIR$/server/lib/db/redditLib.db.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.ts" />
-        <option value="$PROJECT_DIR$/src/modules/feed/feedList.component.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/post.component.js" />
         <option value="$PROJECT_DIR$/server/sharePersist/sharePersist.routes.js" />
         <option value="$PROJECT_DIR$/server/main/main.spawn.js" />
@@ -145,7 +185,6 @@
         <option value="$PROJECT_DIR$/server/sharePage/sharePage.main.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialogButtons.component.js" />
         <option value="$PROJECT_DIR$/src/shared/redditFeeds.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/manifest.json" />
         <option value="$PROJECT_DIR$/cypress/integration/share/share.test.js" />
         <option value="$PROJECT_DIR$/build/service-worker.js" />
@@ -153,15 +192,18 @@
         <option value="$PROJECT_DIR$/public/slackServiceWorker.js" />
         <option value="$PROJECT_DIR$/scripts/templates/slackServiceWorker.js" />
         <option value="$PROJECT_DIR$/scripts/buildServiceWorker.js" />
-        <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js" />
         <option value="$PROJECT_DIR$/node_modules/copy-to-clipboard/index.js" />
-        <option value="$PROJECT_DIR$/src/serviceWorker.js" />
         <option value="$PROJECT_DIR$/build/slackServiceWorker.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/postContent.component.js" />
         <option value="$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js" />
         <option value="$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js" />
+        <option value="$PROJECT_DIR$/src/serviceWorker.js" />
+        <option value="$PROJECT_DIR$/src/modules/feed/feedList.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/comments/commentsList.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -2279,12 +2321,12 @@
       <workItem from="1546290383316" duration="3443000" />
       <workItem from="1546443790573" duration="15720000" />
       <workItem from="1546527781475" duration="21981000" />
-      <workItem from="1546612831667" duration="6227000" />
+      <workItem from="1546612831667" duration="9429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296171000" />
+    <option name="totallyTimeSpent" value="299373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -2354,12 +2396,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cypress/integration/contentTest/videosContent.test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cypress/integration/contentTest/worldnewsContent.test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/cypress/integration/feedItemList/feedItemList.test.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -2509,13 +2545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/paths.js" />
     <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js" />
     <entry file="file://$PROJECT_DIR$/config/webpack.config.dev.js" />
@@ -2577,13 +2606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/copy-to-clipboard/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -2621,24 +2643,58 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="49" column="24" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="26" />
+        <state relative-caret-position="17">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/feed/feedList.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="41" column="128" selection-start-line="41" selection-start-column="94" selection-end-line="41" selection-end-column="128" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/comments/commentsList.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="646">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
         </state>
       </provider>
     </entry>
