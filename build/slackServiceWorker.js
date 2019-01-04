@@ -31,8 +31,6 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
     if (event.request.url.startsWith(self.location.origin)) {
-        // let url = event.request.url.replace(/^.+\/\/.+\//,'');
-        // if (url==='') url = 'index.html';
         event.respondWith(
             //TODO - ask only my PRECACHE cache
             caches.match(event.request).then(cachedResponse => {
