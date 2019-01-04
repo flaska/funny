@@ -20,7 +20,6 @@
     "start": "node server/index.js",
     "dev": "set PORT=4001 && react-scripts start",
     "build": "react-scripts build && node scripts/buildServiceWorker.js",
-    "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*",
     "buildpush": "npm run build && git add build/ && git commit -a -m 'x' && git push origin master && git push heroku master && git push origin master",
     "disable-dev-dep": "heroku config:set NPM_CONFIG_PRODUCTION=true",
