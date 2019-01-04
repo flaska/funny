@@ -1,5 +1,11 @@
-const cacheName = 'precache-manifest.69fb55ef9eba54b1c30c52be8c10d644.js';
-importScripts("precache-manifest.69fb55ef9eba54b1c30c52be8c10d644.js");
+// Names of the two caches used in this version of the service worker.
+// Change to v2, etc. when you update any of the local resources, which will
+// in turn trigger the install event again.
+const PRECACHE = '--precache-filename--';
+const RUNTIME = 'runtime';
+
+importScripts("--precache-filename--");
+
 
 const urlsToCache = self.__precacheManifest.map(e=>e.url);
 
