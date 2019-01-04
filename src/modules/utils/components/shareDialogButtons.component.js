@@ -30,9 +30,9 @@ export default function(props){
             <WhatsappShareButton url={props.url} title={props.text} style={styles.button}>
                 <WhatsappIcon size={32} round/>
             </WhatsappShareButton>
-            <EmailShareButton url={props.url} subject={props.text} style={styles.button}>
-                <EmailIcon size={32} round/>
-            </EmailShareButton>
+            {/*<EmailShareButton url={props.url} subject={props.text} style={styles.button}>*/}
+                {/*<EmailIcon size={32} round/>*/}
+            {/*</EmailShareButton>*/}
         </div>
     );
 }
