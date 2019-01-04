@@ -39,7 +39,7 @@ class _PostThumbnail extends React.Component {
     }
 
     getThumbnail(postData){
-        if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)}  className='postThumbnail'/>
+        if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)}  className='postThumbnail' alt={'Thumbnail for post: ' + postData.title}/>
     }
     videoLogo(){
         if (this.props.postData.type==='hosted:video') return (<div style={styles.videoLogo}><FaVideo/></div>);
