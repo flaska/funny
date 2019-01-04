@@ -44,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serviceWorkerTemplate.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="serviceWorkerTemplate.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="533">
@@ -68,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sharedPost.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sharedPost.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
+            <state relative-caret-position="612">
+              <caret line="111" column="103" selection-start-line="111" selection-start-column="103" selection-end-line="111" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -189,9 +189,9 @@
         <option value="$PROJECT_DIR$/node_modules/copy-to-clipboard/index.js" />
         <option value="$PROJECT_DIR$/src/serviceWorker.js" />
         <option value="$PROJECT_DIR$/build/slackServiceWorker.js" />
-        <option value="$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs" />
         <option value="$PROJECT_DIR$/src/modules/feed/postContent.component.js" />
         <option value="$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js" />
+        <option value="$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs" />
       </list>
     </option>
   </component>
@@ -2282,12 +2282,12 @@
       <workItem from="1546290383316" duration="3443000" />
       <workItem from="1546443790573" duration="15720000" />
       <workItem from="1546527781475" duration="21981000" />
-      <workItem from="1546612831667" duration="4163000" />
+      <workItem from="1546612831667" duration="4836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294107000" />
+    <option name="totallyTimeSpent" value="294780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -2594,13 +2594,6 @@
     <entry file="file://$PROJECT_DIR$/build/precache-manifest.0654d2b7ffd1b13b3fd11ec475bec19e.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/feed/postContent.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -2642,6 +2635,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="111" column="103" selection-start-line="111" selection-start-column="103" selection-end-line="111" selection-end-column="103" />
         </state>
       </provider>
     </entry>

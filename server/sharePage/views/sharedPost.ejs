@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <header>
+    <head>
 
         <title><%= post.title %> | 4slack</title>
 
         <meta charset="utf-8"/>
+        <meta name="description" content="Post shared by 4slack user!"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="theme-color" content="#0069c0"/>
         <link rel="shortcut icon" href="https://www.4slack.com/favicon.png" />
@@ -24,7 +25,7 @@
             body {
                 background-color: #212121;
 
-                color: rgba(255, 255, 255, 0.87);
+                color: rgba(255, 255, 255, 0.95);
                 font-size: 0.875rem;
                 font-family: "Roboto", "Helvetica", "Arial", sans-serif;
                 font-weight: 400;
@@ -36,6 +37,11 @@
                 font-weight: 400;
                 line-height: 1.33;
                 letter-spacing: 0em;
+            }
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 1.5rem;
+                }
             }
             #contentContainer {
                 margin: auto;
@@ -76,11 +82,12 @@
                 display: block;
                 margin: auto;
                 width: 100px;
+                opacity: 0.8;
             }
         </style>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400">
-    </header>
+    </head>
     <body>
         <div id="contentContainer">
             <h1>
@@ -88,11 +95,11 @@
             </h1>
 
             <% if (post.type==='image') { %>
-                <img src="<%= post.url%>" id="content"/>
+                <img src="<%= post.url%>" id="content" alt="<%= post.title%>"/>
             <% } %>
 
             <% if (post.type==='hosted:video') { %>
-                <video controls autoplay id="content">
+                <video controls autoplay id="content" alt="<%= post.title%>">
                     <source src="<%= post.url%>">
                 </video>
             <% } %>
@@ -102,7 +109,7 @@
             </a>
 
             <a href="https://www.4slack.com/">
-                <img id='slackLogo' src="https://www.4slack.com/logo-appbar-white.png"/>
+                <img id='slackLogo' src="https://www.4slack.com/logo-appbar-white.png" alt="4slack logo"/>
             </a>
         </div>
     </body>
