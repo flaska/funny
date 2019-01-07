@@ -5,7 +5,6 @@ describe('Share Post Test', function() {
         cy.findPostByType('funny', 'hot', 'image').then((result)=>{
             cy.checkOpenPostContentTypeByIndex(result.index, 'image');
             cy.get('.post').eq(result.index).find('.topActionBar').find('.cy_actionBar_sharePost').click();
-            debugger;
             cy.contains('Share - ' + result.post.title.substr(0,50));
             cy.contains('https://www.4slack.com/sh/' + result.post.id);
         });

@@ -50,7 +50,7 @@ export default class LeftMenu extends React.Component {
     }
     onSelectFeedSource(f){
         this.props.onSelectFeedSource();
-        Analytics.setFeed(f.tag);
+        Analytics.triggerSwitchFeed(f.tag);
     }
     getFeedOptions(){
         return FeedsProvider.getEnabledFeeds().map((feed)=>{ return(

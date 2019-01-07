@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from "@material-ui/core/Typography";
 import {Offline} from "../utils/components/offline.component";
+import Analytics from "../utils/functions/analytics.service";
 
 const styles = {
     main: {
@@ -51,6 +52,7 @@ export class FeedList extends React.Component {
             else {
                 this.setState({posts: this.state.posts.concat(response.posts)});
             }
+            Analytics.setFeed(this.props.feed.tag);
         }).catch((error)=>{
             this.setState({offline: true, loading: false});
         });

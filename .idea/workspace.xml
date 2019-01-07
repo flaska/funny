@@ -14,11 +14,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="leftMenuSettings.test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leftMenuSettings.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cypress/integration/leftMenu/leftMenuSettings.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="646">
+              <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share.test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cypress/integration/share/share.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leftMenu.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/leftMenu/leftMenu.component.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feedList.component.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modules/feed/feedList.component.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analytics.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/analytics.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -27,8 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>feeds.provider</find>
-      <find>this.state.feed</find>
       <find>switchToFeed</find>
       <find>leftMenu_selectSource</find>
       <find>redditLib</find>
@@ -57,6 +109,8 @@
       <find>helper</find>
       <find>posttitle</find>
       <find>.name</find>
+      <find>debugger;</find>
+      <find>setFeed</find>
     </findStrings>
     <replaceStrings>
       <replace>rPost</replace>
@@ -91,7 +145,6 @@
         <option value="$PROJECT_DIR$/server/sharePersist/sharePersist.db.js" />
         <option value="$PROJECT_DIR$/server/sharePage/sharePage.main.js" />
         <option value="$PROJECT_DIR$/public/manifest.json" />
-        <option value="$PROJECT_DIR$/cypress/integration/share/share.test.js" />
         <option value="$PROJECT_DIR$/build/service-worker.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/public/slackServiceWorker.js" />
@@ -113,13 +166,14 @@
         <option value="$PROJECT_DIR$/src/modules/utils/functions/feedFromUrl.service.js" />
         <option value="$PROJECT_DIR$/src/shared/redditFeeds.js" />
         <option value="$PROJECT_DIR$/src/modules/main/appBar.component.js" />
-        <option value="$PROJECT_DIR$/src/modules/leftMenu/leftMenu.component.js" />
-        <option value="$PROJECT_DIR$/src/modules/main/main.component.js" />
-        <option value="$PROJECT_DIR$/src/modules/feed/feedList.component.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoChip.component.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/postActions.component.js" />
-        <option value="$PROJECT_DIR$/src/modules/utils/functions/analytics.service.js" />
         <option value="$PROJECT_DIR$/cypress/integration/leftMenu/leftMenuSettings.test.js" />
+        <option value="$PROJECT_DIR$/cypress/integration/share/share.test.js" />
+        <option value="$PROJECT_DIR$/src/modules/utils/functions/analytics.service.js" />
+        <option value="$PROJECT_DIR$/src/modules/main/main.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/leftMenu/leftMenu.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/feed/feedList.component.js" />
       </list>
     </option>
   </component>
@@ -2298,12 +2352,12 @@
       <workItem from="1546443790573" duration="15720000" />
       <workItem from="1546527781475" duration="21981000" />
       <workItem from="1546612831667" duration="16991000" />
-      <workItem from="1546875779976" duration="6819000" />
+      <workItem from="1546875779976" duration="9255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313754000" />
+    <option name="totallyTimeSpent" value="316190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -2414,13 +2468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cypress/integration/share/share.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -2607,16 +2654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/redditLoad/api/redditLoad.postsApi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="61">
@@ -2652,20 +2689,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/leftMenu/leftMenu.component.js">
+    <entry file="file://$PROJECT_DIR$/cypress/integration/leftMenu/leftMenuSettings.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        <state relative-caret-position="646">
+          <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cypress/integration/share/share.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/feed/feedList.component.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/leftMenu/leftMenu.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="52" column="13" lean-forward="true" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        <state relative-caret-position="493">
+          <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -2675,14 +2726,17 @@
     <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/analytics.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cypress/integration/leftMenu/leftMenuSettings.test.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/feed/feedList.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        <state relative-caret-position="402">
+          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

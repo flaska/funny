@@ -35,7 +35,6 @@ export default class Main extends React.Component {
     constructor(props){
         super(props);
         this.state = {leftMenuOpen: false};
-        Analytics.setFeed(FeedsProvider.getDefaultFeed().tag);
     }
 
 
