@@ -35,11 +35,11 @@ const styles = {
         marginRight: 15,
         marginLeft: 15
     },
-    about: {
-        margin: 20
-    },
     link: {
         textDecoration: 'none'
+    },
+    facebookLike: {
+        margin: '7px 23px'
     }
 };
 
@@ -92,6 +92,8 @@ export default class LeftMenu extends React.Component {
                     <List>
                         {this.getFeedOptions()}
                     </List>
+                    <div className="fb-like" data-href="https://www.4slack.com/" data-layout="button_count" style={styles.facebookLike}
+                         data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
                 </Drawer>
                 {this.renderSettings()}
             </React.Fragment>

@@ -14,8 +14,6 @@ const styles = {
         height: 42,
         marginLeft: 23,
         marginRight: 23
-    },
-    menuButton: {
     }
 };
 

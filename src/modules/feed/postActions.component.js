@@ -14,7 +14,7 @@ export class PostActions extends React.Component {
         this.state = {};
     }
     showOpenCloseIcon(){
-        if (!this.props.parentState.showContent) return <InfoChip icon='fa_eye' clickable color='primary' responsive={true} className='tm_openContentEye'>Open</InfoChip>;
+        if (!this.props.parentState.showContent) return <InfoChip icon='fa_eye' clickable color='primary' responsive={true}>Open</InfoChip>;
         else return <InfoChip icon='fa_eye-slash' clickable responsive={true}>Close</InfoChip>;
     }
     showToggleCommentsIcon(){
@@ -35,7 +35,7 @@ export class PostActions extends React.Component {
     render(){
         return (
             <div>
-                <div style={styles.button}  className='postActions_openContent' onClick={()=>{this.props.onOpenContentClick()}}>
+                <div style={styles.button}  className='postActions_openContent tm_openContentEye' onClick={()=>{this.props.onOpenContentClick()}}>
                     {this.showOpenCloseIcon()}
                 </div>
                 <div style={styles.button} className='postActions_openComments' onClick={()=>{this.props.onCommentsClick()}}>
