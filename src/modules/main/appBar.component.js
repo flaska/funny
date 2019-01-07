@@ -2,9 +2,9 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 import Headroom from "react-headroom";
+import Fab from "@material-ui/core/es/Fab/Fab";
 
 const styles = {
     root: {
@@ -16,7 +16,6 @@ const styles = {
         marginRight: 23
     },
     menuButton: {
-        backgroundColor: 'rgba(255, 255, 255, 0.2)'
     }
 };
 
@@ -26,9 +25,10 @@ export function SlackerAppBar(props){
             <Headroom>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton style={styles.menuButton} color="inherit" aria-label="Menu" onClick={()=>props.openMenu()} id='openLeftMenu'>
-                        <MenuIcon />
-                    </IconButton>
+                    <Fab color="secondary" aria-label="Open Menu" onClick={()=>props.openMenu()} id='openLeftMenu'>
+                        <MenuIcon/>
+                    </Fab>
+
                     <img alt='4slack logo' style={styles.logo} src='/logo-appbar-white.png'/>
                     <Typography color="inherit">
                         {props.feed.name}

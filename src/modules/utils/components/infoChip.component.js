@@ -22,6 +22,7 @@ class _InfoChip extends React.Component {
     render(){
         if (isWidthUp('sm', this.props.width) || !this.props.responsive) return (
             <Chip
+                className={this.props.className}
                 icon={provideIcon(this.props.icon)}
                 color={this.props.color}
                 clickable={this.props.clickable}

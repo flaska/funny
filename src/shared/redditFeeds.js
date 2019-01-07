@@ -1,13 +1,13 @@
 let feeds = [
-    {fullName: 'Funny', tag: 'funny', icon: 'md_sentiment_very_satisfied', defaultEnabled: true},
-    {fullName: 'Aww', tag: 'aww', icon: 'fa_paw', defaultEnabled: true},
+    {fullName: 'Funny Pics & Videos', tag: 'funny', icon: 'md_sentiment_very_satisfied', defaultEnabled: true},
+    {fullName: 'Aww Animals', tag: 'aww', icon: 'fa_paw', defaultEnabled: true},
     {fullName: 'Mildly Interesting', tag: 'mildlyinteresting', icon: 'fa_surprise', defaultEnabled: true},
     {fullName: 'Facepalm!', tag: 'facepalm', icon: 'fa_hand-paper', defaultEnabled: true},
-    {fullName: 'Comics', tag: 'comics', icon: 'fa_book-open', defaultEnabled: true},
+    {fullName: 'Web Comics', tag: 'comics', icon: 'fa_book-open', defaultEnabled: true},
     {fullName: 'History', tag: 'history', icon: 'fa_clock', defaultEnabled: true},
 
     {fullName: 'Earth', tag: 'earth', icon: 'fa_globe-americas', defaultEnabled: false},
-    {fullName: 'Pics', tag: 'pics', icon: 'md_photo_camera', defaultEnabled: false},
+    {fullName: 'Interesting Pics', tag: 'pics', icon: 'md_photo_camera', defaultEnabled: false},
     {fullName: 'Troll Chromosomes', tag: 'TrollXChromosomes', icon: 'fa_dna', defaultEnabled: false},
 ];
 

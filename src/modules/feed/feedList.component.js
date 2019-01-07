@@ -54,7 +54,6 @@ export class FeedList extends React.Component {
         }).catch((error)=>{
             this.setState({offline: true, loading: false});
         });
-        window.dataLayer.push({'event': 'helper event'});
     }
 
 
@@ -86,9 +85,7 @@ export class FeedList extends React.Component {
                         </ListItem>
                     )}
                 </List>
-
                 {this.showLoading()}
-
             </div>
         );
     }

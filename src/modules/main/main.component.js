@@ -72,16 +72,14 @@ export default class Main extends React.Component {
         return (
             <React.Fragment>
                 <MetaTags>
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400"/>
                     <style>
-                        { "#openLeftMenu:hover {\
-                            background-color: rgba(0, 0, 0, 0.08)!important;\
-                        }"}
+
                     </style>
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={''}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={FeedsProvider.getFeedByName(getFeedNameFromUrl())}></SlackerAppBar>
                     <Router>
                         <React.Fragment>
                             {this.renderLeftMenu()}

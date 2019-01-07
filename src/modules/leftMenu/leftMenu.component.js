@@ -8,21 +8,17 @@ import RssFeedIcon from "@material-ui/icons/RssFeed";
 import SettingsIcon from "@material-ui/icons/Settings";
 import {provideIcon} from '../utils/functions/icon.service';
 import Typography from "@material-ui/core/Typography";
-import Divider from '@material-ui/core/Divider';
 import IconButton from "@material-ui/core/IconButton";
 import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
 
 import FeedsProvider from '../utils/functions/feeds.provider'
-import Button from "@material-ui/core/es/Button/Button";
-import {FaComment} from 'react-icons/fa';
 
 import {Link} from "react-router-dom";
 import Analytics from "../utils/functions/analytics.service";
 
 const LeftMenuSettings = React.lazy(() =>  import("./leftMenuSettings.component"));
-const FeedbackDialog = React.lazy(() =>  import("./feedbackDialog.component"));
 
 const styles = {
     feedsTitle: {
@@ -38,9 +34,6 @@ const styles = {
         float: 'right',
         marginRight: 15,
         marginLeft: 15
-    },
-    feedbackIcon: {
-        transform: 'scaleX(-1)'
     },
     about: {
         margin: 20
@@ -85,12 +78,6 @@ export default class LeftMenu extends React.Component {
         if (this.state.feedbackDialogOpen) this.setState({feedbackDialogOpen: false});
         else this.setState({feedbackDialogOpen: true});
     }
-    renderFeedbackDialog(){
-        if (this.state.feedbackDialogOpen) return (
-            <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline...'/>}>
-                <FeedbackDialog open={this.state.feedbackDialogOpen} onClose={()=>this.toggleFeedbackDialog()}/>
-            </LazyLoad>);
-    }
     render(){
         return(
             <React.Fragment>
@@ -105,19 +92,8 @@ export default class LeftMenu extends React.Component {
                     <List>
                         {this.getFeedOptions()}
                     </List>
-                    <Divider/>
-                    <br/><br/>
-                    <Typography variant="h5"  style={styles.feedsTitle}>
-                        About 4slack
-                    </Typography>
-                    <div style={styles.about}>
-                        <Button color="primary" onClick={()=>this.toggleFeedbackDialog()} id='#openFeedback'>
-                            <FaComment style={styles.feedbackIcon}/>&nbsp;Feedback
-                        </Button>
-                    </div>
                 </Drawer>
                 {this.renderSettings()}
-                {this.renderFeedbackDialog()}
             </React.Fragment>
         );
     }
