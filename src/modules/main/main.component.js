@@ -12,6 +12,7 @@ import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
 import Analytics from '../utils/functions/analytics.service';
 import FeedsProvider from '../utils/functions/feeds.provider'
+import getFeedNameFromUrl from '../utils/functions/feedNameFromUrl.service';
 
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
@@ -59,16 +60,10 @@ export default class Main extends React.Component {
         );
     }
 
-    getFeed(feedName){
-        return <FeedList feed={FeedsProvider.getFeedByName(feedName)}></FeedList>;
-    }
 
     getContent(){
         return (
-            <React.Fragment>
-                <Route path='/' exact render={()=>this.getFeed('funny')} />
-                {FeedsProvider.getEnabledFeeds().map(feed=><Route path={'/f/'+feed.tag} render={()=>this.getFeed(feed.tag)} />)}
-            </React.Fragment>
+            <FeedList feed={FeedsProvider.getFeedByName(getFeedNameFromUrl())}></FeedList>
         );
     }
 
