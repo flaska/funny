@@ -111,6 +111,9 @@ class _Post extends React.Component {
         let appBarSize = 64;
         window.scrollTo({top: scrollYPos+postYPos-appBarSize, behavior: 'smooth' });
     }
+    showPostDateDiff(dateUtc){
+        if (dateUtc) return <Typography style={styles.datePosted}>{timeDiff(dateUtc)}</Typography>;
+    }
     render() {
         return (
             <div className='post' ref={this.componentRef}>
@@ -123,7 +126,7 @@ class _Post extends React.Component {
                     />
                     <CardContent style={fixCss('marginLeft', 120)(styles.content, this.props.width)}>
                         <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{this.props.postData.title}</Typography>
-                        <Typography style={styles.datePosted}>{timeDiff(this.props.postData.dateUtc)}</Typography>
+                        {this.showPostDateDiff(this.props.postData.dateUtc)}
                     </CardContent>
                     <div style={styles.postActions} className='topActionBar'>
                         {this.renderPostActions()}

@@ -1,24 +1,28 @@
 export default class FeedPostsProvider {
 
-    static getChannel(){
+    constructor(){
         let lastVisitDateString = localStorage.getItem('lastVisitDate');
         let date = new Date();
         localStorage.setItem('lastVisitDate',  date.toDateString());
 
-        if (!lastVisitDateString) return 'topmonth';
+        if (!lastVisitDateString) return this.currentChannel = 'topmonth';
         let lastVisitDate = new Date(lastVisitDateString);
         let nowDate = new Date();
         let dateDiff = nowDate - lastVisitDate;
         let days = Math.floor(dateDiff / 1000 / 60 / 60 / 24);
 
-        if (days>15) return 'topmonth';
-        if (days>4) return 'topweek';
+        if (days>15) return this.currentChannel = 'topmonth';
+        if (days>4) return this.currentChannel = 'topweek';
 
-        return 'hot';
+        return this.currentChannel = 'hot';
     }
 
-    static fetchPosts(tag, from, size) {
-        let channel = this.getChannel();
-        return fetch(`/api/reddit/feed?subreddit=${tag}&channel=${channel}&from=${from}&size=${size}`).then(response => response.json());
+    fetchPosts(tag, from, size) {
+        return fetch(`/api/reddit/feed?subreddit=${tag}&channel=${this.currentChannel}&from=${from}&size=${size}`).then(response => response.json()).then((data)=> {
+            if (this.currentChannel != 'hot') data.posts.forEach(p => {
+                delete p.dateUtc;
+            });
+            return data;
+        });
     }
 }

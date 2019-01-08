@@ -33,6 +33,7 @@ export class FeedList extends React.Component {
 
     constructor(props){
         super(props);
+        this.feedPostsProvider = new FeedPostsProvider();
     }
 
     componentWillReceiveProps(props) {
@@ -47,7 +48,7 @@ export class FeedList extends React.Component {
 
     loadMorePosts(){
         this.setState({loading: true});
-        FeedPostsProvider.fetchPosts(this.props.feed.tag, this.state.posts.length, this.chunkSize).then(response => {
+        this.feedPostsProvider.fetchPosts(this.props.feed.tag, this.state.posts.length, this.chunkSize).then(response => {
             this.setState({loading: false});
             if (this.state.posts.length==0) this.setState(response);
             else {
