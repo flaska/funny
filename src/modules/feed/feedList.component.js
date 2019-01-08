@@ -7,6 +7,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from "@material-ui/core/Typography";
 import {Offline} from "../utils/components/offline.component";
 import Analytics from "../utils/functions/analytics.service";
+import FeedPostsProvider from "../utils/functions/feedPosts.provider";
 
 const styles = {
     main: {
@@ -46,7 +47,7 @@ export class FeedList extends React.Component {
 
     loadMorePosts(){
         this.setState({loading: true});
-        fetch(this.props.feed.url + `&from=${this.state.posts.length}&size=${this.chunkSize}`).then(response => response.json()).then(response => {
+        FeedPostsProvider.fetchPosts(this.props.feed.tag, this.state.posts.length, this.chunkSize).then(response => {
             this.setState({loading: false});
             if (this.state.posts.length==0) this.setState(response);
             else {

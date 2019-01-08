@@ -1,7 +1,7 @@
 import LocalStorage from "./localStorage.service";
 const getDefaultFeeds = require('../../../shared/redditFeeds').getReactFeeds;
 
-export default class FeedsProvider {
+export default class FeedsCacheProvider {
     static getAllFeeds(){
         let localStorageFeeds2 = LocalStorage.getData('redditFeeds_v2');
         if (localStorageFeeds2) {

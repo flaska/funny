@@ -13,7 +13,7 @@ import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
 
-import FeedsProvider from '../utils/functions/feeds.provider'
+import FeedsCacheProvider from '../utils/functions/feedsCache.provider'
 
 import {Link} from "react-router-dom";
 import Analytics from "../utils/functions/analytics.service";
@@ -53,7 +53,7 @@ export default class LeftMenu extends React.Component {
         Analytics.triggerSwitchFeed(f.tag);
     }
     getFeedOptions(){
-        return FeedsProvider.getEnabledFeeds().map((feed)=>{ return(
+        return FeedsCacheProvider.getEnabledFeeds().map((feed)=>{ return(
             <Link to={`/f/${feed.tag}`} key={feed.name} style={styles.link}>
                 <ListItem button onClick={()=>this.onSelectFeedSource(feed)} className='leftMenu_feedSource'  id={'leftMenu_changeSourceLink_' + feed.tag}>
                     <ListItemIcon style={styles.feedIcon} className='leftMenu_selectSource'>

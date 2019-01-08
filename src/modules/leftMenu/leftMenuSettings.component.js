@@ -7,7 +7,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
-import FeedsProvider from '../utils/functions/feeds.provider';
+import FeedsCacheProvider from '../utils/functions/feedsCache.provider';
 import DialogContent from "@material-ui/core/es/DialogContent/DialogContent";
 
 const styles = {
@@ -24,7 +24,7 @@ const styles = {
 
 export default class LeftMenuSettings extends React.Component {
     state = {
-        feedOptions: FeedsProvider.getAllFeeds()
+        feedOptions: FeedsCacheProvider.getAllFeeds()
     };
     constructor(props) {
         super(props);
@@ -51,7 +51,7 @@ export default class LeftMenuSettings extends React.Component {
     }
 
     saveSelectedFeeds(){
-        FeedsProvider.saveSelectedFeeds(this.state.feedOptions);
+        FeedsCacheProvider.saveSelectedFeeds(this.state.feedOptions);
         this.props.onClose();
     }
 

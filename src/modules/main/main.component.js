@@ -10,8 +10,7 @@ import red from '@material-ui/core/colors/red';
 import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
-import Analytics from '../utils/functions/analytics.service';
-import FeedsProvider from '../utils/functions/feeds.provider'
+import FeedsCacheProvider from '../utils/functions/feedsCache.provider'
 import getFeedNameFromUrl from '../utils/functions/feedNameFromUrl.service';
 
 import { BrowserRouter as Router, Route} from "react-router-dom";
@@ -39,7 +38,6 @@ export default class Main extends React.Component {
 
 
     componentDidUpdate(prevProps, prevState, snapshot){
-        console.log(prevState);
     }
 
     openMenu(){
@@ -62,7 +60,7 @@ export default class Main extends React.Component {
 
     getContent(){
         return (
-            <FeedList feed={FeedsProvider.getFeedByName(getFeedNameFromUrl())}></FeedList>
+            <FeedList feed={FeedsCacheProvider.getFeedByName(getFeedNameFromUrl())}></FeedList>
         );
     }
 
@@ -72,13 +70,10 @@ export default class Main extends React.Component {
             <React.Fragment>
                 <MetaTags>
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400"/>
-                    <style>
-
-                    </style>
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={FeedsProvider.getFeedByName(getFeedNameFromUrl())}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={FeedsCacheProvider.getFeedByName(getFeedNameFromUrl())}></SlackerAppBar>
                     <Router>
                         <React.Fragment>
                             {this.renderLeftMenu()}
