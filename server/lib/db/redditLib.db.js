@@ -32,11 +32,15 @@ const Comment = mongoose.Schema({
 
 Comment.add({ replies: [Comment] });
 
-exports.Feed = db.model('Feed', mongoose.Schema({
+let feedSchema = mongoose.Schema({
     subreddit: String,
     channel: String,
     posts: [Post]
-}, { collection: 'feeds' }));
+}, { collection: 'feeds'});
+
+feedSchema.index({'subreddit': 1, 'channel': 1});
+
+exports.Feed = db.model('Feed', feedSchema);
 
 exports.CommentTree = db.model('CommentTree', mongoose.Schema({
     postId: String,
