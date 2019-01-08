@@ -1,6 +1,6 @@
 process.on('uncaughtException', function (err) {
     console.error(err);
-})
+});
 
 const redditLoadLogic = require('./redditLoad.logic'),
 feeds = require('../../src/shared/redditFeeds').getNodeFeeds();

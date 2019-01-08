@@ -21,5 +21,7 @@ function loadFeed(subreddit, channel){
 exports.loadFeeds = function(feeds){
     feeds.forEach(f=>{
         loadFeed(f, 'hot');
+        loadFeed(f, 'topweek');
+        loadFeed(f, 'topmonth');
     });
 };

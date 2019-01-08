@@ -3,21 +3,29 @@ const request = require('request'),
 ;
 
 exports.fetchPosts = (subreddit, channel, cb)=>{
-
-    let sr;
-   if (process.env.heroku==='true') {
-        sr = subreddit;
+    let subredditTag = subreddit;
+    if (process.env.heroku==='true') {
         console.log('\n\nProduction Load\n\n');
-        if (sr === 'earth' || sr === 'history') {
-            sr += 'po';
-            if (!!subreddit) sr += 'rn';
+        if (subredditTag === 'earth' || subredditTag === 'history') {
+            subredditTag += 'po';
+            if (!!subreddit) subredditTag += 'rn';
         }
     } else {
        if (subreddit==='earth') return false;
        if (subreddit==='history') return false;
-   }
+    }
 
-    request('https://www.reddit.com/r/' + (sr || subreddit) + '/' + channel + '.json?limit=100', function (error, response, body) {
+    let t, redditChannel;
+    if (channel.indexOf('top')>-1) {
+        if (channel==='topweek') t = 'week';
+        if (channel==='topmonth') t = 'month';
+        redditChannel = 'top';
+    }
+
+    let requestUrl = `https://www.reddit.com/r/${subredditTag}/${redditChannel}.json?limit=100`;
+    if (t) requestUrl += '&t=' + t;
+
+    request(requestUrl, function (error, response, body) {
         let result = [];
         if (!JSON.parse(body).data) return console.error(`Cannot fetch posts for ${subreddit}`);
         JSON.parse(body).data.children
