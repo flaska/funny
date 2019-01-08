@@ -25,6 +25,8 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('homepage', ()=>{
+    let date = new Date();
+    cy.window().then(win => win.localStorage.setItem('lastVisitDate', date.toDateString()));
     cy.visit('/');
 });
 
