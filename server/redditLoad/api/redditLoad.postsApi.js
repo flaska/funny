@@ -2,7 +2,8 @@ const request = require('request'),
     redditLoadDb = require('../redditLoad.db')
 ;
 
-exports.fetchPosts = (subreddit, channel, cb)=>{
+
+function makeUrl(subreddit, channel) {
     let subredditTag = subreddit;
     if (process.env.heroku==='true') {
         console.log('\n\nProduction Load\n\n');
@@ -11,8 +12,8 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
             if (!!subreddit) subredditTag += 'rn';
         }
     } else {
-       if (subreddit==='earth') return false;
-       if (subreddit==='history') return false;
+        if (subreddit==='earth') return false;
+        if (subreddit==='history') return false;
     }
 
     let t, redditChannel;
@@ -20,11 +21,17 @@ exports.fetchPosts = (subreddit, channel, cb)=>{
         if (channel==='topweek') t = 'week';
         if (channel==='topmonth') t = 'month';
         redditChannel = 'top';
-    }
+    } else redditChannel = channel;
 
     let requestUrl = `https://www.reddit.com/r/${subredditTag}/${redditChannel}.json?limit=100`;
     if (t) requestUrl += '&t=' + t;
+    return requestUrl;
+}
 
+exports.fetchPosts = (subreddit, channel, cb)=>{
+
+    let requestUrl = makeUrl(subreddit, channel);
+    if (!requestUrl) return false;
     request(requestUrl, function (error, response, body) {
         let result = [];
         if (!JSON.parse(body).data) return console.error(`Cannot fetch posts for ${subreddit}`);
