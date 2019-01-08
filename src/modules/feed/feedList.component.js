@@ -36,7 +36,7 @@ export class FeedList extends React.Component {
     }
 
     componentWillReceiveProps(props) {
-        if (this.props.feed.url === props.feed.url) return;
+        if (this.props.feed.tag === props.feed.tag) return;
         this.setState({posts: []});
         setTimeout(()=>{this.loadMorePosts()},0);
     }
