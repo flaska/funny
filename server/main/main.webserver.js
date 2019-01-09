@@ -30,7 +30,7 @@ app.use((req, res, next)=>{
         if (req.originalUrl.indexOf('/api/reddit') === 0) return proxy.web(req, res, {target: 'http://127.0.0.1:5002'});
         if (req.originalUrl.indexOf('/api/sharePersist') === 0) return proxy.web(req, res, {target: 'http://127.0.0.1:5003'});
         if (req.originalUrl.indexOf('/sh/') === 0) return proxy.web(req, res, {target: 'http://127.0.0.1:5004'});
-        proxy.web(req, res, {target: 'http://127.0.0.1:5001'});
+        proxy.web(req, res, {target: 'http://127.0.0.1:5005'});
     } catch (e) {
         res.status(404).send();
     }
