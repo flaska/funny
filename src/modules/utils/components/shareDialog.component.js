@@ -5,7 +5,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import LazyLoad from './lazyLoad.component';
 import DialogLoading from "./dialogLoading.component";
 import LazyLoadError from "./lazyLoadError.component";
-import axios from 'axios';
 import Button from "@material-ui/core/es/Button/Button";
 import copy from 'copy-to-clipboard';
 import {InfoAlert} from "./infoAlert.component";

@@ -74,7 +74,7 @@ class _Post extends React.Component {
     }
 
     openLinkUrl(url){
-        window.open(url, "_blank");
+        if (window) window.open(url, "_blank");
     }
     openOriginalLink(){
         this.openLinkUrl('https://www.reddit.com' + this.props.postData.permalink);
@@ -106,10 +106,11 @@ class _Post extends React.Component {
         );
     }
     scrollToComponent(){
+        if (!window) return;
         let postYPos = this.componentRef.current.getBoundingClientRect().top;
         let scrollYPos = window.pageYOffset;
         let appBarSize = 64;
-        window.scrollTo({top: scrollYPos+postYPos-appBarSize, behavior: 'smooth' });
+        if (window) window.scrollTo({top: scrollYPos+postYPos-appBarSize, behavior: 'smooth' });
     }
     showPostDateDiff(dateUtc){
         if (dateUtc) return <Typography style={styles.datePosted}>{timeDiff(dateUtc)}</Typography>;

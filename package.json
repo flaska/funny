@@ -23,7 +23,11 @@
     "analyze": "source-map-explorer build/static/js/main.*",
     "buildpush": "npm run build && git add build/ && git commit -a -m 'x' && git push origin master && git push heroku master && git push origin master",
     "disable-dev-dep": "heroku config:set NPM_CONFIG_PRODUCTION=true",
-    "testqa": " cypress open --config baseUrl=https://forslack-qa.herokuapp.com/"
+    "testqa": " cypress open --config baseUrl=https://forslack-qa.herokuapp.com/",
+    "dev:build-server": "webpack --config server/serverBuild/webpack.server.js --mode=development -w",
+    "dev:start": "nodemon ./server/serverRender/index.js",
+    "devssr": "npm-run-all --parallel build dev:*",
+    "buildSSR": "webpack --config server/serverBuild/webpack.server.js -w"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,8 +43,14 @@
     "@material-ui/core": "^3.6.1",
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react-app": "^7.0.0",
     "copy-to-clipboard": "^3.0.8",
     "http-proxy-middleware": "^0.19.1",
+    "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-headroom": "^2.2.4",
@@ -50,6 +60,9 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-share": "^2.4.0",
-    "source-map-explorer": "^1.6.0"
+    "source-map-explorer": "^1.6.0",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }

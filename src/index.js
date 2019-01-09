@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './modules/main/main.component';
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <Main />,
@@ -9,4 +9,4 @@ ReactDOM.render(
 );
 
 
-serviceWorker.register();
+// serviceWorker.register();
