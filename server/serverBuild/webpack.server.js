@@ -8,7 +8,7 @@ module.exports = {
         path: path.resolve('build-server'),
         filename: 'index.js',
     },
-    devtool: 'source-map',
+    devtool: 'source-map', // disable to get more production ready
     module: {
         rules: [
             {

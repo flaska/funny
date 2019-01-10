@@ -13,7 +13,7 @@ import LazyLoadError from "../utils/components/lazyLoadError.component";
 import FeedsCacheProvider from '../utils/functions/feedsCache.provider'
 import getFeedNameFromUrl from '../utils/functions/feedNameFromUrl.service';
 
-import { BrowserRouter as Router, Route} from "react-router-dom";
+// import { ServerRouter as Router, Route} from "react-router-dom";
 
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 
@@ -74,12 +74,12 @@ export default class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar openMenu={()=>this.openMenu()} feed={FeedsCacheProvider.getFeedByName(getFeedNameFromUrl())}></SlackerAppBar>
-                    <Router>
+                    {/*<Router>*/}
                         <React.Fragment>
                             {this.renderLeftMenu()}
                             {this.getContent()}
                         </React.Fragment>
-                    </Router>
+                    {/*</Router>*/}
                 </MuiThemeProvider>
             </React.Fragment>
         );

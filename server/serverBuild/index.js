@@ -10,20 +10,10 @@ import Main from '../../src/modules/main/main.component';
 const PORT = process.env.PORT || 5005;
 const app = express();
 
-app.use(express.static('./build'));
-
-function Test(){
-    return <div>haha</div>;
-}
-
-class Test2 extends React.Component {
-    render(){
-        return <div>test2</div>;
-    }
-}
+// app.use(express.static('./build'));
 
 app.get('/*', (req, res) => {
-    const app = ReactDOMServer.renderToString(Test2);
+    const app = ReactDOMServer.renderToString(<Main/>);
     const indexFile = path.resolve('./build/index.html');
     fs.readFile(indexFile, 'utf8', (err, data) => {
         if (err) {
@@ -33,7 +23,6 @@ app.get('/*', (req, res) => {
 
         console.log('content');
         console.log(app);
-        console.log(data);
 
         return res.send(
             data.replace('--content--', app)
