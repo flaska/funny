@@ -27,7 +27,7 @@
     "dev:build-server": "webpack --config server/serverBuild/webpack.server.js --mode=development -w",
     "dev:start": "nodemon ./server/serverRender/index.js",
     "devssr": "npm-run-all --parallel build dev:*",
-    "buildSSR": "webpack --config server/serverBuild/webpack.server.js -w"
+    "buildSSR": "webpack --config server/serverBuild/webpack.server.js --mode=development"
   },
   "eslintConfig": {
     "extends": "react-app"
