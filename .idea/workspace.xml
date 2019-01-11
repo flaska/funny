@@ -14,23 +14,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="leftMenuSettings.component.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/leftMenu/leftMenuSettings.component.js">
+      <file leaf-file-name="postActions.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/feed/postActions.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="55" lean-forward="true" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.component.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/main/app.component.js">
+      <file leaf-file-name="shareDialog.component.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="187">
+              <caret line="11" column="87" lean-forward="true" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -55,7 +52,6 @@
       <find>service-worker</find>
       <find>popover</find>
       <find>acios</find>
-      <find>axios</find>
       <find>about 4slack</find>
       <find>helper</find>
       <find>posttitle</find>
@@ -72,6 +68,7 @@
       <find>urlparser.se</find>
       <find>FeedsCacheProvider</find>
       <find>UrlParser</find>
+      <find>axios</find>
     </findStrings>
     <replaceStrings>
       <replace>rPost</replace>
@@ -96,13 +93,11 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js" />
         <option value="$PROJECT_DIR$/src/modules/comments/commentsList.component.js" />
-        <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/build/slackServiceWorker.js" />
         <option value="$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js" />
         <option value="$PROJECT_DIR$/src/serviceWorker.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/postThumbnail.component.js" />
-        <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialogButtons.component.js" />
         <option value="$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs" />
         <option value="$PROJECT_DIR$/src/modules/utils/functions/feedFromUrl.service.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoChip.component.js" />
@@ -127,14 +122,16 @@
         <option value="$PROJECT_DIR$/src/modules/feed/postList.component.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/functions/stateManager.provider.js" />
         <option value="$PROJECT_DIR$/src/modules/main/appBar.component.js" />
-        <option value="$PROJECT_DIR$/src/modules/main/main.component.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/utils/functions/urlParser.provider.js" />
-        <option value="$PROJECT_DIR$/src/modules/utils/functions/feedPosts.provider.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/functions/feedsCache.provider.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/functions/icon.service.js" />
-        <option value="$PROJECT_DIR$/src/modules/leftMenu/leftMenuSettings.component.js" />
         <option value="$PROJECT_DIR$/src/modules/main/app.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/leftMenu/leftMenuSettings.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/main/main.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/utils/components/shareDialogButtons.component.js" />
+        <option value="$PROJECT_DIR$/src/modules/utils/functions/feedPosts.provider.js" />
+        <option value="$PROJECT_DIR$/src/modules/utils/functions/urlParser.provider.js" />
       </list>
     </option>
   </component>
@@ -396,7 +393,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347941000" />
+    <option name="totallyTimeSpent" value="348620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -485,13 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialogButtons.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -635,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/lib/db/redditLib.db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -670,30 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/urlParser.provider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/feedPosts.provider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" lean-forward="true" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -750,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/feed/postActions.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="40" column="78" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/feed/post.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -801,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/utils/components/spinner.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -834,20 +779,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/leftMenu/leftMenuSettings.component.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/main/app.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/main/app.component.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialogButtons.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/leftMenu/leftMenuSettings.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/feedPosts.provider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/urlParser.provider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/feed/postActions.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="55" lean-forward="true" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/shareDialog.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="87" lean-forward="true" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

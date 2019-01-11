@@ -43,9 +43,6 @@ const styles = {
 
 export default class Main extends React.Component {
     state = {};
-    constructor(props) {
-        super(props);
-    }
 
     toggleLeftMenu(){
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
