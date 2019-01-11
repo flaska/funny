@@ -20,7 +20,6 @@ export default class App extends React.Component {
     setNewFeed(subreddit, channel){
         this.setState({feed: {subreddit: subreddit, channel: channel, posts: []}});
         setTimeout(()=> this.loadMorePosts(), 0);
-
     }
 
     loadMorePosts(){
@@ -36,7 +35,7 @@ export default class App extends React.Component {
     render(){
         return (
             <Router>
-                <Main state={this.state} loadMorePosts={()=>this.loadMorePosts()} setSource={()=>setTimeout(()=>this.init(),100)}/>
+                <Main state={this.state} loadMorePosts={()=>this.loadMorePosts()} setSource={()=>setTimeout(()=>this.init(),0)}/>
             </Router>
         );
     }
