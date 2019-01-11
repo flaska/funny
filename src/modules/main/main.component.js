@@ -51,13 +51,18 @@ export default class Main extends React.Component {
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
         else this.setState({leftMenuOpen: true})
     }
+    
+    newSourceSelected(){
+        this.toggleLeftMenu();
+        this.props.setSource();
+    }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
             <LazyLoad
                 loadingFallback={(<DialogLoading/>)}
                 errorFallback={<LazyLoadError message='Offline... cannot open menu...'/>}
             >
-                <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.toggleLeftMenu()} onSelectFeedSource={()=>this.toggleLeftMenu()}></LeftMenu>
+                <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.toggleLeftMenu()} onSelectFeedSource={()=>this.newSourceSelected()}></LeftMenu>
             </LazyLoad>
         );
     }
