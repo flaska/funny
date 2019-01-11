@@ -1,7 +1,7 @@
 import React from 'react';
 import MetaTags from 'react-meta-tags';
 import PostList from "../feed/postList.component";
-import {SlackerAppBar} from "./appBar.component";
+import SlackerAppBar from "./appBar.component";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -10,9 +10,6 @@ import red from '@material-ui/core/colors/red';
 import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
-
-
-import StateManager from '../utils/functions/stateManager.provider';
 
 import { BrowserRouter as Router} from "react-router-dom";
 import LinearProgress from "@material-ui/core/es/LinearProgress/LinearProgress";
