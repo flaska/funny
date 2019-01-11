@@ -2,14 +2,11 @@ import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from "@material-ui/core/es/IconButton/IconButton";
 import CloseIcon from '@material-ui/icons/Close';
-import LazyLoad from './lazyLoad.component';
-import DialogLoading from "./dialogLoading.component";
-import LazyLoadError from "./lazyLoadError.component";
 import Button from "@material-ui/core/es/Button/Button";
 import copy from 'copy-to-clipboard';
 import {InfoAlert} from "./infoAlert.component";
+import ShareDialogButtons from './shareDialogButtons.component';
 
-const ShareDialogButtons = React.lazy(() =>  import('./shareDialogButtons.component'));
 
 export default class ShareDialog extends React.Component {
     constructor(props){
@@ -38,9 +35,7 @@ export default class ShareDialog extends React.Component {
         return (
             <div>
                 Share - {this.props.postData.title.substr(0, 50)}...
-                <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}>
-                    <ShareDialogButtons text={this.props.postData.title} url={this.generateShareLink()}/>
-                </LazyLoad>
+                <ShareDialogButtons text={this.props.postData.title} url={this.generateShareLink()}/>
                 <Button color="primary" onClick={()=>{this.copyToClipboard()}} className='cy_shareDialog_copyLink'>
                     Copy Link
                 </Button>

@@ -1,6 +1,10 @@
 import React from 'react';
 import {InfoChip} from "../utils/components/infoChip.component";
-import ShareDialog from '../utils/components/shareDialog.component';
+import LazyLoad from "../utils/components/lazyLoad.component";
+import DialogLoading from "../utils/components/dialogLoading.component";
+import LazyLoadError from "../utils/components/lazyLoadError.component";
+
+const ShareDialog = React.lazy(() =>  import('../utils/components/shareDialog.component'));
 
 const styles = {
     button: {
@@ -26,7 +30,11 @@ export class PostActions extends React.Component {
         else return <div onClick={()=>{this.toggleShareDialog()}}><InfoChip icon='fa_external-link-alt' clickable responsive={true}>Share</InfoChip></div>
     }
     renderShareDialog(){
-        if (this.state.shareDialogOpen) return <ShareDialog onClose={()=>{this.toggleShareDialog()}} postData={this.props.postData}/>;
+        if (this.state.shareDialogOpen) return (
+            <LazyLoad loadingFallback={(<DialogLoading/>)} errorFallback={<LazyLoadError message='Offline... cannot open settings...'/>}>
+                <ShareDialog onClose={()=>{this.toggleShareDialog()}} postData={this.props.postData}/>
+            </LazyLoad>
+        );
     }
     toggleShareDialog(){
         if (this.state.shareDialogOpen) this.setState({shareDialogOpen: false});
