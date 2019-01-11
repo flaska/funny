@@ -7,7 +7,7 @@ export default class FeedsCacheProvider {
         if (localStorageFeeds2) {
             let allFeeds = getDefaultFeeds();
             allFeeds.forEach(f=>{
-                if (localStorageFeeds2.indexOf(f.tag)!=-1) f.enabled = true;
+                if (localStorageFeeds2.indexOf(f.tag)!==-1) f.enabled = true;
                 else f.enabled = false;
             });
             return allFeeds;

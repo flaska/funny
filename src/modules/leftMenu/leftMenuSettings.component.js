@@ -20,15 +20,10 @@ const styles = {
     }
 };
 
-
-
 export default class LeftMenuSettings extends React.Component {
     state = {
         feedOptions: FeedsCacheProvider.getAllFeeds()
     };
-    constructor(props) {
-        super(props);
-    }
 
     getFeedOptions(){
         return this.state.feedOptions.map((feed, i)=>{ return(

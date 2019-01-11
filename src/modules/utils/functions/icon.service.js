@@ -26,6 +26,6 @@ export function provideIcon(iconName){
         case 'fa_dna': return <FaDna style={styles.icon}/>;
         case 'fa_clock': return <FaClock style={styles.icon}/>;
         case 'fa_surprise': return <FaRegSurprise style={styles.icon}/>;
+        default: return <div></div>
     }
-    return <div></div>;
 }
