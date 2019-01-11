@@ -48,15 +48,8 @@ const styles = {
 
 export default class Main extends React.Component {
     state = {};
-
     constructor(props) {
         super(props);
-        this.stateManager = new StateManager((state)=>this.setState(state));
-        this.state = {feed: {posts: []}};
-    }
-
-    loadMorePosts(){
-        this.stateManager.loadMorePosts();
     }
 
     toggleLeftMenu(){
@@ -75,7 +68,7 @@ export default class Main extends React.Component {
     }
 
     renderMoreButton(){
-        if (this.state.loading) return (
+        if (this.props.state.loading) return (
             <React.Fragment>
                 <br/>
                 <LinearProgress />
@@ -84,14 +77,13 @@ export default class Main extends React.Component {
                 <br/>
             </React.Fragment>
         );
-        if (this.state.offline) return <Offline/>;
-        if (this.state.feed.posts.length<100)return (
-            <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()}>
+        if (this.props.state.offline) return <Offline/>;
+        if (this.props.state.feed.posts.length<100)return (
+            <Button style={styles.more} variant="contained" color="primary" onClick={this.props.loadMorePosts}>
                 More Fun
             </Button>
         );
     }
-
 
     render() {
         return (
@@ -101,11 +93,11 @@ export default class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feedName={this.state.feed.name} channel={this.state.feed.channel}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feedName={this.props.state.feed.name} channel={this.props.state.feed.channel}></SlackerAppBar>
                     <Router>
                         <React.Fragment>
                             {this.renderLeftMenu()}
-                            <PostList posts={this.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
+                            <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
                             {this.renderMoreButton()}
                         </React.Fragment>
                     </Router>
