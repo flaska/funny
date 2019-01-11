@@ -47,8 +47,13 @@ const styles = {
 };
 
 export default class Main extends React.Component {
-    stateManager = new StateManager((state)=>this.setState(state));
-    state = {feed: {posts: []}};
+    state = {};
+
+    constructor(props) {
+        super(props);
+        this.stateManager = new StateManager((state)=>this.setState(state));
+        this.state = {feed: {posts: []}};
+    }
 
     loadMorePosts(){
         this.stateManager.loadMorePosts();
@@ -66,12 +71,6 @@ export default class Main extends React.Component {
             >
                 <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.toggleLeftMenu()} onSelectFeedSource={()=>this.toggleLeftMenu()}></LeftMenu>
             </LazyLoad>
-        );
-    }
-
-    renderPostList(){
-        return (
-            <PostList posts={this.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
         );
     }
 
@@ -106,7 +105,7 @@ export default class Main extends React.Component {
                     <Router>
                         <React.Fragment>
                             {this.renderLeftMenu()}
-                            {this.renderPostList()}
+                            <PostList posts={this.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
                             {this.renderMoreButton()}
                         </React.Fragment>
                     </Router>

@@ -11,11 +11,9 @@ export default class StateManager{
         let channel = UrlParser.getChannelFromUrl();
         if (tag) this.feed.tag = tag;
         if (channel) this.feed.channel = channel;
-        this.loadMorePosts();
+        setTimeout(()=>this.loadMorePosts(), 0);
     }
-    getCurrentPosts(){
-        return this.posts;
-    }
+
     loadMorePosts(){
         this.setState({loading: true});
         FeedsPostsProvider.fetchPosts(this.feed.tag, this.feed.channel, this.feed.posts.length, 10).then(response => {

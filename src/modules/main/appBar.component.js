@@ -23,13 +23,12 @@ export function SlackerAppBar(props){
             <Headroom>
             <AppBar position="static">
                 <Toolbar>
-                    <Fab color="secondary" aria-label="Open Menu" onClick={()=>props.openMenu()} id='openLeftMenu'>
+                    <Fab color="secondary" aria-label="Open Menu" onClick={props.openMenu} id='openLeftMenu'>
                         <MenuIcon/>
                     </Fab>
-
                     <img alt='4slack logo' style={styles.logo} src='/logo-appbar-white.png'/>
                     <Typography color="inherit">
-                        {props.feedName}
+                        {/*{props.feed.name}*/}
                     </Typography>
                 </Toolbar>
             </AppBar>
