@@ -88,7 +88,7 @@ export default class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <TopBar openMenu={()=>this.toggleLeftMenu()} feedFullName={this.props.state.feed.fullName} channel={this.props.state.feed.channel}></TopBar>
+                    <TopBar openMenu={()=>this.toggleLeftMenu()} feed={this.props.state.feed} channelSelected={this.props.setChannel}></TopBar>
                     <React.Fragment>
                         {this.renderLeftMenu()}
                         <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>

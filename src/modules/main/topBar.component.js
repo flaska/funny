@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import Headroom from "react-headroom";
 import Fab from "@material-ui/core/es/Fab/Fab";
+import Select from "@material-ui/core/es/Select/Select";
+import MenuItem from "@material-ui/core/es/MenuItem/MenuItem";
 
 const styles = {
     root: {
@@ -14,25 +16,47 @@ const styles = {
         height: 42,
         marginLeft: 23,
         marginRight: 23
+    },
+    channelSelect: {
+        marginLeft: 10,
+        color: 'white'
     }
 };
 
-export default function TopBar(props){
-    return (
-        <div className={styles.root}>
-            <Headroom>
-            <AppBar position="static">
-                <Toolbar>
-                    <Fab color="secondary" aria-label="Open Menu" onClick={props.openMenu} id='openLeftMenu'>
-                        <MenuIcon/>
-                    </Fab>
-                    <img alt='4slack logo' style={styles.logo} src='/logo-appbar-white.png'/>
-                    <Typography color="inherit">
-                        {props.feedFullName}
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            </Headroom>
-        </div>
-    );
+export default class TopBar extends React.Component{
+    showChannelSelect(){
+        return (
+                <Select
+                    value={this.props.feed.channel}
+                    onChange={(event)=>this.props.channelSelected(event.target.value)}
+                    color="inherit"
+                    style={styles.channelSelect}
+                >
+                    <MenuItem value={'hot'}>Today</MenuItem>
+                    <MenuItem value={'topweek'}>Last Week</MenuItem>
+                    <MenuItem value={'topmonth'}>Last Month</MenuItem>
+                </Select>
+        )
+    }
+
+    render(){
+        return (
+            <div className={styles.root}>
+                <Headroom>
+                    <AppBar position="static">
+                        <Toolbar>
+                            <Fab color="secondary" aria-label="Open Menu" onClick={this.props.openMenu} id='openLeftMenu'>
+                                <MenuIcon/>
+                            </Fab>
+                            <img alt='4slack logo' style={styles.logo} src='/logo-appbar-white.png'/>
+                            <Typography color="inherit">
+                                {this.props.feed.fullName}
+                            </Typography>
+                            {this.showChannelSelect()}
+                        </Toolbar>
+                    </AppBar>
+                </Headroom>
+            </div>
+        );
+    }
 }

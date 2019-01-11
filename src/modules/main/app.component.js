@@ -40,7 +40,7 @@ export default class App extends React.Component {
     render(){
         return (
             <Router>
-                <Main state={this.state} loadMorePosts={()=>this.loadMorePosts()} setSource={()=>setTimeout(()=>this.init(),0)}/>
+                <Main state={this.state} loadMorePosts={()=>this.loadMorePosts()} setSource={()=>setTimeout(()=>this.init(),0)} setChannel={(newChannel)=>this.setNewFeed(this.state.feed.subreddit, newChannel)}/>
             </Router>
         );
     }
