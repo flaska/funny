@@ -28,7 +28,7 @@ export default function SlackerAppBar(props){
                     </Fab>
                     <img alt='4slack logo' style={styles.logo} src='/logo-appbar-white.png'/>
                     <Typography color="inherit">
-                        {/*{props.feed.name}*/}
+                        {props.feedFullName}
                     </Typography>
                 </Toolbar>
             </AppBar>

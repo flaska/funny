@@ -90,7 +90,7 @@ export default class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feedName={this.props.state.feed.name} channel={this.props.state.feed.channel}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feedFullName={this.props.state.feed.fullName} channel={this.props.state.feed.channel}></SlackerAppBar>
                     <React.Fragment>
                         {this.renderLeftMenu()}
                         <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
