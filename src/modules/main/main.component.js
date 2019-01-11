@@ -13,7 +13,7 @@ import LazyLoadError from "../utils/components/lazyLoadError.component";
 import FeedsCacheProvider from '../utils/functions/feedsCache.provider'
 import getFeedNameFromUrl from '../utils/functions/feedNameFromUrl.service';
 
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 
@@ -31,20 +31,14 @@ const theme = createMuiTheme({
 });
 
 export default class Main extends React.Component {
+    state = {};
     constructor(props){
         super(props);
-        this.state = {leftMenuOpen: false};
     }
 
-
-    componentDidUpdate(prevProps, prevState, snapshot){
-    }
-
-    openMenu(){
-        this.setState({leftMenuOpen: true})
-    }
-    closeMenu(){
+    toggleLeftMenu(){
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
+        else this.setState({leftMenuOpen: true})
     }
     renderLeftMenu(){
         if (this.state.leftMenuOpen) return (
@@ -52,7 +46,7 @@ export default class Main extends React.Component {
                 loadingFallback={(<DialogLoading/>)}
                 errorFallback={<LazyLoadError message='Offline... cannot open menu...'/>}
             >
-                <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.closeMenu()} onSelectFeedSource={()=>this.closeMenu()}></LeftMenu>
+                <LeftMenu open={this.state.leftMenuOpen} onClose={()=>this.toggleLeftMenu()} onSelectFeedSource={()=>this.toggleLeftMenu()}></LeftMenu>
             </LazyLoad>
         );
     }
@@ -73,7 +67,7 @@ export default class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.openMenu()} feed={FeedsCacheProvider.getFeedByName(getFeedNameFromUrl())}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feed={FeedsCacheProvider.getFeedByName(getFeedNameFromUrl())}></SlackerAppBar>
                     <Router>
                         <React.Fragment>
                             {this.renderLeftMenu()}
