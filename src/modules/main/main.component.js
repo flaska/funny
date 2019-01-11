@@ -1,6 +1,6 @@
 import React from 'react';
 import MetaTags from 'react-meta-tags';
-import {FeedList} from "../feed/feedList.component";
+import PostList from "../feed/postList.component";
 import {SlackerAppBar} from "./appBar.component";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -10,10 +10,15 @@ import red from '@material-ui/core/colors/red';
 import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
-import FeedsCacheProvider from '../utils/functions/feedsCache.provider'
-import getFeedNameFromUrl from '../utils/functions/feedNameFromUrl.service';
+
+
+import StateManager from '../utils/functions/stateManager.provider';
 
 import { BrowserRouter as Router} from "react-router-dom";
+import LinearProgress from "@material-ui/core/es/LinearProgress/LinearProgress";
+import Typography from "@material-ui/core/es/Typography/Typography";
+import Button from "@material-ui/core/es/Button/Button";
+import {Offline} from "../utils/components/offline.component";
 
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 
@@ -30,10 +35,23 @@ const theme = createMuiTheme({
     },
 });
 
+const styles = {
+    more: {
+        margin: 'auto',
+        display: 'block',
+        marginBottom: 50
+    },
+    loading: {
+        textAlign: 'center'
+    }
+};
+
 export default class Main extends React.Component {
-    state = {};
-    constructor(props){
-        super(props);
+    stateManager = new StateManager((state)=>this.setState(state));
+    state = {feed: {posts: []}};
+
+    loadMorePosts(){
+        this.stateManager.loadMorePosts();
     }
 
     toggleLeftMenu(){
@@ -51,10 +69,27 @@ export default class Main extends React.Component {
         );
     }
 
-
-    getContent(){
+    renderPostList(){
         return (
-            <FeedList feed={FeedsCacheProvider.getFeedByName(getFeedNameFromUrl())}></FeedList>
+            <PostList posts={this.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
+        );
+    }
+
+    renderMoreButton(){
+        if (this.state.loading) return (
+            <React.Fragment>
+                <br/>
+                <LinearProgress />
+                <br/>
+                <Typography color="primary" style={styles.loading}>Loading...</Typography>
+                <br/>
+            </React.Fragment>
+        );
+        if (this.state.offline) return <Offline/>;
+        if (this.state.feed.posts.length<100)return (
+            <Button style={styles.more} variant="contained" color="primary" onClick={()=>this.loadMorePosts()}>
+                More Fun
+            </Button>
         );
     }
 
@@ -67,11 +102,12 @@ export default class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feed={FeedsCacheProvider.getFeedByName(getFeedNameFromUrl())}></SlackerAppBar>
+                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feedName={this.state.feed.name} channel={this.state.feed.channel}></SlackerAppBar>
                     <Router>
                         <React.Fragment>
                             {this.renderLeftMenu()}
-                            {this.getContent()}
+                            {this.renderPostList()}
+                            {this.renderMoreButton()}
                         </React.Fragment>
                     </Router>
                 </MuiThemeProvider>
