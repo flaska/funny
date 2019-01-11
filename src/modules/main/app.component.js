@@ -1,13 +1,16 @@
 import React from "react";
 import Main from "./main.component";
 import FeedsPostsProvider from "../utils/functions/feedPosts.provider";
+import UrlParser from "../utils/functions/urlParser.provider";
+import { BrowserRouter as Router} from "react-router-dom";
 
 export default class App extends React.Component {
     state = {feed: {posts: []}};
     constructor(props){
         super(props);
-        setTimeout(()=>this.setNewFeed('funny', 'hot'), 0);
-
+        let subreddit = UrlParser.getSubredditFromUrl();
+        let channel = UrlParser.getChannelFromUrl();
+        setTimeout(()=>this.setNewFeed(subreddit || 'funny', channel || 'hot'), 0);
     }
 
     setNewFeed(subreddit, channel){
@@ -26,7 +29,10 @@ export default class App extends React.Component {
     }
 
     render(){
-        return <Main state={this.state} loadMorePosts={()=>this.loadMorePosts()}/>
-
+        return (
+            <Router>
+                <Main state={this.state} loadMorePosts={()=>this.loadMorePosts()}/>
+            </Router>
+        );
     }
 }

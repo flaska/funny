@@ -1,10 +1,11 @@
 export default class UrlParser {
-    static getFeedTagFromUrl(){
-        let tag = window.location.pathname.replace('/f/','');
-        if (tag=='/') tag = 'funny';
-        return tag;
+    static getSubredditFromUrl(){
+        let result = window.location.pathname.replace('/f/','');
+        return result.replace(/\/.+$/, '');
+
     }
     static getChannelFromUrl(){
-        return 'hot';
+        if ((window.location.pathname.match(/\//g) || []).length!==3) return;
+        return window.location.pathname.replace(/\/f\/.+\//,'');
     }
 }

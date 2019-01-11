@@ -10,8 +10,6 @@ import red from '@material-ui/core/colors/red';
 import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
-
-import { BrowserRouter as Router} from "react-router-dom";
 import LinearProgress from "@material-ui/core/es/LinearProgress/LinearProgress";
 import Typography from "@material-ui/core/es/Typography/Typography";
 import Button from "@material-ui/core/es/Button/Button";
@@ -91,13 +89,11 @@ export default class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feedName={this.props.state.feed.name} channel={this.props.state.feed.channel}></SlackerAppBar>
-                    <Router>
-                        <React.Fragment>
-                            {this.renderLeftMenu()}
-                            <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
-                            {this.renderMoreButton()}
-                        </React.Fragment>
-                    </Router>
+                    <React.Fragment>
+                        {this.renderLeftMenu()}
+                        <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
+                        {this.renderMoreButton()}
+                    </React.Fragment>
                 </MuiThemeProvider>
             </React.Fragment>
         );
