@@ -2,6 +2,7 @@ import React from "react";
 import Main from "./main.component";
 import FeedsPostsProvider from "../utils/functions/feedPosts.provider";
 import UrlParser from "../utils/functions/urlParser.provider";
+import {BrowserRouter as Router} from "react-router-dom";
 
 export default class App extends React.Component {
     state = {feed: {posts: []}};
@@ -33,7 +34,9 @@ export default class App extends React.Component {
 
     render(){
         return (
+            <Router>
                 <Main state={this.state} loadMorePosts={()=>this.loadMorePosts()} setSource={()=>this.init()}/>
+            </Router>
         );
     }
 }

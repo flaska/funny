@@ -51,7 +51,7 @@ export default class Main extends React.Component {
         if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
         else this.setState({leftMenuOpen: true})
     }
-    
+
     newSourceSelected(){
         this.toggleLeftMenu();
         this.props.setSource();
