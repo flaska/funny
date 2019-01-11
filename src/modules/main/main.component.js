@@ -1,12 +1,11 @@
 import React from 'react';
 import MetaTags from 'react-meta-tags';
 import PostList from "../feed/postList.component";
-import SlackerAppBar from "./appBar.component";
+import TopBar from "./topBar.component";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
-import red from '@material-ui/core/colors/red';
 import LazyLoad from "../utils/components/lazyLoad.component";
 import DialogLoading from "../utils/components/dialogLoading.component";
 import LazyLoadError from "../utils/components/lazyLoadError.component";
@@ -21,7 +20,6 @@ const theme = createMuiTheme({
     palette: {
         primary: blue,
         secondary: pink,
-        error: red,
         contrastThreshold: 3,
         tonalOffset: 0.2,
     },
@@ -45,7 +43,7 @@ export default class Main extends React.Component {
     state = {};
 
     toggleLeftMenu(){
-        if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false})
+        if (this.state.leftMenuOpen) this.setState({leftMenuOpen: false});
         else this.setState({leftMenuOpen: true})
     }
 
@@ -90,7 +88,7 @@ export default class Main extends React.Component {
                 </MetaTags>
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
-                    <SlackerAppBar openMenu={()=>this.toggleLeftMenu()} feedFullName={this.props.state.feed.fullName} channel={this.props.state.feed.channel}></SlackerAppBar>
+                    <TopBar openMenu={()=>this.toggleLeftMenu()} feedFullName={this.props.state.feed.fullName} channel={this.props.state.feed.channel}></TopBar>
                     <React.Fragment>
                         {this.renderLeftMenu()}
                         <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>

@@ -17,7 +17,7 @@ const styles = {
     }
 };
 
-export default function SlackerAppBar(props){
+export default function TopBar(props){
     return (
         <div className={styles.root}>
             <Headroom>
