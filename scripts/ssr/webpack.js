@@ -1,6 +1,11 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
+
+
 module.exports = {
     entry: './scripts/ssr/webServer.js',
     target: 'node',
