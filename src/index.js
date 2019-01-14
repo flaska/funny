@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './modules/main/app.component';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <App/>,
     document.getElementById('root')
 );

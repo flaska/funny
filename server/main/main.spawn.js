@@ -1,7 +1,8 @@
 const fork = require('child_process').fork;
 
 const services = [
-    './server/jsServe/jsServe.main.js',
+    // './server/jsServe/jsServe.main.js',
+    './build-server-static/index.js',
     './server/redditLoad/redditLoad.main.js',
     './server/redditServe/redditServe.main.js',
     './server/sharePersist/sharePersist.main.js',
