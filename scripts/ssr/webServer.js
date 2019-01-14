@@ -10,7 +10,7 @@ import ServerApp from "./serverApp.component";
 const PORT = process.env.PORT || 5001;
 const app = express();
 
-app.get(['/sh/*', 'index.html', '/'], (req, res) => {
+app.get(['/sh/*', '/index.html', '/'], (req, res) => {
     const app = ReactDOMServer.renderToString(<ServerApp/>);
     const indexFile = path.resolve('./build/index.html');
     fs.readFile(indexFile, 'utf8', (err, data) => {
