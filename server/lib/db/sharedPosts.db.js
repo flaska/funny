@@ -11,7 +11,7 @@ db.once('open', function() {
     console.log('Share Page connected to MongoDB');
 });
 
-let saredPostSchema = mongoose.Schema({
+let sharedPostSchema = mongoose.Schema({
     date: Date,
     post:  mongoose.Schema({
         title: String,
@@ -26,6 +26,6 @@ let saredPostSchema = mongoose.Schema({
     }, {id: false})
 }, { collection: 'sharedPosts' });
 
-saredPostSchema.index({'post.id': 1});
+sharedPostSchema.index({'post.id': 1});
 
-exports.SharedPost = db.model('SharedPost', saredPostSchema);
+exports.SharedPost = db.model('SharedPost', sharedPostSchema);

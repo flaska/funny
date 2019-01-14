@@ -21,7 +21,11 @@ function loadFeed(subreddit, channel){
 exports.loadFeeds = function(feeds){
     feeds.forEach(f=>{
         loadFeed(f, 'hot');
-        loadFeed(f, 'topweek');
-        loadFeed(f, 'topmonth');
+        setTimeout(()=>{
+            loadFeed(f, 'topweek');
+        }, 1000 * 60 * 3);
+        setTimeout(()=>{
+            loadFeed(f, 'topmonth');
+        }, 1000 * 60 * 6);
     });
 };
