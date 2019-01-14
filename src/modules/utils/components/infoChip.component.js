@@ -1,8 +1,9 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
-import {provideIcon} from '../functions/icon.service';
 import withWidth, {isWidthUp} from '@material-ui/core/withWidth';
 import IconButton from '@material-ui/core/IconButton';
+import {FaComments, FaExternalLinkAlt, FaEye, FaEyeSlash} from "react-icons/fa";
+import {MdComment, MdThumbUp} from 'react-icons/md';
 
 const styles = {
     chip: {
@@ -15,8 +16,23 @@ const styles = {
     },
     invisibleText: {
         display: 'none'
+    },
+    icon: {
+        zoom: 1.2
     }
 };
+
+function provideIcon(iconName){
+    switch(iconName) {
+        case 'md_thumb_up': return <MdThumbUp style={styles.icon}/>;
+        case 'md_comment': return <MdComment style={styles.icon}/>;
+        case 'fa_eye': return <FaEye style={styles.icon}/>;
+        case 'fa_external-link-alt': return <FaExternalLinkAlt style={styles.icon}/>;
+        case 'fa_eye-slash': return <FaEyeSlash style={styles.icon}/>;
+        case 'fa_comments': return <FaComments style={styles.icon}/>;
+        default: return <div></div>
+    }
+}
 
 class _InfoChip extends React.Component {
     render(){

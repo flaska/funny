@@ -12,7 +12,7 @@ const styles = {
     }
 };
 
-export class Offline extends React.Component {
+export default class Offline extends React.Component {
     reloadPage(){
         window.location.reload();
     }

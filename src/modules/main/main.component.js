@@ -12,7 +12,7 @@ import LazyLoadError from "../utils/components/lazyLoadError.component";
 import LinearProgress from "@material-ui/core/es/LinearProgress/LinearProgress";
 import Typography from "@material-ui/core/es/Typography/Typography";
 import Button from "@material-ui/core/es/Button/Button";
-import {Offline} from "../utils/components/offline.component";
+import Offline from "../utils/components/offline.component";
 
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 
