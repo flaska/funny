@@ -26,8 +26,17 @@
       <file leaf-file-name="redditLoad.logic.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="425">
+              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -41,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sharedPosts.db.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sharedPosts.db.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/lib/db/sharedPosts.db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="476">
+              <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -54,7 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>service-worker</find>
       <find>popover</find>
       <find>acios</find>
       <find>about 4slack</find>
@@ -84,6 +92,7 @@
       <find>cypress</find>
       <find>saredPostSchema.index({'post.id': 1});</find>
       <find>feedSchema.index({'subreddit': 1, 'channel': 1});</find>
+      <find>buildservice</find>
     </findStrings>
     <replaceStrings>
       <replace>rPost</replace>
@@ -141,12 +150,12 @@
         <option value="$PROJECT_DIR$/src/modules/main/main.component.js" />
         <option value="$PROJECT_DIR$/cypress/support/leftBar.commands.js" />
         <option value="$PROJECT_DIR$/cypress/integration/topBar/switchChannel.test.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/main/topBar.component.js" />
         <option value="$PROJECT_DIR$/server/lib/memoryUsage.provider.js" />
         <option value="$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js" />
         <option value="$PROJECT_DIR$/server/lib/db/redditLib.db.js" />
         <option value="$PROJECT_DIR$/server/lib/db/sharedPosts.db.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -192,29 +201,7 @@
             <path>
               <item name="funny" type="b2602c69:ProjectViewProjectNode" />
               <item name="funny" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="funny" type="b2602c69:ProjectViewProjectNode" />
-              <item name="funny" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="funny" type="b2602c69:ProjectViewProjectNode" />
-              <item name="funny" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="funny" type="b2602c69:ProjectViewProjectNode" />
-              <item name="funny" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="funny" type="b2602c69:ProjectViewProjectNode" />
-              <item name="funny" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="redditLoad" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="funny" type="b2602c69:ProjectViewProjectNode" />
@@ -347,16 +334,15 @@
       <workItem from="1546875779976" duration="13894000" />
       <workItem from="1546959870313" duration="13294000" />
       <workItem from="1547062271215" duration="663000" />
-      <workItem from="1547476033487" duration="11278000" />
+      <workItem from="1547476033487" duration="11731000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="363976000" />
+    <option name="totallyTimeSpent" value="364429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21614583" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -683,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cypress/integration/topBar/switchChannel.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -756,10 +735,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js">
+    <entry file="file://$PROJECT_DIR$/server/lib/db/sharedPosts.db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -770,10 +749,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/lib/db/sharedPosts.db.js">
+    <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="425">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
         </state>
       </provider>
     </entry>
