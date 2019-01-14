@@ -63,9 +63,10 @@ export default class Main extends React.Component {
     }
 
     renderLoading(){
+        if (!this.props.state.loading) return;
         let dummyPosts = [];
-        for (let i=0; i++; i<10) {
-            dummyPosts.push({dummyPost: true});
+        for (let i=0; i<8; i++) {
+            dummyPosts.push({id: i});
         }
         return (
             <React.Fragment>

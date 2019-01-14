@@ -45,6 +45,14 @@ const styles = {
     },
     bottomPostActionsAfter: {
         clear: 'both'
+    },
+    emptyTitle: {
+        height: 15,
+        width: 300,
+        backgroundColor: 'rgb(228, 228, 228, 0.65)',
+        boxShadow: '0px 0px 4px 3px rgb(228, 228, 228, 0.65)',
+        borderRadius: 2,
+        marginBottom: 3
     }
 };
 
@@ -92,6 +100,7 @@ class _Post extends React.Component {
         );
     }
     renderPostActions(){
+        if (!this.props.postData.title) return;
         return <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}}/>
     }
     showBottomActionBar(){
@@ -114,6 +123,10 @@ class _Post extends React.Component {
     showPostDateDiff(dateUtc){
         if (dateUtc) return <Typography style={styles.datePosted}>{timeDiff(dateUtc)}</Typography>;
     }
+    showTitle(postData){
+        if (postData.title) return <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{postData.title}</Typography>;
+        else return <div style={styles.emptyTitle}></div>
+    }
     render() {
         return (
             <div className='post' ref={this.componentRef}>
@@ -125,7 +138,7 @@ class _Post extends React.Component {
                         onClick={()=>{this.toggleContent()}}
                     />
                     <CardContent style={fixCss('marginLeft', 120)(styles.content, this.props.width)}>
-                        <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{this.props.postData.title}</Typography>
+                        {this.showTitle(this.props.postData)}
                         {this.showPostDateDiff(this.props.postData.dateUtc)}
                     </CardContent>
                     <div style={styles.postActions} className='topActionBar'>
