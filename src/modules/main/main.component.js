@@ -63,10 +63,14 @@ export default class Main extends React.Component {
     }
 
     renderLoading(){
+        let dummyPosts = [];
+        for (let i=0; i++; i<10) {
+            dummyPosts.push({dummyPost: true});
+        }
         return (
             <React.Fragment>
                 <LinearProgress />
-                <PostList posts={this.props.state.feed.posts}></PostList>
+                <PostList posts={dummyPosts}></PostList>
             </React.Fragment>
         );
     }

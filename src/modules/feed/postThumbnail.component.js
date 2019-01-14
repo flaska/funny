@@ -1,5 +1,5 @@
 import React from "react";
-import {FaImage, FaVideo} from 'react-icons/fa';
+import {FaVideo} from 'react-icons/fa';
 import withWidth from "@material-ui/core/withWidth/index";
 import fixCss from '../utils/functions/fixCss.function';
 
@@ -28,18 +28,19 @@ const styles = {
         borderRadius: 3,
         paddingBottom: 0,
 
+    },
+    emptyThumbnail: {
+        width: 150,
+        height: 100,
+        backgroundColor: '#e4e4e4'
     }
 };
 
 
 class _PostThumbnail extends React.Component {
-    getThumbnailIcon(postData){
-        if (postData.type === 'image') return <FaImage style={styles.icon}/>;
-        if (postData.type === 'hosted:video') return <FaVideo style={styles.icon}/>;
-    }
-
     getThumbnail(postData){
-        if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)}  className='postThumbnail' alt={'Thumbnail for post: ' + postData.title}/>
+        if (postData.thumbnail) return <img src={postData.thumbnail} style={fixCss('width', 120)(styles.img, this.props.width)}  className='postThumbnail' alt={'Thumbnail for post: ' + postData.title}/>;
+        else return <div style={styles.emptyThumbnail}></div>
     }
     videoLogo(){
         if (this.props.postData.type==='hosted:video') return (<div style={styles.videoLogo}><FaVideo/></div>);
