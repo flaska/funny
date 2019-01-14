@@ -25,16 +25,18 @@ export default class TopBar extends React.Component{
     showChannelSelect(){
         if (!this.props.feed.channel) return null;
         return (
-            <Select
-                SelectDisplayProps={{id: 'cy_topBar_channelSelect'}}
-                value={this.props.feed.channel}
-                onChange={(event)=>this.props.channelSelected(event.target.value)}
-                style={styles.channelSelect}
-            >
-                <MenuItem id='cy_topBar_channel_hot' value={'hot'}>Today</MenuItem>
-                <MenuItem id='cy_topBar_channel_topWeek' value={'topweek'}>Last Week</MenuItem>
-                <MenuItem id='cy_topBar_channel_topMonth' value={'topmonth'}>Last Month</MenuItem>
-            </Select>
+            <div id='css_topBar_channelSelect_wrapper'>
+                <Select
+                    SelectDisplayProps={{id: 'cy_topBar_channelSelect'}}
+                    value={this.props.feed.channel}
+                    onChange={(event)=>this.props.channelSelected(event.target.value)}
+                    style={styles.channelSelect}
+                >
+                    <MenuItem id='cy_topBar_channel_hot' value={'hot'} className='tag_selectChannel'>Today</MenuItem>
+                    <MenuItem id='cy_topBar_channel_topWeek' value={'topweek'} className='tag_selectChannel'>Last Week</MenuItem>
+                    <MenuItem id='cy_topBar_channel_topMonth' value={'topmonth'} className='tag_selectChannel'>Last Month</MenuItem>
+                </Select>
+            </div>
         )
     }
 
@@ -44,9 +46,9 @@ export default class TopBar extends React.Component{
                 <MetaTags>
                     <style>
                         {`
-                            #topBar [class^='MuiSvgIcon'] {color: white;}
-                            #topBar [class^='MuiInputBase']:before {border-bottom: 1px solid white;}
-                            #topBar [class^='MuiInputBase']:hover:before {border-bottom: 2px solid white!important;}
+                            #topBar #css_topBar_channelSelect_wrapper svg {color: white;}
+                            #topBar #css_topBar_channelSelect_wrapper div:before {border-bottom: 1px solid white;}
+                            #topBar #css_topBar_channelSelect_wrapper div:hover:before {border-bottom: 2px solid white!important;}
                         `}
                     </style>
                 </MetaTags>
