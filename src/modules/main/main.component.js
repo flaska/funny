@@ -69,7 +69,7 @@ export default class Main extends React.Component {
         }
         return (
             <React.Fragment>
-                <LinearProgress />
+                <LinearProgress id='cy_loadingContent'/>
                 <PostList posts={dummyPosts}></PostList>
             </React.Fragment>
         );
