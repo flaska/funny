@@ -62,8 +62,8 @@ export default class Main extends React.Component {
         );
     }
 
-    renderMoreButton(){
-        if (this.props.state.loading) return (
+    renderLoading(){
+        return (
             <React.Fragment>
                 <br/>
                 <LinearProgress />
@@ -72,6 +72,10 @@ export default class Main extends React.Component {
                 <br/>
             </React.Fragment>
         );
+    }
+
+    renderMoreButton(){
+        if (this.props.state.loading) return null;
         if (this.props.state.offline) return <Offline/>;
         if (this.props.state.feed.posts.length<100)return (
             <Button style={styles.more} variant="contained" color="primary" onClick={this.props.loadMorePosts}>
@@ -92,6 +96,7 @@ export default class Main extends React.Component {
                     <React.Fragment>
                         {this.renderLeftMenu()}
                         <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
+                        {this.renderLoading()}
                         {this.renderMoreButton()}
                     </React.Fragment>
                 </MuiThemeProvider>
