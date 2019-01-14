@@ -25,17 +25,16 @@ export default class TopBar extends React.Component{
     showChannelSelect(){
         if (!this.props.feed.channel) return null;
         return (
-                <Select
-                    value={this.props.feed.channel}
-                    onChange={(event)=>this.props.channelSelected(event.target.value)}
-                    style={styles.channelSelect}
-                    // IconComponent={(<div>xxx</div>)}
-                    // SelectDisplayProps={{'style': {backgroundColor: 'white'}}}
-                >
-                    <MenuItem value={'hot'}>Today</MenuItem>
-                    <MenuItem value={'topweek'}>Last Week</MenuItem>
-                    <MenuItem value={'topmonth'}>Last Month</MenuItem>
-                </Select>
+            <Select
+                SelectDisplayProps={{id: 'cy_topBar_channelSelect'}}
+                value={this.props.feed.channel}
+                onChange={(event)=>this.props.channelSelected(event.target.value)}
+                style={styles.channelSelect}
+            >
+                <MenuItem id='cy_topBar_channel_hot' value={'hot'}>Today</MenuItem>
+                <MenuItem id='cy_topBar_channel_topWeek' value={'topweek'}>Last Week</MenuItem>
+                <MenuItem id='cy_topBar_channel_topMonth' value={'topmonth'}>Last Month</MenuItem>
+            </Select>
         )
     }
 

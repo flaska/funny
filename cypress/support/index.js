@@ -18,5 +18,6 @@ import './shared.commands'
 import './feedList.commands'
 import './post.commands'
 import './leftBar.commands'
+import './topBar.commands'
 import './api.commands'
 
