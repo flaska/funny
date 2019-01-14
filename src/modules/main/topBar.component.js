@@ -7,11 +7,9 @@ import Headroom from "react-headroom";
 import Fab from "@material-ui/core/es/Fab/Fab";
 import Select from "@material-ui/core/es/Select/Select";
 import MenuItem from "@material-ui/core/es/MenuItem/MenuItem";
+import {MetaTags} from "react-meta-tags";
 
 const styles = {
-    root: {
-        flexGrow: 1,
-    },
     logo: {
         height: 42,
         marginLeft: 23,
@@ -25,12 +23,14 @@ const styles = {
 
 export default class TopBar extends React.Component{
     showChannelSelect(){
+        if (!this.props.feed.channel) return null;
         return (
                 <Select
                     value={this.props.feed.channel}
                     onChange={(event)=>this.props.channelSelected(event.target.value)}
-                    color="inherit"
                     style={styles.channelSelect}
+                    // IconComponent={(<div>xxx</div>)}
+                    // SelectDisplayProps={{'style': {backgroundColor: 'white'}}}
                 >
                     <MenuItem value={'hot'}>Today</MenuItem>
                     <MenuItem value={'topweek'}>Last Week</MenuItem>
@@ -41,7 +41,16 @@ export default class TopBar extends React.Component{
 
     render(){
         return (
-            <div className={styles.root}>
+            <div id='topBar'>
+                <MetaTags>
+                    <style>
+                        {`
+                            #topBar [class^='MuiSvgIcon'] {color: white;}
+                            #topBar [class^='MuiInputBase']:before {border-bottom: 1px solid white;}
+                            #topBar [class^='MuiInputBase']:hover:before {border-bottom: 2px solid white!important;}
+                        `}
+                    </style>
+                </MetaTags>
                 <Headroom>
                     <AppBar position="static">
                         <Toolbar>
