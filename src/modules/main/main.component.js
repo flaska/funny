@@ -65,11 +65,8 @@ export default class Main extends React.Component {
     renderLoading(){
         return (
             <React.Fragment>
-                <br/>
                 <LinearProgress />
-                <br/>
-                <Typography color="primary" style={styles.loading}>Loading...</Typography>
-                <br/>
+                <PostList posts={this.props.state.feed.posts}></PostList>
             </React.Fragment>
         );
     }
@@ -95,7 +92,7 @@ export default class Main extends React.Component {
                     <TopBar openMenu={()=>this.toggleLeftMenu()} feed={this.props.state.feed} channelSelected={this.props.setChannel}></TopBar>
                     <React.Fragment>
                         {this.renderLeftMenu()}
-                        <PostList posts={this.props.state.feed.posts} loadMorePosts={()=>this.loadMorePosts()}></PostList>
+                        <PostList posts={this.props.state.feed.posts}></PostList>
                         {this.renderLoading()}
                         {this.renderMoreButton()}
                     </React.Fragment>
