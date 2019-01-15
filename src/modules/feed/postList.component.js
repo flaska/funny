@@ -5,8 +5,8 @@ import Post from './post.component';
 
 const styles = {
     main: {
-      maxWidth: 760,
-      margin: 'auto'
+      // maxWidth: 760,
+      // margin: 'auto'
     },
     listItem: {
       display: 'block'

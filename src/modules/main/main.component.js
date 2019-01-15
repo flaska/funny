@@ -35,6 +35,10 @@ const styles = {
     },
     loading: {
         textAlign: 'center'
+    },
+    content: {
+        maxWidth: 760,
+        margin: 'auto'
     }
 };
 
@@ -94,12 +98,12 @@ export default class Main extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline/>
                     <TopBar openMenu={()=>this.toggleLeftMenu()} feed={this.props.state.feed} channelSelected={this.props.setChannel}></TopBar>
-                    <React.Fragment>
-                        {this.renderLeftMenu()}
+                    {this.renderLeftMenu()}
+                    <div style={styles.content}>
                         <PostList posts={this.props.state.feed.posts}></PostList>
                         {this.renderLoading()}
                         {this.renderMoreButton()}
-                    </React.Fragment>
+                    </div>
                 </MuiThemeProvider>
             </React.Fragment>
         );
