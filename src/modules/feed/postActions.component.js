@@ -17,6 +17,11 @@ export class PostActions extends React.Component {
         super(props);
         this.state = {};
     }
+
+    generateShareLink(){
+        return 'https://www.4slack.com/sh/' + this.props.postData.id;
+    }
+
     showOpenCloseIcon(){
         if (!this.props.parentState.showContent) return <InfoChip icon='fa_eye' clickable color='primary' responsive={true}>Open</InfoChip>;
         else return <InfoChip icon='fa_eye-slash' clickable responsive={true}>Close</InfoChip>;
@@ -37,6 +42,17 @@ export class PostActions extends React.Component {
         );
     }
     toggleShareDialog(){
+        try {
+            if (navigator.share) {
+                navigator.share({
+                    title: this.props.postData.title,
+                    text: this.props.postData.title,
+                    url: this.generateShareLink(),
+                });
+                return null;
+            }
+        } catch (e) {console.error(e)};
+
         if (this.state.shareDialogOpen) this.setState({shareDialogOpen: false});
         else this.setState({shareDialogOpen: true});
     }

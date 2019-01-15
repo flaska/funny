@@ -45,14 +45,6 @@ export default class ShareDialog extends React.Component {
         );
     }
     render(){
-        if (navigator.share){
-            navigator.share({
-                title: this.props.postData.title,
-                text: this.props.postData.title,
-                url: this.generateShareLink(),
-            });
-            return null;
-        }
         return (
             <Snackbar
                 open={this.state.open}

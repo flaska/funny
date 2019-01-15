@@ -1,8 +1,8 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const cacheName = 'precache-manifest.b2cba8194bac418d94e9119670b94bac.js';
-importScripts("precache-manifest.b2cba8194bac418d94e9119670b94bac.js");
+const cacheName = 'precache-manifest.0344ac2ed44d844dae6c4dda43b3e0fa.js';
+importScripts("precache-manifest.0344ac2ed44d844dae6c4dda43b3e0fa.js");
 const urlsToCache = self.__precacheManifest.map(e=>e.url);
 
 // The install handler takes care of precaching the resources we always need.
