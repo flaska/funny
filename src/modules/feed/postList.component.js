@@ -1,7 +1,7 @@
 import React from 'react';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import {Post} from './post.component';
+import Post from './post.component';
 
 const styles = {
     main: {

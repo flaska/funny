@@ -154,4 +154,4 @@ class _Post extends React.Component {
 }
 
 let Post = withWidth()(_Post);
-export {Post};
+export default Post;
