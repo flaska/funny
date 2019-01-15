@@ -13,12 +13,12 @@
         <title><%= post.title %> | 4slack</title>
 
         <meta charset="utf-8"/>
-        <meta name="description" content="Post shared by 4slack user!"/>
+        <meta name="description" content="Awesome post shared by a 4slack user!"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="theme-color" content="#0069c0"/>
         <link rel="shortcut icon" href="https://www.4slack.com/favicon.png" />
 
-        <meta property="og:title" content="<%= post.title %>" />
+        <meta property="og:title" content="<%= post.title %> | 4slack" />
         <meta property="og:type"
             <% if (post.type==='image') { %> content="article" <% } %>
             <% if (post.type==='hosted:video') { %> content="video.other" <% } %>
