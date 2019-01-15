@@ -2,7 +2,7 @@ const redditLoadPostsApi = require('./api/redditLoad.postsApi'),
     redditLoadCommentsApi = require('./api/redditLoad.commentsApi');
 
 function loadFeed(subreddit, channel){
-    redditLoadCommentsApi.deleteComments(subreddit, (err)=>{
+    redditLoadCommentsApi.deleteComments(subreddit, channel, (err)=>{
         if (err) return console.error(err);
     });
     redditLoadPostsApi.fetchPosts(subreddit, channel, (err, result)=>{
@@ -19,13 +19,21 @@ function loadFeed(subreddit, channel){
 }
 
 exports.loadFeeds = function(feeds){
+    console.log('Fetching data for hot');
     feeds.forEach(f=>{
         loadFeed(f, 'hot');
-        setTimeout(()=>{
-            loadFeed(f, 'topweek');
-        }, 1000 * 60 * 3);
-        setTimeout(()=>{
-            loadFeed(f, 'topmonth');
-        }, 1000 * 60 * 6);
     });
+
+    setTimeout(()=>{
+        console.log('Fetching data for topweek');
+        feeds.forEach(f=>{
+            loadFeed(f, 'topweek');
+        });
+    }, 1000 * 60 * 0.5);
+    setTimeout(()=>{
+        console.log('Fetching data for topmonth');
+        feeds.forEach(f=>{
+            loadFeed(f, 'topmonth');
+        });
+    }, 1000 * 60 * 1);
 };

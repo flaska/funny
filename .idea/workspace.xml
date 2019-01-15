@@ -14,26 +14,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.component.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
+      <file leaf-file-name="redditLoad.commentsApi.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/redditLoad/api/redditLoad.commentsApi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="postList.component.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/feed/postList.component.js">
+      <file leaf-file-name="redditLoad.main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="redditLoad.logic.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -42,9 +45,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>popover</find>
       <find>acios</find>
-      <find>about 4slack</find>
+      <find />
       <find>helper</find>
       <find>posttitle</find>
       <find>.name</find>
@@ -69,9 +71,10 @@
       <find>http-proxy-middleware</find>
       <find>ejs</find>
       <find>cypress</find>
-      <find>saredPostSchema.index({'post.id': 1});</find>
-      <find>feedSchema.index({'subreddit': 1, 'channel': 1});</find>
+      <find />
+      <find />
       <find>postluist</find>
+      <find>fetc</find>
     </findStrings>
     <replaceStrings>
       <replace>rPost</replace>
@@ -84,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scripts/buildServiceWorker.js" />
         <option value="$PROJECT_DIR$/node_modules/copy-to-clipboard/index.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/postContent.component.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js" />
@@ -125,7 +127,6 @@
         <option value="$PROJECT_DIR$/cypress/integration/topBar/switchChannel.test.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/server/lib/memoryUsage.provider.js" />
-        <option value="$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js" />
         <option value="$PROJECT_DIR$/server/lib/db/redditLib.db.js" />
         <option value="$PROJECT_DIR$/server/lib/db/sharedPosts.db.js" />
         <option value="$PROJECT_DIR$/server/sharePage/views/sharedPost.ejs" />
@@ -135,6 +136,8 @@
         <option value="$PROJECT_DIR$/src/modules/feed/postActions.component.js" />
         <option value="$PROJECT_DIR$/src/modules/feed/postList.component.js" />
         <option value="$PROJECT_DIR$/src/modules/main/main.component.js" />
+        <option value="$PROJECT_DIR$/server/redditLoad/api/redditLoad.commentsApi.js" />
+        <option value="$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js" />
       </list>
     </option>
   </component>
@@ -200,6 +203,19 @@
               <item name="funny" type="b2602c69:ProjectViewProjectNode" />
               <item name="funny" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="funny" type="b2602c69:ProjectViewProjectNode" />
+              <item name="funny" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="redditLoad" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="funny" type="b2602c69:ProjectViewProjectNode" />
+              <item name="funny" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="redditLoad" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="funny" type="b2602c69:ProjectViewProjectNode" />
@@ -388,24 +404,24 @@
       <workItem from="1546959870313" duration="13294000" />
       <workItem from="1547062271215" duration="663000" />
       <workItem from="1547476033487" duration="11278000" />
-      <workItem from="1547565111561" duration="4159000" />
+      <workItem from="1547565111561" duration="5917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370557000" />
+    <option name="totallyTimeSpent" value="372315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21614583" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21614583" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50104165" side_tool="true" weight="0.399623" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987747" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.16870877" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.26955703" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32987747" />
@@ -439,8 +455,14 @@
           <line>7</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/redditLoad/api/redditLoad.commentsApi.js</url>
+          <line>27</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="63" />
+      <option name="time" value="66" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -453,15 +475,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/dialogLoading.component.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/errorBoundary.component.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/components/lazyLoad.component.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/utils/components/spinner.component.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -639,20 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/lib/db/redditLib.db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
@@ -729,13 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/feed/post.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="155" selection-start-line="155" selection-end-line="155" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/fixCss.function.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -757,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/feed/postActions.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/feed/postList.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -776,11 +761,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/main/main.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        <state relative-caret-position="205">
+          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/js/main.ccef7a06.chunk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret column="7500" selection-start-column="7500" selection-end-column="7500" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/feed/postActions.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="64" column="109" selection-start-line="64" selection-start-column="109" selection-end-line="64" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/feed/post.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/comments/commentsList.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/redditLoad/api/redditLoad.commentsApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/redditLoad/redditLoad.logic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
         </state>
       </provider>
     </entry>

@@ -22,13 +22,18 @@ function getReplies(redditComment, replies, level){
 
 exports.fetchComments = (subreddit, postId, cb)=>{
     request('https://www.reddit.com/r/' + subreddit + '/comments/' +postId + '.json?sort=top', function (error, response, body) {
-        if (!JSON.parse(body)[1] || !JSON.parse(body)[1].data) return;
+        if (error) return console.error(error);
+        if (!JSON.parse(body)[1] || !JSON.parse(body)[1].data) {
+            console.error(`Cannot fetch comments for ${postId}`);
+            console.log(body);
+            return;
+        }
         let result = {replies: []};
         JSON.parse(body)[1].data.children.slice(0,2).forEach((c)=>{getReplies(c, result.replies, 0)});
         redditLoadDb.saveComments(subreddit, postId, result, cb);
     });
 };
 
-exports.deleteComments = (subreddit, cb)=>{
-    redditLoadDb.deleteComments(subreddit, cb);
+exports.deleteComments = (subreddit, channel, cb)=>{
+    redditLoadDb.deleteComments(subreddit, channel, cb);
 };

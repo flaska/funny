@@ -33,6 +33,6 @@ exports.saveComments = (subreddit, postId, replies, cb)=>{
     }, cb);
 };
 
-exports.deleteComments = (subreddit, cb)=>{
-    redditDb.CommentTree.remove({subreddit: subreddit}).exec(cb);
+exports.deleteComments = (subreddit, channel, cb)=>{
+    redditDb.CommentTree.remove({subreddit: subreddit, channel: channel}).exec(cb);
 };
