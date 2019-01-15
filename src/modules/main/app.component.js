@@ -22,16 +22,19 @@ export default class App extends React.Component {
     setNewFeed(subreddit, channel){
         let fullName = getReactFeeds().filter(f=>f.tag===subreddit)[0].name;
         this.setState({feed: {subreddit: subreddit, channel: channel, posts: [], fullName: fullName}});
-        setTimeout(()=> this.loadMorePosts(), 0);
+        setTimeout(()=> this.loadMorePosts(()=>{
+            document.title = `4slack | ${fullName} - the best crap of the internet!`;
+        }), 0);
     }
 
-    loadMorePosts(){
+    loadMorePosts(cb){
         this.setState({loading: true});
         FeedsPostsProvider.fetchPosts(this.state.feed.subreddit, this.state.feed.channel, this.state.feed.posts.length, 10).then(response => {
             let fullName = getReactFeeds().filter(f=>f.tag===this.state.feed.subreddit)[0].name;
             response.posts = this.state.feed.posts.concat(response.posts);
             response.fullName = fullName;
             this.setState({loading: false, feed: response})
+            if (cb) cb();
         }).catch((error)=>{
             this.setState({loading: false, offline: true});
         });

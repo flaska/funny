@@ -14,46 +14,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="commentsList.component.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/comments/commentsList.component.js">
+      <file leaf-file-name="app.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/main/app.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="25" column="83" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="83" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment.component.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/comments/comment.component.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commentMetadata.component.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/comments/commentMetadata.component.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formatNumber.function.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/formatNumber.function.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="357">
+              <caret line="21" column="109" selection-start-line="21" selection-start-column="109" selection-end-line="21" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -62,7 +36,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>acios</find>
       <find>about 4slack</find>
       <find>helper</find>
       <find>posttitle</find>
@@ -92,6 +65,7 @@
       <find>feedSchema.index({'subreddit': 1, 'channel': 1});</find>
       <find>postluist</find>
       <find>fetc</find>
+      <find>loadmore</find>
     </findStrings>
     <replaceStrings>
       <replace>rPost</replace>
@@ -106,7 +80,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoAlert.component.js" />
         <option value="$PROJECT_DIR$/src/modules/comments/commentsList.component.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/build/slackServiceWorker.js" />
         <option value="$PROJECT_DIR$/scripts/templates/serviceWorkerTemplate.js" />
         <option value="$PROJECT_DIR$/src/serviceWorker.js" />
@@ -130,7 +103,6 @@
         <option value="$PROJECT_DIR$/src/modules/utils/functions/urlParser.provider.js" />
         <option value="$PROJECT_DIR$/src/modules/main/appBar.component.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/functions/feedPosts.provider.js" />
-        <option value="$PROJECT_DIR$/src/modules/main/app.component.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/functions/icon.service.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/infoChip.component.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/components/offline.component.js" />
@@ -155,6 +127,8 @@
         <option value="$PROJECT_DIR$/server/redditLoad/api/redditLoad.commentsApi.js" />
         <option value="$PROJECT_DIR$/server/redditLoad/redditLoad.db.js" />
         <option value="$PROJECT_DIR$/src/modules/utils/functions/formatNumber.function.js" />
+        <option value="$PROJECT_DIR$/src/modules/main/app.component.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -428,12 +402,12 @@
       <workItem from="1546959870313" duration="13294000" />
       <workItem from="1547062271215" duration="663000" />
       <workItem from="1547476033487" duration="11278000" />
-      <workItem from="1547565111561" duration="6343000" />
+      <workItem from="1547565111561" duration="7791000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372741000" />
+    <option name="totallyTimeSpent" value="374189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -493,13 +467,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/utils/functions/urlParser.provider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/leftMenu/leftMenu.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -589,13 +556,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cypress/support/feedList.commands.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/main/app.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cypress/support/leftBar.commands.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -845,6 +805,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/main/app.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="25" column="83" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="109" selection-start-line="21" selection-start-column="109" selection-end-line="21" selection-end-column="109" />
         </state>
       </provider>
     </entry>
