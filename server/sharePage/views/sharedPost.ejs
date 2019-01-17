@@ -96,14 +96,6 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400">
 
-        <script>
-            function play() {
-                setTimeout(function () {
-                    document.getElementById("contentVideo").play().catch(a=>console.trace(a))
-                }, 1000);
-            }
-            window.onload = play;
-        </script>
     </head>
     <body>
 
@@ -122,7 +114,7 @@
             <% } %>
 
             <% if (post.type==='hosted:video') { %>
-                <video id="contentVideo" controls autoplay id="content" title="<%= post.title%>" preload="auto">
+                <video id="content" controls autoplay title="<%= post.title%>" preload="auto" muted>
                     <source src="<%= post.url%>">
                 </video>
             <% } %>
