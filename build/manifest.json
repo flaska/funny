@@ -4,12 +4,13 @@
   "icons": [
     {
       "src": "logo-blue.png",
-      "sizes": "512x512 256x256 144x144 64x64 44x44 32x32 24x24 16x16",
+      "sizes": "512x512 256x256 192x192 144x144 64x64 44x44 32x32 24x24 16x16",
       "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#0069c0",
-  "background_color": "#2196f3"
+  "background_color": "#2196f3",
+  "categories": ["entertainment"]
 }
