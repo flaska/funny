@@ -49,6 +49,10 @@ export class PostActions extends React.Component {
                     text: this.props.postData.title,
                     url: this.generateShareLink(),
                 });
+                fetch('/api/sharePersist/persistPost?postId=' + this.props.postData.id, {method: 'PUT'}).then(response => {
+                }).catch((error)=>{
+                    console.log(error);
+                });
                 return null;
             }
         } catch (e) {console.error(e)};
