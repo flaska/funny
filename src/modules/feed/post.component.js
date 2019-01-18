@@ -48,9 +48,9 @@ const styles = {
     },
     emptyTitle: {
         height: 15,
-        width: 300,
-        backgroundColor: 'rgb(228, 228, 228, 0.65)',
-        boxShadow: '0px 0px 4px 3px rgb(228, 228, 228, 0.65)',
+        width: '70%',
+        backgroundColor: 'rgb(235, 235, 235)',
+        boxShadow: '0px 0px 4px 3px rgb(235, 235, 235)',
         borderRadius: 2,
         marginBottom: 3
     }
@@ -124,7 +124,7 @@ class _Post extends React.Component {
         if (dateUtc) return <Typography style={styles.datePosted}>{timeDiff(dateUtc)}</Typography>;
     }
     showTitle(postData){
-        if (postData.title) return <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{postData.title}</Typography>;
+        if (!postData.title) return <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{postData.title}</Typography>;
         else return <div style={styles.emptyTitle}></div>
     }
     render() {
