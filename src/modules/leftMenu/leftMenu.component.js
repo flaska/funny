@@ -92,7 +92,7 @@ export default class LeftMenu extends React.Component {
                     <List>
                         {this.getFeedOptions()}
                     </List>
-                    <div className="fb-like" data-href="https://www.4slack.com/" data-layout="button_count" style={styles.facebookLike}
+                    <div className="fb-like" data-href="https://www.facebook.com/4slack/" data-layout="button_count" style={styles.facebookLike}
                          data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
                 </Drawer>
                 {this.renderSettings()}
