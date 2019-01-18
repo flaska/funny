@@ -100,7 +100,7 @@ class _Post extends React.Component {
         );
     }
     renderPostActions(){
-        if (!this.props.postData.title) return;
+        if (this.props.postData.title) return;
         return <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}}/>
     }
     showBottomActionBar(){
