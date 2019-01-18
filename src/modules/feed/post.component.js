@@ -100,7 +100,7 @@ class _Post extends React.Component {
         );
     }
     renderPostActions(){
-        if (this.props.postData.title) return;
+        if (!this.props.postData.title) return;
         return <PostActions parentState={this.state} postData={this.props.postData} onCommentsClick={()=>{this.toggleComments()}} onOpenContentClick={()=>{this.toggleContent()}}/>
     }
     showBottomActionBar(){
@@ -124,7 +124,7 @@ class _Post extends React.Component {
         if (dateUtc) return <Typography style={styles.datePosted}>{timeDiff(dateUtc)}</Typography>;
     }
     showTitle(postData){
-        if (!postData.title) return <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{postData.title}</Typography>;
+        if (postData.title) return <Typography style={styles.title} onClick={()=>{this.toggleContent()}} className='postTitle'>{postData.title}</Typography>;
         else return <div style={styles.emptyTitle}></div>
     }
     render() {
