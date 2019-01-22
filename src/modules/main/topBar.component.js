@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/es/MenuItem/MenuItem";
 import {MetaTags} from "react-meta-tags";
 import fixCss from "../utils/functions/fixCss.function";
 import withWidth from "@material-ui/core/withWidth/index";
+import InputLabel from "@material-ui/core/es/InputLabel/InputLabel";
 
 const styles = {
     toolbar: {
@@ -20,12 +21,12 @@ const styles = {
         margin: '0px 23px'
     },
     channelSelect: {
-        marginLeft: 10,
+        marginLeft: 30,
         color: 'white'
     },
     menuButtonWrapper: {
         width: 60
-    }
+    },
 };
 
 class TopBar extends React.Component{
@@ -37,7 +38,7 @@ class TopBar extends React.Component{
                     SelectDisplayProps={{id: 'cy_topBar_channelSelect'}}
                     value={this.props.feed.channel}
                     onChange={(event)=>this.props.channelSelected(event.target.value)}
-                    style={styles.channelSelect}
+                    style={fixCss('marginLeft', 10)(styles.channelSelect, this.props.width)}
                 >
                     <MenuItem id='cy_topBar_channel_hot' value={'hot'} className='tag_selectChannel'>Today</MenuItem>
                     <MenuItem id='cy_topBar_channel_topWeek' value={'topweek'} className='tag_selectChannel'>Last Week</MenuItem>
