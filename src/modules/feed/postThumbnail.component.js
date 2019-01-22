@@ -23,7 +23,7 @@ const styles = {
         right: 0,
         margin: 5,
         color: 'rgb(88, 87, 87)',
-        background: '#ffffff9e',
+        background: '#ffffff',
         padding: 4,
         borderRadius: 3,
         paddingBottom: 0,
