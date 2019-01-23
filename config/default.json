@@ -8,5 +8,10 @@
         "pass": "Slacker1"
       }
     }
+  },
+  "modules": {
+    "redditLoad": {
+      "numPosts": 200
+    }
   }
 }

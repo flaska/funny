@@ -12,6 +12,7 @@ import LazyLoadError from "../utils/components/lazyLoadError.component";
 import LinearProgress from "@material-ui/core/es/LinearProgress/LinearProgress";
 import Button from "@material-ui/core/es/Button/Button";
 import Offline from "../utils/components/offline.component";
+import Typography from "@material-ui/core/es/Typography/Typography";
 
 const LeftMenu = React.lazy(() =>  import("../leftMenu/leftMenu.component"));
 
@@ -39,6 +40,9 @@ const styles = {
     content: {
         maxWidth: 760,
         margin: 'auto'
+    },
+    thatsAll: {
+        textAlign: 'center'
     }
 };
 
@@ -82,11 +86,18 @@ export default class Main extends React.Component {
     renderMoreButton(){
         if (this.props.state.loading) return null;
         if (this.props.state.offline) return <Offline/>;
-        if (this.props.state.feed.posts.length<100)return (
+        if (this.props.state.hasMorePosts) return (
             <Button style={styles.more} variant="contained" color="primary" onClick={this.props.loadMorePosts}>
                 More Fun
             </Button>
+        ); else return (
+            <div style={styles.thatsAll}>
+                <Typography>That's all we have for now...</Typography>
+                <br/>
+                <br/>
+            </div>
         );
+
     }
 
     render() {

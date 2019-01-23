@@ -30,10 +30,14 @@ export default class App extends React.Component {
     loadMorePosts(cb){
         this.setState({loading: true});
         FeedsPostsProvider.fetchPosts(this.state.feed.subreddit, this.state.feed.channel, this.state.feed.posts.length, 10).then(response => {
+
+            if (response.posts.length>0) this.setState({hasMorePosts: true});
+            else this.setState({hasMorePosts: false});
+
             let fullName = getReactFeeds().filter(f=>f.tag===this.state.feed.subreddit)[0].name;
             response.posts = this.state.feed.posts.concat(response.posts);
             response.fullName = fullName;
-            this.setState({loading: false, feed: response})
+            this.setState({loading: false, feed: response});
             if (cb) cb();
         }).catch((error)=>{
             this.setState({loading: false, offline: true});

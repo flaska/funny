@@ -11,6 +11,7 @@ import fixCss from '../utils/functions/fixCss.function';
 import Spinner from "../utils/components/spinner.component";
 import LazyLoad from "../utils/components/lazyLoad.component";
 import timeDiff from "../utils/functions/timeDiff.function";
+import Analytics from "../utils/functions/analytics.service";
 
 const CommentsList = React.lazy(() =>  import("../comments/commentsList.component"));
 
@@ -67,7 +68,10 @@ class _Post extends React.Component {
         if (this.state.showContent) {
             this.setState({showContent: false});
             this.scrollToComponent();
-        } else this.setState({showContent: true});
+        } else {
+            this.setState({showContent: true});
+            Analytics.fbViewContent();
+        }
     }
 
     toggleComments(){

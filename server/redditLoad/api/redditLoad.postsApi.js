@@ -1,5 +1,6 @@
 const request = require('request'),
-    redditLoadDb = require('../redditLoad.db')
+    redditLoadDb = require('../redditLoad.db'),
+    config = require('config')
 ;
 
 
@@ -23,7 +24,7 @@ function makeUrl(subreddit, channel) {
         redditChannel = 'top';
     } else redditChannel = channel;
 
-    let requestUrl = `https://www.reddit.com/r/${subredditTag}/${redditChannel}.json?limit=100`;
+    let requestUrl = `https://www.reddit.com/r/${subredditTag}/${redditChannel}.json?limit=${config.modules.redditLoad.numPosts}`;
     if (t) requestUrl += '&t=' + t;
     return requestUrl;
 }
