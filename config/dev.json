@@ -8,7 +8,7 @@
   },
   "modules": {
     "redditLoad": {
-      "numPosts": 30
+      "numPosts": 80
     }
   }
 }
